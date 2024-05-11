@@ -1,0 +1,83 @@
+/* You can add global styles to this file, and also import other style files */
+@use "sass:math"
+
+$width: 930px
+$height: 486px
+$sizePicture: 200px
+$backdrop: #22092C
+
+body
+    font-family: 'Cascadia Code', 'Sans serif'
+    background-color: #22092C
+    color: white
+    overflow: hidden
+    position: absolute
+    width: 100vw
+    height: 100vh
+    margin: 0 auto
+    display: flex
+    justify-content: center
+    align-items: center
+
+.card
+    display: block
+    background-color: #BE3144
+    border: 1px groove #F05941
+    border-radius: 1.98em
+    box-shadow: 0 0 16px 6px #BE3144
+    padding: 0.90em
+    min-width: $width
+    min-height: calc(100vh - (85px * 2))
+    width: $width
+    height: $height
+
+// .left
+
+.details
+    background-color: #00224D
+    border: 1px groove #5D0E41
+    border-radius: 0.98em
+    box-shadow: 0 0 10px 3px #A0153E
+    height: calc( 100% - 10px )
+    padding: 1em
+
+.details h3
+    text-indent: 30px
+
+.details ol
+    list-style: none
+    font-size: 12px
+
+.container
+    display: flex
+
+.knnthpicture
+    content: ''
+    display: block
+    background-image: url("knnthpicture.jpg")
+    border-radius: 50%
+    width: 100%
+    height: 100%
+    max-width: $sizePicture
+    max-height: $sizePicture
+    background-position: center
+    background-size: cover
+    background-repeat: non-repeat
+
+.nav
+    display: flex
+    justify-content: flex-end
+
+.right, .nav
+    width: 90%
+
+.links
+    display: inline-flex
+    list-style-type: none
+
+.links::hover
+    color: $backdrop
+
+.links li
+    color: whitesmoke
+    margin: auto 1em
