@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
 @Component({
@@ -11,15 +11,25 @@ import { RouterOutlet } from '@angular/router';
 export class AppComponent {
   title = 'landpage';
   email = '';
-  grettings = 'Hello I\'m Kenneth Briones';
+  grettings = "Hello I'm Kenneth Briones";
+  menuIsopen = false;
+
+  @HostListener('document:click', ['$event.target'])
+  public onClick(targetElement: HTMLElement) {
+    if (this.menuIsopen) {
+      if (!targetElement) {
+        return;
+      }
+
+      if (targetElement.id !== 'ham' && targetElement.tagName !== 'I') {
+        this.toggleFunction();
+        console.log(targetElement.tagName);
+      }
+    }
+  }
 
   public toggleFunction() {
     const x = document.getElementById('navDemo') as HTMLElement;
-    const hasShowClass = x.className.includes('w3-show');
-
-    x.className = hasShowClass
-      ? x.className.replace(/\s+w3-show/, '')
-      : `${x.className} w3-show`;
+    this.menuIsopen = x.classList.toggle('w3-show');
   }
-
 }
