@@ -7,8 +7,7 @@ on:
     branches: [ "Master" ]
 
 jobs:
-  build:
-
+  build-and-deploy:
     runs-on: ubuntu-latest
 
     strategy:
@@ -18,7 +17,9 @@ jobs:
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
-    - uses: actions/checkout@v4
+    - name: Checkout
+      uses: actions/checkout@v4
+
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v3
       with:
@@ -28,8 +29,8 @@ jobs:
     - name: Install npm
       run: npm install
     
-    - name: Install Angular
-      run: npm install -g @angular/cli@${{ matrix.angular-version }}
-
-    - name: Run Angular CLI
-      run: ng serve
+    - name: Install Bundle npm
+      run: npm run build
+    
+    - name: deploy
+      run: npm run serve:ssr:landpage
