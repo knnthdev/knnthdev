@@ -32,5 +32,9 @@ jobs:
     - name: Install Bundle npm
       run: npm run build
     
-    - name: deploy
-      run: npm run serve:ssr:landpage
+    - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          - branch: ${{ github.ref }}
+            repo: ${{ github.repository }}
+            cache: true
