@@ -29,5 +29,4 @@ jobs:
       run: npm install -g @angular/cli@${{ matrix.angular-version }}
 
     - name: Run Angular CLI
-      run: ng build
       run: ng serve
