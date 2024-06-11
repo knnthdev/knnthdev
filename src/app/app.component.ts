@@ -23,7 +23,6 @@ export class AppComponent {
 
       if (targetElement.id !== 'ham' && targetElement.tagName !== 'I') {
         this.toggleFunction();
-        console.log(targetElement.tagName);
       }
     }
   }
