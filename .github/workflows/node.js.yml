@@ -37,4 +37,5 @@ jobs:
         with:
           - branch: ${{ github.ref }}
             repo: ${{ github.repository }}
-            cache: true
+            folder: dist/landpage/browser
+
