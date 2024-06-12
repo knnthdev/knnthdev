@@ -1,0 +1,21 @@
+figure
+    box-sizing: border-box
+    margin: 0
+    padding: 0
+
+figure img
+    object-fit: contain
+    width: 100%
+    height: 100%
+
+@media screen and (max-width: 768px)
+    .phone-device-img
+        display: block
+    .website-img
+        display: none
+
+@media screen and (min-width: 769px)
+    .phone-device-img
+        display: none
+    .website-img
+        display: block
