@@ -19,12 +19,16 @@ jobs:
           node-version: '20'
 
       - name: Install dependencies
-        run: npm install |
-             npm i angular-cli-ghpages --save-dev
+        run: npm install
 
+      - name: Install dependencies
+        run: npm i angular-cli-ghpages --save-dev
+             
       - name: Build Angular app
-        run: npm run build --prod |
-             npx angular-cli-ghpages --dir=dist/landpage/browser
+        run: npm run build --prod
+
+      - name: Deploy to GitHub Pages
+        run: npx angular-cli-ghpages --dir=dist/landpage/browser
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
