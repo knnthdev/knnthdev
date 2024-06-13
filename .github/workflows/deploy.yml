@@ -27,8 +27,8 @@ jobs:
       - name: Build Angular app
         run: npm run build --prod
 
-      - name: Deploy to GitHub Pages
-        run: npx angular-cli-ghpages --dir=dist/landpage/browser
+      - name: Set Deploy to GitHub Pages
+        run: npx angular-cli-ghpages --dir=dist/landpage/browser --branch=dep
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
