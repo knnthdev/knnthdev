@@ -3,15 +3,13 @@ name: Angular CLI
 on:
   push:
     branches: [ "Master" ]
-  pull_request:
-    branches: [ "Master" ]
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@Master
 
       - name: Set up Node.js
         uses: actions/setup-node@v4
@@ -20,9 +18,6 @@ jobs:
 
       - name: Install dependencies
         run: npm install
-
-      - name: Install dependencies
-        run: npm i angular-cli-ghpages --save-dev
              
       - name: Build Angular app
         run: npm run build --prod
