@@ -2,7 +2,7 @@ name: Angular CLI
 
 on:
   push:
-    branches: [ "Master" ]
+    branches: [ "master" ]
 
 jobs:
   deploy:
