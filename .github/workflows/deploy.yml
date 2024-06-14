@@ -28,3 +28,6 @@ jobs:
             branch: dep
             repository-name: ${{ github.repository }}
             folder: ./dist/landpage/browser
+      
+      - name: Clean up github folder
+        run: rm -rf ./.github
