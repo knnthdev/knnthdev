@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build --base=\"/\"",
+    "build": "ng build --base-href=\"/\"",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "serve:ssr:landpage": "node dist/landpage/server/server.mjs"
