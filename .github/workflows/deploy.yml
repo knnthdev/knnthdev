@@ -2,29 +2,32 @@ name: Angular CLI
 
 on:
   push:
-    branches:
-      - Master
+    branches: [ "master" ]
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v2
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
         with:
-          node-version: '20.x'
+          node-version: '20'
 
       - name: Install dependencies
         run: npm install
-
+             
       - name: Build Angular app
         run: npm run build --prod
 
       - name: Deploy to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@3.7.1
+        uses: JamesIves/github-pages-deploy-action@v4
         with:
-          BRANCH: dep
-          FOLDER: dist/landpage
+          branch: dep
+          repository-name: ${{ github.repository }}
+          folder: ./dist/landpage/browser
+      
+      - name: Clean up github folder
+        run: rm -rf ./.github
