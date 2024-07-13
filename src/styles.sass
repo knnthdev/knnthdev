@@ -4,6 +4,7 @@
 @import tailwindcss/utilities
 
 .light 
+  --navbar-onscroll: #ada
   --bg-primary: #fff
   --border-line: #ccc
   --text-primary: #111
@@ -14,14 +15,19 @@
   color: var(--text-primary)
 
 .dark
+  --navbar-onscroll: #575
   --bg-primary: #222
   --border-line: #333
   --text-primary: #ddd
-  --text-secondary: #eee
+  --text-secondary: #bbb
   --hover-button: rgba(110, 231, 183)
   --hover-figcaption: rgba(110, 231, 183, 0.5)
   background: var(--bg-primary)
   color: var(--text-primary)
+
+html
+  scroll-behavior: smooth
+  -webkit-scroll-behavior: smooth /* Safari */
 
 body,h1,h2,h3,h4,h5,h6
   font-family: "Lato", sans-serif
@@ -29,6 +35,19 @@ body,h1,h2,h3,h4,h5,h6
 body, html
   min-height: 100%
   line-height: 1.8
+
+body
+  margin: 0
+  padding: 0
+  height: 100vh
+  padding-left: 8%
+  padding-right: 8%
+
+@media (max-width: 768px)
+  body, html
+    overflow-x: hidden
+    padding: 0
+  
 
 *
   background-color: inherit

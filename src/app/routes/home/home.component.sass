@@ -1,12 +1,21 @@
 figure
+    position: relative
     box-sizing: border-box
     margin: 0
     padding: 0
+    box-shadow: lightblue 0px 0px 12px 1px
 
 figure img
-    object-fit: contain
+    position: absolute
+    top: -2%
+    left: 0
     width: 100%
-    height: 100%
+
+.columns
+    columns: 2 320px
+    column-gap: 0.8em
+    -webkit-columns: 2 320px /* Safari */
+    -webkit-column-gap: 0.8em /* Safari */ 
 
 @media screen and (max-width: 768px)
     .phone-device-img

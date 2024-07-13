@@ -6,7 +6,7 @@ module.exports = {
     extend: {
       colors: {
         background: "var(--bg-primary)",
-        border_line : "var(--border-line)",
+        line : "var(--border-line)",
         primary : "var(--text-primary)",
         secondary : "var(--text-secondary)",
         hoverbutton : "var(--hover-button)",
@@ -15,6 +15,5 @@ module.exports = {
     },
   },
   plugins: [],
-  purge: ["./src/app/routes/**/*.{html,ts,sass,css,scss}"]
 }
 

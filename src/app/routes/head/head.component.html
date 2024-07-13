@@ -1,23 +1,24 @@
-<nav>
-  <div class="">
+<nav id="navbar" class="z-50 top-0 left-0 absolute w-full">
+  <div class="w-full justify-center flex-col items-center p-0 md:pl-12 md:pr-12">
     <div class="width-full flex justify-between p-3" id="myNavbar">
-      <a
+      <label
         id="ham"
-        class=""
-        href="javascript:void(0);"
+        class="md:hidden pointer "
+        for="navDemo"
         title="Navigation Menu"
+        (click)="toggleMenuDesploy()"
       >
-        <i class="fa fa-bars"></i>
-      </a>
-      <a href="#home" class="hover:text-green-300 "><i class="fa-solid fa-home"></i> HOME</a>
-      <a href="#about" class="hover:text-green-300 "
+        <i class="fa fa-bars p-3 rounded hover:bg-green-300"></i>
+    </label>
+      <a href="#home" class="hover:text-green-300 max-md:hidden"><i class="fa-solid fa-home"></i> HOME</a>
+      <a href="#about" class="hover:text-green-300 max-md:hidden"
         ><i class="fa-solid fa-user"></i> ABOUT</a
       >
-      <a href="#portfolio" class="hover:text-green-300 "
+      <a href="#portfolio" class="hover:text-green-300 max-md:hidden"
         ><i class="fa-solid fa-briefcase"></i> PORTFOLIO</a
       >
-      <a href="#contact" class="hover:text-green-300 "
-        ><i class="fa fa-envelope"></i>  </a
+      <a href="#contact" class="hover:text-green-300 max-md:hidden"
+        ><i class="fa fa-envelope"></i> CONTACT </a
       >
       <button class="
       p-3
@@ -32,14 +33,14 @@
     </div>
   
     <!-- Navbar on small screens -->
-    <div id="navDemo" class="sm:flex hidden z-index-50 top-0 left-0 absolute w-full p-5 justify-center flex-col items-center">
-      <a href="#about" class="hover:text-green-300 m-1"
+    <div id="desploy" class="z-index-50 left-0 absolute w-full p-5 justify-center flex-col items-center">
+      <a href="#about" class="hover:text-green-300 m-1" (click)="toggleMenuDesploy()"
         >ABOUT</a
       >
-      <a href="#portfolio" class="hover:text-green-300 m-1"
+      <a href="#portfolio" class="hover:text-green-300 m-1" (click)="toggleMenuDesploy()"
         >PORTFOLIO</a
       >
-      <a href="#contact" class="hover:text-green-300 m-1"
+      <a href="#contact" class="hover:text-green-300 m-1" (click)="toggleMenuDesploy()"
         >CONTACT</a
       >
     </div>

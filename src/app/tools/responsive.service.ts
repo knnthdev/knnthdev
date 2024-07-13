@@ -7,12 +7,20 @@ export class ResponsiveService {
 
   constructor() { }
 
-  public isLoaded() {
-    return typeof(window) !== 'undefined' && window.document && window.document.createElement;
+  public isLoaded(): boolean {
+    return typeof(window) !== 'undefined';
   }
 
   public isMobile() {
-    return window.innerWidth <= 768;
+    if (this.isLoaded())
+      return window.innerWidth <= 768;
+    return false;
+  }
+
+  public isDesktop() {
+    if (this.isLoaded())
+      return window.innerWidth > 768;
+    return false;
   }
 
 }
