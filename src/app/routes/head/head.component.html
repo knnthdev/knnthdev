@@ -1,0 +1,47 @@
+<nav>
+  <div class="">
+    <div class="width-full flex justify-between p-3" id="myNavbar">
+      <a
+        id="ham"
+        class=""
+        href="javascript:void(0);"
+        title="Navigation Menu"
+      >
+        <i class="fa fa-bars"></i>
+      </a>
+      <a href="#home" class="hover:text-green-300 "><i class="fa-solid fa-home"></i> HOME</a>
+      <a href="#about" class="hover:text-green-300 "
+        ><i class="fa-solid fa-user"></i> ABOUT</a
+      >
+      <a href="#portfolio" class="hover:text-green-300 "
+        ><i class="fa-solid fa-briefcase"></i> PORTFOLIO</a
+      >
+      <a href="#contact" class="hover:text-green-300 "
+        ><i class="fa fa-envelope"></i>  </a
+      >
+      <button class="
+      p-3
+      rounded-full
+      hover:bg-green-300
+      fa-solid fa-moon
+      dark:fa-sun"
+      (click)="toggleTheme()"
+      >
+  
+      </button>
+    </div>
+  
+    <!-- Navbar on small screens -->
+    <div id="navDemo" class="sm:flex hidden z-index-50 top-0 left-0 absolute w-full p-5 justify-center flex-col items-center">
+      <a href="#about" class="hover:text-green-300 m-1"
+        >ABOUT</a
+      >
+      <a href="#portfolio" class="hover:text-green-300 m-1"
+        >PORTFOLIO</a
+      >
+      <a href="#contact" class="hover:text-green-300 m-1"
+        >CONTACT</a
+      >
+    </div>
+  </div>  
+</nav>
