@@ -1,48 +1,36 @@
 <nav id="navbar" class="z-50 top-0 left-0 absolute w-full">
   <div class="w-full justify-center flex-col items-center p-0 md:pl-12 md:pr-12">
     <div class="width-full flex justify-between p-3" id="myNavbar">
-      <label
-        id="ham"
-        class="md:hidden pointer "
-        for="navDemo"
-        title="Navigation Menu"
-        (click)="toggleMenuDesploy()"
-      >
-        <i class="fa fa-bars p-3 rounded hover:bg-green-300"></i>
-    </label>
+      <section class="md:hidden flex flex-row items-center">
+        <label id="ham" class="pointer " for="navDemo" title="Navigation Menu" (click)="toggleMenuDesploy()">
+          <i class="fa fa-bars p-3 rounded hover:bg-green-300"></i>
+        </label>
+        <figure class="block w-8 h-8 box-border">
+          <a href="#home" class="no-underline">
+            <img class="" src="assets/logo.png" alt="Inicio">
+          </a>
+        </figure>
+      </section>
       <a href="#home" class="hover:text-green-300 max-md:hidden"><i class="fa-solid fa-home"></i> HOME</a>
-      <a href="#about" class="hover:text-green-300 max-md:hidden"
-        ><i class="fa-solid fa-user"></i> ABOUT</a
-      >
-      <a href="#portfolio" class="hover:text-green-300 max-md:hidden"
-        ><i class="fa-solid fa-briefcase"></i> PORTFOLIO</a
-      >
-      <a href="#contact" class="hover:text-green-300 max-md:hidden"
-        ><i class="fa fa-envelope"></i> CONTACT </a
-      >
+      <a href="#about" class="hover:text-green-300 max-md:hidden"><i class="fa-solid fa-user"></i> ABOUT</a>
+      <a href="#portfolio" class="hover:text-green-300 max-md:hidden"><i class="fa-solid fa-briefcase"></i>
+        PORTFOLIO</a>
+      <a href="#contact" class="hover:text-green-300 max-md:hidden"><i class="fa fa-envelope"></i> CONTACT </a>
       <button class="
       p-3
       rounded-full
       hover:bg-green-300
       fa-solid fa-moon
-      dark:fa-sun"
-      (click)="toggleTheme()"
-      >
-  
+      dark:fa-sun" (click)="toggleTheme()">
+
       </button>
     </div>
-  
+
     <!-- Navbar on small screens -->
     <div id="desploy" class="z-index-50 left-0 absolute w-full p-5 justify-center flex-col items-center">
-      <a href="#about" class="hover:text-green-300 m-1" (click)="toggleMenuDesploy()"
-        >ABOUT</a
-      >
-      <a href="#portfolio" class="hover:text-green-300 m-1" (click)="toggleMenuDesploy()"
-        >PORTFOLIO</a
-      >
-      <a href="#contact" class="hover:text-green-300 m-1" (click)="toggleMenuDesploy()"
-        >CONTACT</a
-      >
+      <a href="#about" class="hover:text-green-300 m-1" (click)="toggleMenuDesploy()">ABOUT</a>
+      <a href="#portfolio" class="hover:text-green-300 m-1" (click)="toggleMenuDesploy()">PORTFOLIO</a>
+      <a href="#contact" class="hover:text-green-300 m-1" (click)="toggleMenuDesploy()">CONTACT</a>
     </div>
-  </div>  
+  </div>
 </nav>

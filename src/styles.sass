@@ -5,7 +5,7 @@
 
 .light 
   --navbar-onscroll: #ada
-  --bg-primary: #fff
+  --bg-primary: #eee
   --border-line: #ccc
   --text-primary: #111
   --text-secondary: #222
@@ -16,13 +16,14 @@
 
 .dark
   --navbar-onscroll: #575
-  --bg-primary: #222
+  --bg-primary: #010518
+  --bg-radial-gradient: radial-gradient(#1B1A55, #070F2B, #01030e)
   --border-line: #333
   --text-primary: #ddd
   --text-secondary: #bbb
   --hover-button: rgba(110, 231, 183)
   --hover-figcaption: rgba(110, 231, 183, 0.5)
-  background: var(--bg-primary)
+  background-color: var(--bg-primary)
   color: var(--text-primary)
 
 html
@@ -43,12 +44,22 @@ body
   padding-left: 8%
   padding-right: 8%
 
+@media and screen and (max-width: 1024px)
+  body
+    padding-left: 6%
+    padding-right: 6%
+
 @media (max-width: 768px)
   body, html
+    scroll-behavior: smooth
+    -webkit-scroll-behavior: smooth /* Safari */
     overflow-x: hidden
     padding: 0
-  
 
 *
   background-color: inherit
   color: inherit
+
+.size-fixed
+  min-width: 288px
+  min-height: 288px
