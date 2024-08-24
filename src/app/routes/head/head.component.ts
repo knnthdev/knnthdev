@@ -26,7 +26,7 @@ export class HeadComponent implements OnInit {
     const clickedInside =
       elementRef!.contains(targetElement);
 
-    const isHidden = !(elementRef?.classList.contains('max-md:flex'));
+    const isHidden = !(elementRef?.classList.contains('show'));
 
     if (!elementRef || isHidden)
       return;
@@ -62,7 +62,7 @@ export class HeadComponent implements OnInit {
 
   public toggleMenuDesploy() {
     if (this.rs.isLoaded()) {
-      document.getElementById('desploy')?.classList.toggle('max-md:flex');
+      document.getElementById('desploy')?.classList.toggle('show');
     }
   }
 

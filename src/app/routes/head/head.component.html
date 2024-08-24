@@ -27,10 +27,12 @@
     </div>
 
     <!-- Navbar on small screens -->
-    <div id="desploy" class="z-index-50 left-0 absolute w-full p-5 justify-center flex-col items-center">
-      <a href="#about" class="hover:text-green-300 m-1" (click)="toggleMenuDesploy()">ABOUT</a>
-      <a href="#portfolio" class="hover:text-green-300 m-1" (click)="toggleMenuDesploy()">PORTFOLIO</a>
-      <a href="#contact" class="hover:text-green-300 m-1" (click)="toggleMenuDesploy()">CONTACT</a>
-    </div>
+    <section id="desploy" class="invisible left-0 w-full absolute z-50">
+      <div class="max-md:flex w-full p-5 justify-center flex-col items-center">
+        <a href="#about" class="hover:text-green-300 m-1" (click)="toggleMenuDesploy()">ABOUT</a>
+        <a href="#portfolio" class="hover:text-green-300 m-1" (click)="toggleMenuDesploy()">PORTFOLIO</a>
+        <a href="#contact" class="hover:text-green-300 m-1" (click)="toggleMenuDesploy()">CONTACT</a>
+      </div>
+    </section>
   </div>
 </nav>
