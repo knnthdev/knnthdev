@@ -1,4 +1,4 @@
-<nav id="navbar" class="z-50 top-0 left-0 absolute w-full">
+<nav id="navbar" class="z-50 top-0 left-0 absolute w-full max-md:bg-transparent ">
   <div class="w-full justify-center flex-col items-center p-0 md:pl-12 md:pr-12">
     <div class="width-full flex justify-between p-3" id="myNavbar">
       <section class="md:hidden flex flex-row items-center">
@@ -27,7 +27,7 @@
     </div>
 
     <!-- Navbar on small screens -->
-    <section id="desploy" class="invisible left-0 w-full absolute z-50">
+    <section id="desploy" class="invisible bg-background left-0 w-full absolute z-50">
       <div class="max-md:flex w-full p-5 justify-center flex-col items-center">
         <a href="#about" class="hover:text-green-300 m-1" (click)="toggleMenuDesploy()">ABOUT</a>
         <a href="#portfolio" class="hover:text-green-300 m-1" (click)="toggleMenuDesploy()">PORTFOLIO</a>

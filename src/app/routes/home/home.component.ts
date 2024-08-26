@@ -20,7 +20,7 @@ export class HomeComponent {
     {
       image: 'assets/projects/project-1.jpg',
       title: 'App Developer',
-      description: 'Mi primer lenguaje que aprendí fue Visual basic y transaq SQL, hoy cuento con muchas habilidades para construir sistemas tanto para teléfonos móbiles como también para Linux y Windows, el desarrollo de aplicaciones web es quien está ganando la batalla por su versabilidad de estar en multiples plataformas.',
+      description: 'Mi primer lenguaje que aprendí fue Visual basic y transaq SQL, hoy cuento con muchas habilidades para construir sistemas tanto en dispositivos móviles y escritorio como Linux y Windows, el desarrollo de aplicaciones web es quien está ganando la batalla por su versabilidad de estar en multiples plataformas.',
       link: '/id02'
     },
     {
