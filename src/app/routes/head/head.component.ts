@@ -14,7 +14,7 @@ export class HeadComponent implements OnInit {
   ngOnInit() {
     this.setTheme(this.getTheme());
     if (this.rs.isLoaded())
-      window.onscroll = this.scrollhandler;
+      document.body.onscroll = this.scrollhandler;
   }
 
   @HostListener('document:click', ['$event.target'])
@@ -58,6 +58,8 @@ export class HeadComponent implements OnInit {
     } else {
       this.setTheme('dark');
     }
+    document.querySelector('#btn-theme')?.classList.toggle('fa-sun');
+    document.querySelector('#btn-theme')?.classList.toggle('fa-moon');
   }
 
   public toggleMenuDesploy() {
@@ -66,10 +68,7 @@ export class HeadComponent implements OnInit {
     }
   }
 
-  public scrollhandler() {
-    if (window.innerWidth <= 768)
-      return;
-    
+  public scrollhandler() {  
     var navbar = document.getElementById("navbar");
     if (document.body.scrollTop > 40 || document.documentElement.scrollTop > 40) {
       navbar!.classList.add("fixed");

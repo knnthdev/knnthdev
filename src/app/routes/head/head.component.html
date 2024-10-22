@@ -1,6 +1,6 @@
 <nav id="navbar" class="z-50 top-0 left-0 absolute w-full max-md:bg-transparent ">
   <div class="w-full justify-center flex-col items-center p-0 md:pl-12 md:pr-12">
-    <div class="width-full flex justify-between p-3" id="myNavbar">
+    <div class="width-full flex justify-between p-3 max-md:max-h-12 " id="myNavbar">
       <section class="md:hidden flex flex-row items-center">
         <label id="ham" class="pointer " for="navDemo" title="Navigation Menu" (click)="toggleMenuDesploy()">
           <i class="fa fa-bars p-3 rounded hover:bg-green-300"></i>
@@ -16,14 +16,20 @@
       <a href="#portfolio" class="hover:text-green-300 max-md:hidden"><i class="fa-solid fa-briefcase"></i>
         PORTFOLIO</a>
       <a href="#contact" class="hover:text-green-300 max-md:hidden"><i class="fa fa-envelope"></i> CONTACT </a>
-      <button class="
-      p-3
+      <i id="btn-theme" class="
+      mr-3
+      size-8
+      md:m-3
+      text-center
+      content-center
       rounded-full
       hover:bg-green-300
-      fa-solid fa-moon
-      dark:fa-sun" (click)="toggleTheme()">
+      hover:text-blue
+      dark:hover:text-black
+      fa-solid fa-sun
+      " (click)="toggleTheme()">
 
-      </button>
+      </i>
     </div>
 
     <!-- Navbar on small screens -->
