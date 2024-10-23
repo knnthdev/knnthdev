@@ -8,5 +8,6 @@ import { Component } from '@angular/core';
   styleUrl: './contact.component.sass'
 })
 export class ContactComponent {
+  email = 'knnthbriones@gmail.com';
 
 }

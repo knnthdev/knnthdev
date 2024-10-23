@@ -1,76 +1,73 @@
-<main id="home" class="pt-16 md:mt-32">
-  <section class="flex flex-col md:flex-row items-center justify-center  max-md:mt-8">
+<section id="home" class="pt-16 md:mt-16">
+  <section
+    class="flex flex-col md:flex-row items-center justify-center max-md:mt-8"
+  >
     <figure class="rounded-full overflow-hidden mx-auto size-fixed">
-      <img class="w-full h-auto object-fit-cover" src="assets/perfil.jpg" alt="photo">
+      <img
+        class="w-full h-auto object-fit-cover"
+        src="assets/perfil.jpg"
+        alt="photo"
+      />
     </figure>
     <section id="about" class="flex flex-col items-center justify-center mt-16">
       <h1 class="w-full text-3xl font-bold text-center mt-3 mb-10">
         Kenneth Briones
       </h1>
-      <h1 class="w-full text-3xl font-bold text-center mt-3 mb-10 cursor-pointer">
-        <a href="https://github.com/knnthdev" target="_blank" class="no-underline">
+      <h1
+        class="w-full text-3xl font-bold text-center mt-3 mb-10 cursor-pointer"
+      >
+        <a
+          href="https://github.com/knnthdev"
+          target="_blank"
+          class="no-underline"
+        >
           <i class="fa-brands fa-github"></i>
           knnthdev
         </a>
       </h1>
       <h2 class="text-2xl font-bold mb-5">Hola Mundo!👋</h2>
       <p class="text-lg text-secondary max-w-xl px-4 max-md:text-justify">
-        Soy un desarrollador web con pasión por crear experiencias digitales atractivas y funcionales. Me encanta aprender
-        nuevas tecnologías y aplicarlas a proyectos desafiantes. 
+        Soy un desarrollador web con pasión por crear experiencias digitales
+        atractivas y funcionales. Me encanta aprender nuevas tecnologías y
+        aplicarlas a proyectos desafiantes.
       </p>
     </section>
   </section>
-  <section id="portfolio" class="flex flex-col items-center justify-center mt-32">
+  <section
+    id="portfolio"
+    class="flex flex-col items-center justify-center mt-32"
+  >
     <h2 class="text-2xl font-bold mb-5">Conoce más de mi</h2>
     <div class="flex flex-col">
       @for (project of projects; track $index) {
-      <div class="flex max-md:flex-col flex-row items-center mb-14" >
-        <img class="max-md:w-full max-md:max-h-64 md:w-[calc(45vw-8%/2)] object-cover" [src]="project.image" alt="Project Image">
-        <div class="text-center md:p-4">
-          <h3 class="text-xl font-bold mb-1">{{ project.title }}</h3>
-          <p class="text-secondary mb-2 max-md:px-4 max-md:text-justify">{{ project.description }}</p>
-          <a class="text-blue-500 hover:text-blue-700" [href]="project.link" target="_self">Ver Más</a>
+        <div class="flex max-md:flex-col flex-row items-center mb-14">
+          <img
+            class="max-md:w-full max-md:max-h-64 md:w-[calc(45vw-8%/2)] object-cover"
+            [src]="project.image"
+            alt="Project Image"
+          />
+          <div class="text-center md:p-4">
+            <h3 class="text-xl font-bold mb-1">{{ project.title }}</h3>
+            <p class="text-secondary mb-2 max-md:px-4 max-md:text-justify">
+              {{ project.description }}
+            </p>
+            <a
+              class="text-blue-500 hover:text-blue-700"
+              [href]="project.link"
+              target="_self"
+              >Ver Más</a
+            >
+          </div>
         </div>
-      </div>
-    }
+      }
     </div>
   </section>
   <section id="contact" class="flex flex-col items-center justify-center mt-32">
-        <h2 class="text-2xl font-bold mb-5">
-          <a href="/contact-me" class="no-underline">
-            Contacto
-          </a>
-        </h2>
-    <div class="flex flex-col items-center justify-center gap-5 mt-5">
-      <div class="flex flex-col items-center justify-center gap-2">
-        <h3 class="text-xl font-bold">Email</h3>
-        <a class="text-green-500 hover:text-green-700" href="mailto:knnthdev@gmail.com">{{email}}</a>
-      </div>
-      <div class="flex flex-col items-center justify-center gap-2">
-        <h3 class="text-xl font-bold">Teléfono</h3>
-        <a class="text-green-500 hover:text-green-700" href="https://wa.me/50584739470">
-          <i class="fa-brands fa-whatsapp"></i>
-          <label class="cursor-pointer ml-2">+505 8473 9470</label>
-        </a>
-      </div>
-      <div class="flex flex-col items-center justify-center gap-2">
-        <h3 class="text-xl font-bold">Redes Sociales</h3>
-        <div class="flex gap-3">
-          <a class="text-green-500 hover:text-green-700" href="https://www.linkedin.com/in/kenneth-b-743443b6/" target="_blank">
-            <i class="fab fa-linkedin"></i>
-          </a>
-          <a class="text-green-500 hover:text-green-700" href="https://github.com/knnthdev" target="_blank">
-            <i class="fab fa-github"></i>
-          </a>
-          <a class="text-green-500 hover:text-green-700" href="https://www.instagram.com/kenneth.briones.332/" target="_blank">
-            <i class="fa-brands fa-instagram"></i>
-          </a>
-          <a class="text-green-500 hover:text-green-700" href="https://x.com/knnthbriones" target="_blank">
-            <i class="fa-brands fa-x-twitter"></i>
-          </a>
-        </div>
-      </div>
-    </div>
-
+    <h2 class="text-2xl font-bold mb-5">
+      <a href="/contact-me" class="no-underline"> Contacto </a>
+    </h2>
+    <section>
+      <app-contact class="mb-9"></app-contact>
+    </section>
   </section>
-</main>
+</section>
