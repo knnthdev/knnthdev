@@ -6,6 +6,7 @@ import { Layout2Component } from './routes/projects/layout2/layout2.component';
 import { Layout3Component } from './routes/projects/layout3/layout3.component';
 import { Layout4Component } from './routes/projects/layout4/layout4.component';
 import { ContactComponent } from './routes/forms/contact/contact.component';
+import { CVComponent } from './routes/forms/cv/cv.component';
 
 export const routes: Routes = [
     {
@@ -31,5 +32,9 @@ export const routes: Routes = [
     {
         path: 'contact-me',
         component: ContactComponent
+    },
+    {
+        path: 'cv',
+        component: CVComponent
     }
 ];

@@ -1,5 +1,11 @@
-<app-head class=""></app-head>
-<main class="pt-16 max-md:pt-14 md:mt-8 overflow-hidden ">
-    <router-outlet></router-outlet>
+<app-head class="visible"></app-head>
+<main class="pt-16 max-md:pt-14 md:mt-8 overflow-hidden">
+  <router-outlet></router-outlet>
 </main>
 <app-foot></app-foot>
+<div
+  id="tooltip"
+  class="absolute left-0 top-0 invisible bg-[#09f] min-h-[20px] h-max w-max-[70vw] px-2 min-w-[40px] text-white rounded-md"
+>
+  ...
+</div>
