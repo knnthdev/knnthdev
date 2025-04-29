@@ -1,4 +1,3 @@
-import { ngExpressEngine } from '@nguniversal/express-engine';
 import { APP_BASE_HREF } from '@angular/common';
 import { CommonEngine } from '@angular/ssr';
 import express from 'express';
@@ -55,10 +54,17 @@ export function app(): express.Express {
 
   server.engine(
     'html',
-    ngExpressEngine({
-      bootstrap, // tu AppServerModule o bootstrap desde main.server
-      providers: [{ provide: APP_BASE_HREF, useValue: server.request.baseUrl }],
-    }),
+    (_, options: any, callback) => {
+      commonEngine.render({
+        document: indexHtml,
+        url: options.req.url,
+        providers: [
+          { provide: APP_BASE_HREF, useValue: options.req.baseUrl },
+          { provide: 'ORIGIN_URL', useValue: `${options.req.protocol}://${options.req.get('host')}` }
+        ]
+      }).then(html => callback(null, html))
+        .catch(err => callback(err));
+    }
   );
   server.use(express.json());
   server.set('view engine', 'html');

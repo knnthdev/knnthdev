@@ -1,25 +1,23 @@
-import { isPlatformServer } from '@angular/common';
-import { Component, Inject, OnInit, Optional, PLATFORM_ID } from '@angular/core';
-import { RESPONSE } from '@nguniversal/express-engine/tokens';
-import { Response } from 'express';
+import { Component, Inject, OnInit, PLATFORM_ID } from '@angular/core';
+import { isPlatformServer }                       from '@angular/common';
+// import { RESPONSE_INIT }                          from '@angular/core';  // <— token de nuevo SSR
 
 @Component({
   selector: 'app-not-found',
   standalone: true,
-  imports: [],
   templateUrl: './not-found.component.html',
-  styleUrl: './not-found.component.sass'
+  styleUrls: ['./not-found.component.sass']
 })
 export class NotFoundComponent implements OnInit {
   constructor(
     @Inject(PLATFORM_ID) private platformId: Object,
-    @Optional() @Inject(RESPONSE) private response: Response
+    // @Inject(RESPONSE_INIT) private responseInit: ResponseInit  // <— inyecta ResponseInit
   ) {}
 
   ngOnInit(): void {
-    if (isPlatformServer(this.platformId) && this.response) {
-      this.response.status(404).send('Página no encontrada');
+    // Sólo en SSR, cambia el código de estado a 404
+    if (isPlatformServer(this.platformId)) {
+      // this.responseInit.status = 404;
     }
   }
-
 }
