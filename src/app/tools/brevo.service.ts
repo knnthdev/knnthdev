@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -9,9 +10,8 @@ export class BrevoService {
     "name": "no-replay",
     "email": "no-replay@kennethbriones.com"
 }
-
-  constructor() {
-
+  constructor(private http: HttpClient) {
+    
   }
 
   public sendEmail(pack: {
@@ -19,7 +19,7 @@ export class BrevoService {
     email: string;
     subject: string;
     msg: string;
-}) {
+}) : Observable<any> {
 
   const compose = `
   <h1>Mensaje Recibido</h1>
@@ -43,7 +43,7 @@ export class BrevoService {
       body: compose
     }
     
-    //this.http.post('/brevo', JSON.stringify(body));
+    return this.http.post('/brevo', JSON.stringify(body));
   }
 
 }
