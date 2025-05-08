@@ -1,0 +1,19 @@
+[build]
+  command   = "npm run build:ssr"
+  publish   = "dist/knnthdev/browser"      # sólo publicamos el build cliente
+  functions = "functions"                   # nuestra carpeta de funciones
+
+[[redirects]]
+  from     = "/"                           # ruta raíz
+  to       = "/.netlify/functions/ssr"     # llama a nuestra función SSR
+  status   = 200
+
+[[redirects]]
+  from     = "/*"                          # todas las demás rutas
+  to       = "/.netlify/functions/ssr"
+  status   = 200
+
+[[redirects]]
+  from     = "/.netlify/functions/*"      # para servir realmente las funciones
+  to       = "/.netlify/functions/:splat"
+  status   = 200
