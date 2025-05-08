@@ -4,12 +4,11 @@ import { CheckboxRequiredValidator } from '@angular/forms';
 import { catchError, map, of } from 'rxjs';
 
 @Component({
-  selector: 'app-contact',
-  standalone: true,
-  imports: [],
-  templateUrl: './contact.component.html',
-  styleUrl: './contact.component.sass',
-  schemas: [NO_ERRORS_SCHEMA]
+    selector: 'app-contact',
+    imports: [],
+    templateUrl: './contact.component.html',
+    styleUrl: './contact.component.sass',
+    schemas: [NO_ERRORS_SCHEMA]
 })
 export class ContactComponent implements OnInit {
   email = 'knnthbriones@gmail.com';

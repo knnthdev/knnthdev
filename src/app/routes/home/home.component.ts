@@ -3,14 +3,13 @@ import { ContactComponent } from '../forms/contact/contact.component';
 import { CVComponent } from '../forms/cv/cv.component';
 
 @Component({
-  selector: 'app-home',
-  standalone: true,
-  imports: [
-    ContactComponent,
-    CVComponent
-  ],
-  templateUrl: './home.component.html',
-  styleUrl: './home.component.sass'
+    selector: 'app-home',
+    imports: [
+        ContactComponent,
+        CVComponent
+    ],
+    templateUrl: './home.component.html',
+    styleUrl: './home.component.sass'
 })
 export class HomeComponent {
   email = 'knnthbriones@gmail.com';

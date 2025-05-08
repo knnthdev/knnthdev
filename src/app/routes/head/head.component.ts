@@ -2,11 +2,10 @@ import { Component, HostListener, OnInit } from '@angular/core';
 import { ResponsiveService } from '../../tools/responsive.service';
 
 @Component({
-  selector: 'app-head',
-  standalone: true,
-  imports: [],
-  templateUrl: './head.component.html',
-  styleUrl: './head.component.sass',
+    selector: 'app-head',
+    imports: [],
+    templateUrl: './head.component.html',
+    styleUrl: './head.component.sass'
 })
 export class HeadComponent implements OnInit {
   constructor(private rs: ResponsiveService) { }

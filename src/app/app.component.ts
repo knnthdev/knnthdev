@@ -6,16 +6,15 @@ import { FootComponent } from './routes/foot/foot.component';
 import { ResponsiveService } from './tools/responsive.service';
 
 @Component({
-  selector: 'app-root',
-  standalone: true,
-  imports: [
-    HomeComponent,
-    HeadComponent,
-    FootComponent,
-    RouterOutlet
-  ],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.sass'
+    selector: 'app-root',
+    imports: [
+        HomeComponent,
+        HeadComponent,
+        FootComponent,
+        RouterOutlet
+    ],
+    templateUrl: './app.component.html',
+    styleUrl: './app.component.sass'
 })
 export class AppComponent implements OnInit {
   title = 'knnthdev';
