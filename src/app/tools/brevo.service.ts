@@ -44,7 +44,7 @@ export class BrevoService {
       body: compose
     }
     
-    return this.http.post('/brevo', JSON.stringify(body));
+    return this.http.post('/.netlify/functions/Delivery', JSON.stringify(body));
   }
 
 }

@@ -8,7 +8,6 @@ import { ResponsiveService } from './tools/responsive.service';
 @Component({
     selector: 'app-root',
     imports: [
-        HomeComponent,
         HeadComponent,
         FootComponent,
         RouterOutlet

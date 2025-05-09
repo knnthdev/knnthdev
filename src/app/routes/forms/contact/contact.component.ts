@@ -1,4 +1,4 @@
-import { Component, NO_ERRORS_SCHEMA, OnInit } from '@angular/core';
+import { Component, NO_ERRORS_SCHEMA, OnInit, QueryList } from '@angular/core';
 import { BrevoService } from '../../../tools/brevo.service';
 import { CheckboxRequiredValidator } from '@angular/forms';
 import { catchError, map, of } from 'rxjs';
@@ -40,19 +40,17 @@ export class ContactComponent implements OnInit {
           this.form.subject = 'Urgent Message from contact form';
         }
         
-        const debug = document.querySelector("#console") as HTMLElement;
-        try {
-          const res = this.brevo.sendEmail(this.form).pipe(map(res => {
-            return res;
-          }), catchError(err => {
-            return err;
-          })).subscribe(res => {
-            debug.innerText = "subs: " + res;
-          });
-          debug.innerText = "res: " + JSON.stringify(res);
-        } catch (error: any) {
-          debug.innerText = "error: " + error.message;
-        }
+        const display = document.querySelector("#console") as HTMLElement;
+        const debug: string[] = [];
+        this.brevo.sendEmail(this.form).subscribe({
+          next: (res) => {
+            debug.push("res: " + JSON.stringify(res));
+          },
+          error: (err) => {
+            debug.push("error: " + err.message);
+          }
+        });
+        display.innerHTML = debug.join("<br>");
         e.preventDefault();
         
       });
