@@ -1,5 +1,5 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { Inject, Injectable } from '@angular/core';
+import { withFetch, provideHttpClient, HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -10,6 +10,7 @@ export class BrevoService {
     "name": "no-replay",
     "email": "no-replay@kennethbriones.com"
 }
+
   constructor(private http: HttpClient) {
     
   }
