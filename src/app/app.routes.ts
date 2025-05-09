@@ -11,6 +11,11 @@ import { NotFoundComponent } from './routes/not-found/not-found.component';
 
 export const routes: Routes = [
     {
+        path: '',
+        redirectTo: 'home',
+        pathMatch: 'full'
+    },
+    {
         path: 'home',
         component: HomeComponent
     },
@@ -43,13 +48,8 @@ export const routes: Routes = [
         component: NotFoundComponent
     },
     {
-        path: '',
-        redirectTo: 'home',
+        path: '**',
+        redirectTo: '404',
         pathMatch: 'full'
-    },
-    // {
-    //     path: '**',
-    //     redirectTo: '404',
-    //     pathMatch: 'full'
-    // }
+    }
 ];
