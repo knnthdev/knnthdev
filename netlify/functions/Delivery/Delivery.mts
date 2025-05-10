@@ -1,4 +1,9 @@
-import { Handler, HandlerContext, HandlerEvent, Handler as NetlifyHandler } from "@netlify/functions";
+import {
+  Handler,
+  HandlerContext,
+  HandlerEvent,
+  Handler as NetlifyHandler,
+} from "@netlify/functions";
 import brevo from "@getbrevo/brevo";
 
 export class BrevoService {
@@ -6,10 +11,7 @@ export class BrevoService {
   smtpemail: brevo.SendSmtpEmail;
 
   constructor(apikey: string) {
-    this.instance.setApiKey(
-      brevo.TransactionalEmailsApiApiKeys.apiKey,
-      apikey
-    );
+    this.instance.setApiKey(brevo.TransactionalEmailsApiApiKeys.apiKey, apikey);
     this.smtpemail = new brevo.SendSmtpEmail();
   }
 
@@ -26,10 +28,11 @@ export class BrevoService {
       this.smtpemail.to = [person];
 
       const res = await this.instance.sendTransacEmail(this.smtpemail);
-      console.log('paquete recivido');
+      console.log("paquete recivido");
       return res;
     } catch (e: any) {
-      return e.message as string + " error al enviar el email 0x5";
+      console.error("Brevo error:", e);
+      throw new Error("Error al enviar el email: " + e.message);
     }
   }
 }
@@ -46,9 +49,12 @@ export const handler = async (event: HandlerEvent, context: HandlerContext) => {
   const respond = (statusCode: number, body: string) => {
     return {
       statusCode,
-      body: JSON.stringify(body),
+      body: body,
       headers: {
         "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Headers": "Content-Type",
+        "Access-Control-Allow-Methods": "POST, OPTIONS",
       },
     };
   };
@@ -57,8 +63,11 @@ export const handler = async (event: HandlerEvent, context: HandlerContext) => {
   }
 
   const brevoService = new BrevoService(process.env["apikey_brevo"]);
-  const { remit, person, subject, body } = JSON.parse(event.body || '');
-  let res = respond(200, '');
+  const { remit, person, subject, body } = JSON.parse(event.body || "");
+
+  console.log({remit, person, subject, body});
+
+  let res = respond(200, "");
   try {
     const result = await brevoService.sendEmail(remit, person, subject, body);
 
@@ -66,8 +75,8 @@ export const handler = async (event: HandlerEvent, context: HandlerContext) => {
     console.log("paquete enviado");
   } catch (err: any) {
     res = respond(500, err.message);
-    console.log('error de autorización');
+    console.log("error de autorización");
   }
-  console.log(JSON.stringify(res));
+  console.log(res);
   return res;
 };
