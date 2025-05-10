@@ -26,7 +26,9 @@ export class BrevoService {
       this.smtpemail.sender = remit;
       this.smtpemail.to = [person];
 
-      return await this.instance.sendTransacEmail(this.smtpemail);
+      const res = await this.instance.sendTransacEmail(this.smtpemail);
+      console.log('paquete recivido');
+      return res;
     } catch (e) {
       return e as string + "error al enviar el email 0x5";
     }
@@ -39,7 +41,7 @@ export const handler = async (event: HandlerEvent, context: HandlerContext) => {
   }
 
   if (!process.env["apikey_brevo"]) {
-    return { statusCode: 500, body: "Internal Server Error" };
+    return { statusCode: 401, body: "Unauthorized" };
   }
 
   const respond = (statusCode: number, body: string) => {
