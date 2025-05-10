@@ -1,4 +1,3 @@
-// netlify/functions/send-email.js
 import { Handler, HandlerContext, HandlerEvent, Handler as NetlifyHandler } from "@netlify/functions";
 import brevo from "@getbrevo/brevo";
 
@@ -30,7 +29,7 @@ export class BrevoService {
       console.log('paquete recivido');
       return res;
     } catch (e) {
-      return e as string + "error al enviar el email 0x5";
+      return e as string + " error al enviar el email 0x5";
     }
   }
 }
@@ -70,5 +69,5 @@ export const handler = async (event: HandlerEvent, context: HandlerContext) => {
     console.log('error de autorización');
   }
   console.log(JSON.stringify(res));
-  return JSON.stringify(res);
+  return res;
 };
