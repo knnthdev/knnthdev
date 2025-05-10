@@ -28,8 +28,8 @@ export class BrevoService {
       const res = await this.instance.sendTransacEmail(this.smtpemail);
       console.log('paquete recivido');
       return res;
-    } catch (e) {
-      return e as string + " error al enviar el email 0x5";
+    } catch (e: any) {
+      return e.message as string + " error al enviar el email 0x5";
     }
   }
 }
