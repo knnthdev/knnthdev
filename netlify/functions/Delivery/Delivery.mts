@@ -26,10 +26,9 @@ export class BrevoService {
       this.smtpemail.sender = remit;
       this.smtpemail.to = [person];
 
-      let res = await this.instance.sendTransacEmail(this.smtpemail);
-      return "success";
+      return await this.instance.sendTransacEmail(this.smtpemail);
     } catch (e) {
-      return e as string;
+      return e as string + "error al enviar el email 0x5";
     }
   }
 }
@@ -61,11 +60,13 @@ export const handler = async (event: HandlerEvent, context: HandlerContext) => {
   let res = respond(200, '');
   try {
     const result = await brevoService.sendEmail(remit, person, subject, body);
-    res = respond(200, result);
-    console.log(result);
+
+    res = respond(200, JSON.stringify(result));
+    console.log("paquete enviado");
   } catch (err: any) {
     res = respond(500, err.message);
-    console.log(err.message);
+    console.log('error de autorización');
   }
-  return res;
+  console.log(JSON.stringify(res));
+  return JSON.stringify(res);
 };

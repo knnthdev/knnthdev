@@ -45,12 +45,13 @@ export class ContactComponent implements OnInit {
         this.brevo.sendEmail(this.form).subscribe({
           next: (res) => {
             debug.push("res: " + JSON.stringify(res));
+            display.innerHTML = debug.join("<br>");
           },
           error: (err) => {
             debug.push("error: " + err.message);
+            display.innerHTML = debug.join("<br>");
           }
         });
-        display.innerHTML = debug.join("<br>");
         e.preventDefault();
         
       });
