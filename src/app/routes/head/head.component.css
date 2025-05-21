@@ -1,0 +1,24 @@
+#desploy {
+    z-index: -1;
+    opacity: 0;
+    height: 100dvh;
+    transform: translateY(-100%);
+    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+    -webkit-transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+    -moz-transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+    -o-transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+    -ms-transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+}
+
+#desploy.show {
+    z-index: 50;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+#navbar.fixed {
+    position: fixed;
+    background-color: var(--navbar-onscroll);
+    top: 0;
+    opacity: 0.9;
+}

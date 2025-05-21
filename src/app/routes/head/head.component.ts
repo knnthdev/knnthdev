@@ -2,34 +2,43 @@ import { Component, HostListener, OnInit } from '@angular/core';
 import { ResponsiveService } from '../../tools/responsive.service';
 
 @Component({
-    selector: 'app-head',
-    imports: [],
-    templateUrl: './head.component.html',
-    styleUrl: './head.component.sass'
+  selector: 'app-head',
+  imports: [],
+  templateUrl: './head.component.html',
+  styleUrl: './head.component.css',
 })
 export class HeadComponent implements OnInit {
-  constructor(private rs: ResponsiveService) { }
+  IsHeaderFixed: boolean = false;
+
+  constructor(private rs: ResponsiveService) {}
 
   ngOnInit() {
     this.setTheme(this.getTheme());
-    if (this.rs.isLoaded())
-      document.body.onscroll = this.scrollhandler;
+    if (this.rs.isLoaded()) document.onscroll = this.scrollhandler;
   }
 
   @HostListener('document:click', ['$event.target'])
   public onClick(targetElement: HTMLElement) {
-    if (!targetElement || document.getElementById('ham')!.contains(targetElement)) {
+    if (['icon-ham', 'ham'].includes(targetElement.id)) {
+      console.log(targetElement.id);
+      this.toggleMenuDesploy();
       return;
     }
-    const elementRef = document.getElementById('desploy');
-    const clickedInside =
-      elementRef!.contains(targetElement);
+    console.log(targetElement.id);
+    const deployIsShown = document
+      .getElementById('desploy')
+      ?.classList.contains('show');
 
-    const isHidden = !(elementRef?.classList.contains('show'));
-
-    if (!elementRef || isHidden)
+    if (!deployIsShown) {
+      console.log('no desplegado');
       return;
+    }
+    console.log('desplegado');
+    const elementRef = document.getElementById('monitor');
+    const clickedInside = elementRef!.contains(targetElement);
 
+    console.log('clickedInside');
+    console.log(clickedInside);
     if (!clickedInside) {
       console.log('clicked outside');
       this.toggleMenuDesploy();
@@ -67,12 +76,24 @@ export class HeadComponent implements OnInit {
     }
   }
 
-  public scrollhandler() {  
-    var navbar = document.getElementById("navbar");
-    if (document.body.scrollTop > 40 || document.documentElement.scrollTop > 40) {
-      navbar!.classList.add("fixed");
+  public scrollhandler(event: Event) {
+    if (
+      document.documentElement.scrollTop > 40
+    ) {
+      if (this.IsHeaderFixed)
+        return;
+
+      var navbar = document.getElementById('navbar');
+      navbar!.classList.add('fixed');
+      this.IsHeaderFixed = true;
     } else {
-      navbar!.classList.remove("fixed");
+      if (!this.IsHeaderFixed)
+        return;
+
+      var navbar = document.getElementById('navbar');
+      navbar!.classList.remove('fixed');
+      this.IsHeaderFixed = false;
     }
+    //alert("");
   }
 }

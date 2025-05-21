@@ -9,7 +9,7 @@ import { CVComponent } from '../forms/cv/cv.component';
         CVComponent
     ],
     templateUrl: './home.component.html',
-    styleUrl: './home.component.sass'
+    styleUrl: './home.component.css'
 })
 export class HomeComponent {
   email = 'knnthbriones@gmail.com';

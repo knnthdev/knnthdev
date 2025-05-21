@@ -1,0 +1,96 @@
+@source "./src/app/routes/**/*.{html,ts}";
+@source "./src/app/app.component.{html,ts}";
+
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-background: var(--bg-primary);
+  --color-line:       var(--border-line);
+  --color-primary:    var(--text-primary);
+  --color-secondary:  var(--text-secondary);
+  --color-hoverbutton:    var(--hover-button);
+  --color-hoverfigcaption: var(--hover-figcaption);
+}
+
+.light {
+  --navbar-onscroll: #ada;
+  --bg-primary: #eee;
+  --border-line: #ccc;
+  --text-primary: #111;
+  --text-secondary: #222;
+  --hover-button: rgba(110, 231, 183);
+  --hover-figcaption: rgba(110, 231, 183, 0.5);
+  background: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+.dark {
+  --navbar-onscroll: #575;
+  --bg-primary: #010518;
+  --bg-radial-gradient: radial-gradient(#1B1A55, #070F2B, #01030e);
+  --border-line: #333;
+  --text-primary: #ddd;
+  --text-secondary: #bbb;
+  --hover-button: rgba(110, 231, 183);
+  --hover-figcaption: rgba(110, 231, 183, 0.5);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-scroll-behavior: smooth;
+  overflow-y: auto;
+}
+
+body {
+  overflow-y: hidden;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  padding-left: 8%;
+  padding-right: 8%;
+}
+
+body, html {
+  min-height: max-content;
+  line-height: 1.8;
+}
+
+body, h1, h2, h3, h4, h5, h6 {
+  font-family: "Lato", sans-serif;
+}
+
+@media (max-width: 1024px) {
+  body {
+    padding-left: 6%;
+    padding-right: 6%;
+  }
+}
+@media (max-width: 768px) {
+  body, html {
+    scroll-behavior: smooth;
+    -webkit-scroll-behavior: smooth;
+    overflow-x: hidden;
+    padding: 0;
+  }
+}
+
+@layer base {
+  * {
+    background-color: inherit;
+    color: inherit;
+  }
+}
+
+.size-fixed {
+  min-width: 288px;
+  min-height: 288px;
+}
+
+
+.card {
+  @apply rounded shadow dark:shadow-[0_2px_10px_rgba(255,255,255,0.3)] p-8 m-8 backdrop-blur bg-white/10 dark:bg-black/10;
+}

@@ -7,7 +7,7 @@ import { catchError, map, of } from 'rxjs';
     selector: 'app-contact',
     imports: [],
     templateUrl: './contact.component.html',
-    styleUrl: './contact.component.sass',
+    styleUrl: './contact.component.css',
     schemas: [NO_ERRORS_SCHEMA]
 })
 export class ContactComponent implements OnInit {
@@ -18,10 +18,10 @@ export class ContactComponent implements OnInit {
     subject: '',
     msg: ''
   };
+IsSubmitted = false;
 
   constructor(public brevo: BrevoService) {
-
-   }
+  }
 
    ngOnInit(): void {
     if (typeof window !== 'undefined') {
@@ -40,21 +40,38 @@ export class ContactComponent implements OnInit {
           this.form.subject = 'Urgent Message from contact form';
         }
         
-        const display = document.querySelector("#console") as HTMLElement;
-        const debug: string[] = [];
+        // const display = document.querySelector("#console") as HTMLElement;
+        // const debug: string[] = [];
         this.brevo.sendEmail(this.form).subscribe({
           next: (res) => {
-            debug.push("res: " + JSON.stringify(res));
-            display.innerHTML = debug.join("<br>");
+            this.OpenDialog();
+
+            handleForm.reset();
+            this.IsSubmitted = true;
+            // debug.push("res: " + JSON.stringify(res));
+            // display.innerHTML = debug.join("<br>");
           },
           error: (err) => {
-            debug.push("error: " + err.message);
-            display.innerHTML = debug.join("<br>");
+            this.IsSubmitted = false;
+
+            this.OpenDialog();
+            // debug.push("error: " + err.message);
+            // display.innerHTML = debug.join("<br>");
           }
         });
         e.preventDefault();
         
       });
     }
+   }
+
+   public OpenDialog() {
+    const dialog = document.querySelector("#dialog") as HTMLDialogElement;
+    dialog.showModal();
+   }
+
+   public CloseDialog() {
+    const dialog = document.querySelector("#dialog") as HTMLDialogElement;
+    dialog.close();
    }
 }

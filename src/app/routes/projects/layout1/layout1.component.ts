@@ -5,7 +5,7 @@ import { BrevoService } from '../../../tools/brevo.service';
     selector: 'app-layout1',
     imports: [],
     templateUrl: './layout1.component.html',
-    styleUrl: './layout1.component.sass'
+    styleUrl: './layout1.component.css'
 })
 export class Layout1Component {
   constructor(private brevo: BrevoService) {

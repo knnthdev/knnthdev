@@ -13,7 +13,7 @@ import { ResponsiveService } from './tools/responsive.service';
         RouterOutlet
     ],
     templateUrl: './app.component.html',
-    styleUrl: './app.component.sass'
+    styleUrl: './app.component.css'
 })
 export class AppComponent implements OnInit {
   title = 'knnthdev';
@@ -62,7 +62,7 @@ export class AppComponent implements OnInit {
     let handle = setInterval(timing, 1);
   }
   
-  showTooltipWhileMoving(eventmouse:any) {
+  showTooltipWhileMoving(eventmouse:MouseEvent) {
     this.timeoffset = this.limitTime;
     const it = eventmouse.target as HTMLElement;
     const x = (eventmouse as MouseEvent).pageX;

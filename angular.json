@@ -7,7 +7,7 @@
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
-          "style": "sass"
+          "style": "css"
         }
       },
       "root": "",
@@ -20,11 +20,9 @@
             "outputPath": "dist/knnthdev",
             "index": "src/index.html",
             "browser": "src/main.ts",
-            "polyfills": [
-              "zone.js"
-            ],
+            "polyfills": ["zone.js"],
             "tsConfig": "tsconfig.app.json",
-            "inlineStyleLanguage": "sass",
+            "inlineStyleLanguage": "css",
             "assets": [
               {
                 "glob": "**/*",
@@ -32,8 +30,8 @@
               }
             ],
             "styles": [
-              "src/styles.sass",
-              "src/all.sass"
+              "src/styles.css",
+              "src/all.css"
             ],
             "scripts": []
           },
@@ -84,7 +82,7 @@
               "zone.js/testing"
             ],
             "tsConfig": "tsconfig.spec.json",
-            "inlineStyleLanguage": "sass",
+            "inlineStyleLanguage": "css",
             "assets": [
               {
                 "glob": "**/*",
@@ -92,8 +90,9 @@
               }
             ],
             "styles": [
-              "src/styles.sass",
-              "src/all.sass"
+              "src/styles.css",
+              "src/typography.css",
+              "src/all.css"
             ],
             "scripts": []
           }
