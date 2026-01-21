@@ -20,19 +20,19 @@ export const routes: Routes = [
         component: HomeComponent
     },
     {
-        path: 'id01',
+        path: HomeComponent.projects[0].link,
         component: Layout1Component
     },
     {
-        path: 'id02',
+        path: HomeComponent.projects[1].link,
         component: Layout2Component
     },
     {
-        path: 'id03',
+        path: HomeComponent.projects[2].link,
         component: Layout3Component
     },
     {
-        path: 'id04',
+        path: HomeComponent.projects[3].link,
         component: Layout4Component
     },
     {

@@ -16,19 +16,19 @@
 
 .light {
   --navbar-onscroll: #ada;
-  --bg-primary: #eee;
+  --bg-primary: #fff;
   --border-line: #ccc;
   --text-primary: #111;
   --text-secondary: #222;
   --hover-button: rgba(110, 231, 183);
-  --hover-figcaption: rgba(110, 231, 183, 0.5);
+  --hover-figcaption: rgba(70, 70, 70, 0.5);
   background: var(--bg-primary);
   color: var(--text-primary);
 }
 
 .dark {
   --navbar-onscroll: #575;
-  --bg-primary: #010518;
+  --bg-primary: #2a3528;
   --bg-radial-gradient: radial-gradient(#1B1A55, #070F2B, #01030e);
   --border-line: #333;
   --text-primary: #ddd;
