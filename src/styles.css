@@ -32,7 +32,7 @@
   --bg-radial-gradient: radial-gradient(#1B1A55, #070F2B, #01030e);
   --border-line: #333;
   --text-primary: #ddd;
-  --text-secondary: #039c5c;
+  --text-secondary: #abacab;
   --hover-button: rgba(110, 231, 183);
   --hover-figcaption: rgba(110, 231, 183, 0.5);
   background-color: var(--bg-primary);
