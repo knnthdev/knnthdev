@@ -13,34 +13,31 @@ export class HeadComponent implements OnInit {
   constructor(private rs: ResponsiveService) {}
 
   ngOnInit() {
-    this.setTheme(this.getTheme());
-    if (this.rs.isLoaded()) document.onscroll = this.scrollhandler;
+    if (this.rs.isLoaded()) {
+      window.addEventListener('load', () => {
+        this.setTheme(this.getTheme());
+      });
+      window.addEventListener('scroll', this.scrollhandler.bind(this));
+    }
   }
 
   @HostListener('document:click', ['$event.target'])
-  public onClick(targetElement: HTMLElement) {
+  public onClick(targetElement: any) {
     if (['icon-ham', 'ham'].includes(targetElement.id)) {
-      console.log(targetElement.id);
       this.toggleMenuDesploy();
       return;
     }
-    console.log(targetElement.id);
     const deployIsShown = document
       .getElementById('desploy')
       ?.classList.contains('show');
 
     if (!deployIsShown) {
-      console.log('no desplegado');
       return;
     }
-    console.log('desplegado');
     const elementRef = document.getElementById('monitor');
     const clickedInside = elementRef!.contains(targetElement);
 
-    console.log('clickedInside');
-    console.log(clickedInside);
     if (!clickedInside) {
-      console.log('clicked outside');
       this.toggleMenuDesploy();
     }
   }
@@ -76,7 +73,8 @@ export class HeadComponent implements OnInit {
     }
   }
 
-  public scrollhandler(event: Event) {
+  public scrollhandler(event: any) {
+    console.log('hila');
     if (
       document.documentElement.scrollTop > 40
     ) {

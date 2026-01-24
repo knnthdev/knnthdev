@@ -21,3 +21,7 @@
   border-style: solid;
   border-color: #09f transparent transparent transparent;
 }
+
+main {
+  min-height: 100vh;
+}
