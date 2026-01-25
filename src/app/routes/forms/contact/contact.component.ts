@@ -2,6 +2,7 @@ import { Component, NO_ERRORS_SCHEMA, OnInit, QueryList } from '@angular/core';
 import { BrevoService } from '../../../tools/brevo.service';
 import { CheckboxRequiredValidator } from '@angular/forms';
 import { catchError, map, of } from 'rxjs';
+import { ResponsiveService } from '../../../tools/responsive.service';
 
 @Component({
     selector: 'app-contact',
@@ -20,11 +21,15 @@ export class ContactComponent implements OnInit {
   };
 IsSubmitted = false;
 
-  constructor(public brevo: BrevoService) {
+  constructor(public brevo: BrevoService, private rs: ResponsiveService) {
   }
 
    ngOnInit(): void {
     if (typeof window !== 'undefined') {
+      // if the path is /contact-me
+      if (window.location.pathname == "/contact-me")
+        this.rs.changeTheme("blue");
+
       const handleForm = document.querySelector("#contact-form") as HTMLFormElement;
       handleForm.addEventListener("submit", (e) => {
         const formData = new FormData(handleForm);

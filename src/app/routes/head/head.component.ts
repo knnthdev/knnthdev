@@ -14,9 +14,6 @@ export class HeadComponent implements OnInit {
 
   ngOnInit() {
     if (this.rs.isLoaded()) {
-      window.addEventListener('load', () => {
-        this.setTheme(this.getTheme());
-      });
       window.addEventListener('scroll', this.scrollhandler.bind(this));
     }
   }
@@ -42,30 +39,30 @@ export class HeadComponent implements OnInit {
     }
   }
 
-  setTheme(theme: string | null) {
-    if (this.rs.isLoaded() && theme) {
-      window.localStorage.setItem('theme', theme!);
-      document.documentElement.classList.remove('light', 'dark');
-      document.documentElement.classList.add(theme!);
-    }
-  }
+  // setTheme(theme: string | null) {
+  //   if (this.rs.isLoaded() && theme) {
+  //     window.localStorage.setItem('theme', theme!);
+  //     document.documentElement.classList.remove('light', 'dark');
+  //     document.documentElement.classList.add(theme!);
+  //   }
+  // }
 
-  getTheme(): string {
-    if (this.rs.isLoaded()) {
-      return window.localStorage.getItem('theme') || 'dark';
-    }
-    return 'undefined';
-  }
+  // getTheme(): string {
+  //   if (this.rs.isLoaded()) {
+  //     return window.localStorage.getItem('theme') || 'dark';
+  //   }
+  //   return 'undefined';
+  // }
 
-  public toggleTheme() {
-    if (this.getTheme() === 'dark') {
-      this.setTheme('light');
-    } else {
-      this.setTheme('dark');
-    }
-    document.querySelector('#btn-theme')?.classList.toggle('fa-sun');
-    document.querySelector('#btn-theme')?.classList.toggle('fa-moon');
-  }
+  // public toggleTheme() {
+  //   if (this.getTheme() === 'dark') {
+  //     this.setTheme('light');
+  //   } else {
+  //     this.setTheme('dark');
+  //   }
+  //   document.querySelector('#btn-theme')?.classList.toggle('fa-sun');
+  //   document.querySelector('#btn-theme')?.classList.toggle('fa-moon');
+  // }
 
   public toggleMenuDesploy() {
     if (this.rs.isLoaded()) {
@@ -74,7 +71,6 @@ export class HeadComponent implements OnInit {
   }
 
   public scrollhandler(event: any) {
-    console.log('hila');
     if (
       document.documentElement.scrollTop > 40
     ) {
@@ -92,6 +88,5 @@ export class HeadComponent implements OnInit {
       navbar!.classList.remove('fixed');
       this.IsHeaderFixed = false;
     }
-    //alert("");
   }
 }

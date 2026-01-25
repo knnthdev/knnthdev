@@ -4,12 +4,13 @@
 >
   <div class="w-full justify-center flex-col items-center p-0 md:px-24">
     <div
-      class="lg:container lg:mx-auto md:h-14 flex justify-between p-3 max-md:max-h-12 items-center"
+      class="lg:container lg:mx-auto md:h-14 flex justify-between p-3 max-md:max-h-12 items-center
+      [&_a]:hover:text-hoverbutton"
       id="myNavbar"
     >
       <section class="md:hidden flex flex-row items-center">
         <label id="ham" class="pointer" for="navDemo" title="Navigation Menu">
-          <i id="icon-ham" class="fa fa-bars p-3 rounded hover:bg-gray-300"></i>
+          <i id="icon-ham" class="fa fa-bars p-3 mr-1 rounded hover:bg-btn-secondary"></i>
         </label>
         <figure class="block">
           <a href="#navbar" class="no-underline ">
@@ -17,16 +18,16 @@
           </a>
         </figure>
       </section>
-      <a href="/home#home" class="hover:text-hoverbutton max-md:hidden"
+      <a href="/home#home" class=" max-md:hidden"
         ><i class="fa-solid fa-home"></i> HOME</a
       >
-      <a href="/home#about" class="hover:text-hoverbutton max-md:hidden"
+      <a href="/home#about" class=" max-md:hidden"
         ><i class="fa-solid fa-user"></i> ABOUT</a
       >
-      <a href="/home#portfolio" class="hover:text-hoverbutton max-md:hidden"
+      <a href="/home#portfolio" class=" max-md:hidden"
         ><i class="fa-solid fa-briefcase"></i> PORTFOLIO</a
       >
-      <a href="/home#contact" class="hover:text-hoverbutton max-md:hidden"
+      <a href="/home#contact" class=" max-md:hidden"
         ><i class="fa fa-envelope"></i> CONTACT
       </a>
       <!-- <i

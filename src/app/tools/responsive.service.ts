@@ -23,4 +23,12 @@ export class ResponsiveService {
     return false;
   }
 
+  public changeTheme(theme: string) {
+    if (this.isLoaded()) {
+      // Clear all ClassName of html element
+      document.documentElement.className = "";
+      document.documentElement.classList.add(theme);
+    }
+  }
+
 }

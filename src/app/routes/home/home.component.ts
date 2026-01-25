@@ -1,14 +1,16 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ContactComponent } from '../forms/contact/contact.component';
 import { CVComponent } from '../forms/cv/cv.component';
+import { ResponsiveService } from '../../tools/responsive.service';
+
 
 @Component({
   selector: 'app-home',
-  imports: [ContactComponent, CVComponent],
+  imports: [ContactComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
   email = 'knnthbriones@gmail.com';
   grettings = "Hello I'm Kenneth Briones";
   static projects = [
@@ -42,4 +44,13 @@ export class HomeComponent {
     },
   ];
   projects = HomeComponent.projects;
+
+  constructor(private rs: ResponsiveService) {}
+
+  ngOnInit(): void {
+    if (this.rs.isLoaded()) {
+      this.rs.changeTheme("green");
+    }
+  }
+
 }

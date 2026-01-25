@@ -1,6 +1,7 @@
 import { Component, Inject, OnInit, PLATFORM_ID } from '@angular/core';
 import { isPlatformServer }                       from '@angular/common';
 import { RESPONSE_INIT }                          from '@angular/core';  // <— token de nuevo SSR
+import { ResponsiveService } from '../../tools/responsive.service';
 
 @Component({
   selector: 'app-not-found',
@@ -11,13 +12,17 @@ import { RESPONSE_INIT }                          from '@angular/core';  // <—
 export class NotFoundComponent implements OnInit {
   constructor(
     @Inject(PLATFORM_ID) private platformId: Object,
-    @Inject(RESPONSE_INIT) private responseInit: ResponseInit  // <— inyecta ResponseInit
+    @Inject(RESPONSE_INIT) private responseInit: ResponseInit, // <— inyecta ResponseInit
+    private rs : ResponsiveService
   ) {}
 
   ngOnInit(): void {
     // Sólo en SSR, cambia el código de estado a 404
     if (isPlatformServer(this.platformId)) {
       this.responseInit.status = 404;
+    }
+    if (this.rs.isLoaded()) {
+      this.rs.changeTheme("red");
     }
   }
 }

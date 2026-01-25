@@ -1,11 +1,14 @@
 import { Component } from '@angular/core';
+import { routes } from '../../app.routes';
+import { RouterModule } from '@angular/router';
 
 @Component({
-    selector: 'app-foot',
-    imports: [],
-    templateUrl: './foot.component.html',
-    styleUrl: './foot.component.css'
+  selector: 'app-foot',
+  standalone: true,
+  imports: [RouterModule],
+  templateUrl: './foot.component.html',
+  styleUrl: './foot.component.css'
 })
 export class FootComponent {
-
+  public routes = routes;
 }
