@@ -1,20 +1,44 @@
-<footer class="footer py-3 mt-32 z-90 ">
+<footer class="footer py-3 mt-32 z-90">
   <div class="container">
-    <hr>
-    <div class=" grid grid-cols-1 md:grid-cols-3 md:gap-4 md:justify-items-center mb-14 mt-16
-    [&>ul>li>a]:hover:text-secondary ">
-        <ul class="flex-1 min-w-xs p-4">
+    <hr />
+    <div
+      class="grid grid-cols-1 md:grid-cols-3 md:gap-4 md:justify-items-center mb-14 mt-16 
+      max-md:[&>ul>li]:flex [&>ul>li>a]:hover:text-secondary [&>ul>li>a]:hover:underline max-md:[&>ul>li>a]:bg-[#9c9c9c33] max-md:[&>ul>li]:my-0.5 max-md:[&>ul>li>a]:pl-2 max-md:[&>li]:w-full max-md:[&>ul>li>a]:w-full "
+    >
+      <ul class="flex-1 min-w-xs p-4">
         <li class="font-bold mb-2">Marketing Digital</li>
-        <li><a href="/{{routes[2].path}}#sem">SEM</a></li>
-        <li><a href="/{{routes[2].path}}#seo">SEO</a></li>
-        <li><a href="/{{routes[2].path}}#marketing-de-contenidos">Marketing de Contenidos</a></li>
-        <li><a href="/{{routes[2].path}}#redes-sociales">Redes Sociales</a></li>
-        <li><a href="/{{routes[2].path}}#email-marketing">Email Marketing</a></li>
-        <li><a href="/{{routes[2].path}}#analitica-web">Analítica Web</a></li>
-        <li><a href="/{{routes[2].path}}#publicidad-digital">Publicidad Digital</a></li>
-        <li><a href="/{{routes[2].path}}#inbound-marketing">Inbound Marketing</a></li>
-        <li><a href="/{{routes[2].path}}#automatizacion">Automatización</a></li>
-        <li><a href="/{{routes[2].path}}#estrategia-digital">Estrategia Digital</a></li>
+        <li><a href="/{{ routes[2].path }}#sem">SEM</a></li>
+        <li><a href="/{{ routes[2].path }}#seo">SEO</a></li>
+        <li>
+          <a href="/{{ routes[2].path }}#marketing-de-contenidos"
+            >Marketing de Contenidos</a
+          >
+        </li>
+        <li>
+          <a href="/{{ routes[2].path }}#redes-sociales">Redes Sociales</a>
+        </li>
+        <li>
+          <a href="/{{ routes[2].path }}#email-marketing">Email Marketing</a>
+        </li>
+        <li><a href="/{{ routes[2].path }}#analitica-web">Analítica Web</a></li>
+        <li>
+          <a href="/{{ routes[2].path }}#publicidad-digital"
+            >Publicidad Digital</a
+          >
+        </li>
+        <li>
+          <a href="/{{ routes[2].path }}#inbound-marketing"
+            >Inbound Marketing</a
+          >
+        </li>
+        <li>
+          <a href="/{{ routes[2].path }}#automatizacion">Automatización</a>
+        </li>
+        <li>
+          <a href="/{{ routes[2].path }}#estrategia-digital"
+            >Estrategia Digital</a
+          >
+        </li>
       </ul>
       <ul class="flex-1 min-w-xs p-4">
         <li class="font-bold mb-2">Soporte Técnico</li>
@@ -33,9 +57,8 @@
         <li><a href="">Control de Proyectos</a></li>
         <li><a href="">Automatización de Procesos</a></li>
       </ul>
-
     </div>
-    <hr>
+    <hr />
     <p class="text-center">&copy; 2024 Todos los Derechos Reservados</p>
   </div>
 </footer>

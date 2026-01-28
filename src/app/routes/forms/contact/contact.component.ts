@@ -12,7 +12,17 @@ import { ResponsiveService } from '../../../tools/responsive.service';
     schemas: [NO_ERRORS_SCHEMA]
 })
 export class ContactComponent implements OnInit {
-  email = 'knnthbriones@gmail.com';
+  email = 'knnthdev@gmail.com';
+
+  checklist = [
+    "Estoy interesado en el plan económico",
+    "Hablame más del plan profesional",
+    "¿Qué es el plan Inversores y cómo funciona?",
+    "Solo busco getión de redes sociales",
+    "Busco crear un sitio web",
+    "Leí tu post",
+    "Me urge"
+  ];
   form = {
     name: '',
     email: '',
@@ -40,9 +50,12 @@ IsSubmitted = false;
           msg: formData.get("message") as string,
         }
 
-        if (formData.get("chb-1") as string != null)
-        {
-          this.form.subject = 'Urgent Message from contact form';
+        // get the checklist checked in form
+        for (let i = 0; i < this.checklist.length; i++) {
+          if (formData.get(this.checklist[i]) as string != null)
+          {
+            this.form.msg += '\n' + this.checklist[i];
+          }
         }
         
         // const display = document.querySelector("#console") as HTMLElement;

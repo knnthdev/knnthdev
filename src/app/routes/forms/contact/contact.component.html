@@ -1,77 +1,40 @@
 <div class="mx-3">
-  <div class="flex flex-row max-md:flex-col gap-4">
-    <section class="w-full">
-      <form id="contact-form" class="md:max-w-md sm:w-full mx-auto my-9">
-        <formgroup id="put_name" class="mb-5">
-          <label 
-            for="name"
-            class="block mb-2 text-sm font-medium text-primary"
-            >Escribe tu nombre</label
-          >
-          <input
-            type="text"
-            id="name"
-            name="name"
-            class="border text-sm rounded-lg block w-full p-2.5 bg-gray-700 border-gray-400
-            placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500"
-            placeholder="Dejame saber tu nombre..."
-            required
-          />
+  <div class="flex flex-row max-md:flex-col">
+    <section class="w-full ">
+      <form id="contact-form" class="md:max-w-md sm:w-full mx-auto my-9 flex flex-col ">
+        <formgroup id="put_name" class="mb-2">
+          <label for="name" class="block mb-2 text-sm font-medium text-primary">Escribe tu nombre</label>
+          <input type="text" id="name" name="name" class="border text-sm rounded-lg block w-full p-2.5 bg-btn-secondary border-gray-400
+            placeholder-gray-400 text-secondary focus:ring-blue-500 focus:border-blue-500"
+            placeholder="Dejame saber tu nombre..." required />
         </formgroup>
-        <formgroup id="put_email" class="mb-5">
-          <label
-            for="email"
-            class="block mb-2 text-sm font-medium text-primary"
-            >Escribe tu email</label
-          >
-          <input
-            type="email"
-            id="email"
-            name="email"
-            class="border text-primary text-sm rounded-lg block w-full p-2.5 bg-gray-700 border-gray-400
-           placeholder-gray-400 focus:ring-blue-500 focus:border-blue-500 "
-            placeholder="name@example.com"
-            required
-          />
+        <formgroup id="put_email" class="mb-2">
+          <label for="email" class="block mb-2 text-sm font-medium text-primary">Escribe tu email</label>
+          <input type="email" id="email" name="email" class="border text-secondary text-sm rounded-lg block w-full p-2.5 bg-btn-secondary border-gray-400
+           placeholder-gray-400 focus:ring-blue-500 focus:border-blue-500 " placeholder="name@example.com" required />
         </formgroup>
 
-        <formgroup id="put_msg" class="mb-5">
-          <label
-            for="message"
-            class="block mb-2 text-sm font-medium text-primary"
-            >Escribe tu mensaje</label
-          >
-          <textarea
-            id="message"
-            name="message"
-            rows="4"
-            class="block p-2.5 w-full text-sm text-secondary rounded-lg border border-gray-400 bg-gray-700
+        <formgroup id="put_msg" class="mb-4">
+          <label for="message" class="block mb-2 text-sm font-medium text-primary">Escribe tu mensaje</label>
+          <textarea id="message" name="message" rows="4" class="block p-2.5 w-full text-sm text-secondary rounded-lg border border-gray-400 bg-btn-secondary
             placeholder-gray-400 focus:ring-blue-500 focus:border-blue-500 "
-            placeholder="En qué te puedo ayudarte?..."
-          ></textarea>
+            placeholder="En qué te puedo ayudarte?..."></textarea>
         </formgroup>
 
-        <fieldset id="checkboxes" class="flex items-start my-5">
-          <formgroup class="flex items-center h-5">
-            <input
-              id="chb-1"
-              name="chb-1"
-              type="checkbox"
-              value=""
-              class="w-4 h-4 border border-gray-300 rounded focus:ring-1 bg-gray-700  focus:ring-blue-600 ring-offset-gray-800 ring-offset-2"
-            />
-            <label
-                data-tooltip="Si tienes prisa con algún proyecto clickea aquí"
-                for="chb-1"
-                class="ms-2 text-sm font-medium text-primary"
-                >Me Urge</label
-              >
+        <fieldset id="checkboxes" class="flex items-start">
+          <formgroup class="grid grid-cols-2 gap-4 bg-btn-secondary rounded-lg border border-line p-4">
+            @for (it of this.checklist; track $index) {
+            <div class="flex flex-row">
+              <input id="chb-{{$index}}" name="{{it}}" type="checkbox" value=""
+                class="w-4 h-4 border border-gray-300 rounded focus:ring-1  focus:ring-blue-600 ring-offset-gray-800 ring-offset-2" />
+              <label data-tooltip="Si tienes prisa con algún proyecto clickea aquí" for="chb-{{$index}}"
+                class="ms-2 text-sm font-medium text-secondary">{{it}}</label>
+            </div>
+            }
           </formgroup>
         </fieldset>
-        <button
-          type="submit"
-          class="text-white hover:bg-blue-800 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center bg-blue-600 focus:ring-blue-600"
-        >
+        <button type="submit"
+          class="text-white hover:bg-hoverbutton focus:ring-4 focus:outline-none font-medium rounded-lg text-sm w-full sm:w-auto px-5 mt-4 py-2.5 text-center bg-btn-submit focus:ring-btn-submit">
           Enviar
         </button>
       </form>
@@ -80,90 +43,76 @@
       </console>
       <dialog id="dialog">
         <section class="flex fixed top-0 left-0 size-[100%] bg-[#010014de] z-51 justify-center ">
-          <dialog-msg class="flex m-auto size-[max-content] px-12 py-8 bg-white rounded shadow-lg justify-center items-center flex-col">
+          <dialog-msg
+            class="flex m-auto size-[max-content] px-12 py-8 bg-white rounded shadow-lg justify-center items-center flex-col">
             @if (this.IsSubmitted) {
-              <i class="fas fa-badge-check fa-bounce text-green-500 text-5xl"></i><br/>
-              <p class="text-gray-600 text-center">Enviado con éxito!</p>
+            <i class="fas fa-badge-check fa-bounce text-green-500 text-5xl"></i><br />
+            <p class="text-gray-600 text-center">Enviado con éxito!</p>
             }
             @else {
-              <i class="fa-solid fa-xmark fa-fade text-red-500 text-5xl"></i><br/>
-              <p class="text-gray-600 text-center">
-                Hubo un error al enviar el mensaje. El servidor está temporalmente fuera de servicio
-              </p>
+            <i class="fa-solid fa-xmark fa-fade text-red-500 text-5xl"></i><br />
+            <p class="text-gray-600 text-center">
+              Hubo un error al enviar el mensaje. El servidor está temporalmente fuera de servicio
+            </p>
             }
-            <button 
-            class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5"
-            (click)="CloseDialog()"
-            >OK
-          </button>
+            <button
+              class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5"
+              (click)="CloseDialog()">OK
+            </button>
           </dialog-msg>
         </section>
       </dialog>
     </section>
 
-    <section class="w-full md:my-9 md:flex md:flex-col md:justify-between">
+    <section class="w-full md:my-9 md:flex md:flex-col md:justify-between gap-y-5">
       <section>
-              <h1 class="text-2xl">
-        <i class="fas fa-envelope"></i>
-        <strong> Contáctame </strong>
-      </h1>
-      <p>
-        Si tienes alguna duda o necesitas ayuda, no dudes en contactarme. Mi
-        equipo y yo estaremos encantado de ayudarte.
-      </p>
+        <h1 class="text-2xl">
+          <i class="fas fa-envelope"></i>
+          <strong> Contáctame </strong>
+        </h1>
+        <p>
+          Si tienes alguna duda o necesitas ayuda, no dudes en contactarme. Mi
+          equipo y yo estaremos encantado de ayudarte.
+        </p>
+      </section>
+      <section class="max-md:hidden">
+        <figure class="w-fit rounded-4xl mx-2 overflow-clip">
+          <img class="md:w-45 lg:w-80" src="/assets/qr-code.png" alt="QR Code" />
+        </figure>
       </section>
 
-      <section id="box-ref" class="flex flex-row gap-2">
+      <section id="box-ref" class="flex flex-row gap-x-4 align-top ">
         <section id="direct-contact">
-          <div class="">
+          <div class="flex flex-col">
             <h3 class="text-xl font-bold">Email</h3>
-            <a
-              class="text-green-500 hover:text-green-700"
-              href="mailto:knnthdev@gmail.com"
-              >{{ email }}</a
-            >
+            <a class="text-green-500 hover:text-green-700"
+              href="mailto:business@kennethbriones.com">business&#64;kennethbriones.com</a>
+            <a class="text-green-500 hover:text-green-700" href="mailto:knnthdev@gmail.com">{{ email }}</a>
           </div>
           <div class="">
             <h3 class="text-xl font-bold">Teléfono</h3>
-            <a
-              class="text-green-500 hover:text-green-700"
-              href="https://wa.me/50584739470"
-            >
+            <a class="text-green-500 hover:text-green-700" href="https://wa.me/50584739470">
               <i class="fa-brands fa-whatsapp"></i>
               <label class="cursor-pointer ml-2">+505 8473 9470</label>
             </a>
           </div>
         </section>
 
-        <div class="flex flex-col items-center justify-center gap-2">
+        <div class="flex flex-col items-center justify-top gap-2">
           <h3 class="text-xl font-bold">Redes Sociales</h3>
           <div class="flex gap-3">
-            <a
-              class="text-green-500 hover:text-green-700"
-              href="https://www.linkedin.com/in/kenneth-b-743443b6/"
-              target="_blank"
-            >
+            <a class="text-green-500 hover:text-green-700" href="https://www.linkedin.com/in/kenneth-b-743443b6/"
+              target="_blank">
               <i class="fab fa-linkedin"></i>
             </a>
-            <a
-              class="text-green-500 hover:text-green-700"
-              href="https://github.com/knnthdev"
-              target="_blank"
-            >
+            <a class="text-green-500 hover:text-green-700" href="https://github.com/knnthdev" target="_blank">
               <i class="fab fa-github"></i>
             </a>
-            <a
-              class="text-green-500 hover:text-green-700"
-              href="https://www.instagram.com/kenneth.briones.332/"
-              target="_blank"
-            >
+            <a class="text-green-500 hover:text-green-700" href="https://www.instagram.com/kenneth.briones.332/"
+              target="_blank">
               <i class="fa-brands fa-instagram"></i>
             </a>
-            <a
-              class="text-green-500 hover:text-green-700"
-              href="https://g.dev/kennethbriones"
-              target="_blank"
-            >
+            <a class="text-green-500 hover:text-green-700" href="https://g.dev/kennethbriones" target="_blank">
               <i class="fa-duotone fa-solid fa-code"></i>
             </a>
           </div>
