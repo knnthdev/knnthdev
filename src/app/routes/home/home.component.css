@@ -3,7 +3,7 @@ main {
   mask-image: radial-gradient(#000, #000);
 }
 
-figure {
+/* figure {
   position: relative;
   box-sizing: border-box;
   margin: 0 10px;
@@ -16,7 +16,7 @@ figure img {
   top: 0;
   left: 0;
   width: 100%;
-}
+} */
 
 .columns {
   columns: 2 320px;

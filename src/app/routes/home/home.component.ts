@@ -40,7 +40,7 @@ export class HomeComponent implements OnInit {
       title: 'Support Technician',
       description:
         'El mundo de la tecnología es un mundo muy competitivo asi que no dejo pasar esta oportunidad de ofrecerte mis habilidades de soporte técnico, obten apoyo para la instalación de redes y sistemas operativos ya sea para ti o tu organización, además de atender llamadas para tus clientes y contestar sus mensajes para dar respuesta inmediata.',
-      link: 'JGht83CvLrWsngHTXZyid04',
+      link: 'tell-you',
     },
   ];
   projects = HomeComponent.projects;

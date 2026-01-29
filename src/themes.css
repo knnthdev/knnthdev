@@ -36,14 +36,14 @@
 
 .pearl {
   --navbar-onscroll: #f8d9ab;
-  --bg-primary: #f5e1c8;
+  --bg-primary: #d9a492;
   --bg-radial-gradient: radial-gradient(#fcfdff, #f0f8ff);
   --border-line: #cde6f5;
   --text-primary: #3b4252;
   --text-secondary: #818c9c;
   --hover-button: #a6d4f1;
   --hover-figcaption: rgba(166, 212, 241, 0.4);
-  --btn-primary: #c5796b;
+  --btn-primary: #f5e1c8;
   --btn-secondary: #d4d4d4;
   --btn-submit: #bde0fe;
   background: var(--bg-primary);
@@ -99,7 +99,7 @@
 }
 .purple {
   --navbar-onscroll: #7b1fa2;
-  --bg-primary: #5d0697;
+  --bg-primary: #5c0372;
   --bg-radial-gradient: radial-gradient(#26262c, #18181b, #000000);
   --border-line: #9146ff;
   --text-primary: #efefef;
