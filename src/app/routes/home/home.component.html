@@ -1,47 +1,52 @@
 <section id="home" class="md:pt-16">
   <section class="flex flex-col md:flex-row items-center justify-center max-md:mt-8">
-    <figure class="rounded-full overflow-hidden mx-auto size-fixed ">
+    <figure class="rounded-full overflow-hidden mx-auto size-fixed max-w-[95%]  border-3 border-btn-secondary ring ring-line ">
       <img class="w-full h-auto" src="assets/perfil.webp" alt="photo" />
     </figure>
-    <section id="about" class="flex flex-col items-center justify-center pt-16">
+    <article id="about" class="flex flex-col items-center text-center
+    justify-center pt-16 max-w-xl max-md:px-4">
       <h1 class="w-full text-3xl font-bold text-center mt-3 pb-10">
         Kenneth Briones
       </h1>
-      <h1 class="w-full text-3xl font-bold text-center mt-3 mb-10 cursor-pointer">
+      <h1 class="w-full text-3xl font-bold mt-3 mb-10 cursor-pointer">
         <a href="https://github.com/knnthdev" target="_blank" class="no-underline">
           <i class="fa-brands fa-github"></i>
           knnthdev
         </a>
       </h1>
-      <h2 class="text-2xl font-bold mb-5">Hola Mundo!👋</h2>
-      <p class="text-lg text-secondary max-w-xl px-4 max-md:text-justify">
+      <h2 class="text-2xl font-bold mb-5">Convierto tus ideas de negocio en soluciones digitales atractivas y funcionales 🍀</h2>
+      <p class="text-lg text-secondary text-left ">
         Soy un desarrollador web con pasión por crear experiencias digitales
         atractivas y funcionales. Me encanta aprender nuevas tecnologías y
         aplicarlas a proyectos desafiantes.
       </p>
-    </section>
+    </article>
   </section>
   <section id="portfolio" class="flex flex-col items-center justify-center pt-32">
     <h2 class="text-2xl font-bold mb-5">Conoce más de mi</h2>
-    <div class="flex flex-col">
+    <div class="flex flex-col w-full shadow-2xl">
       @for (project of projects; track $index) {
-      <div class="flex {{($index % 2 == 0) ? 'flex-row' : 'flex-row-reverse'}} max-md:flex-col items-center mb-14
+      <div class="flex {{($index % 2 == 0) ? 'silver' : 'dark' }} max-md:flex-col blue:md:flex-row-reverse items-center
+        md:p-4 py-8 w-full gap-y-4">
+
+        <figure class="md:rounded-lg overflow-hidden w-full min-h-65 h-max lg:max-w-[55%]
          ">
-        <figure class="rounded-lg overflow-hidden w-full min-h-65 h-max ">
-          <img class="w-full h-fit object-cover" [src]="project.image"
+          <img class="w-full h-fit object-cover backdrop:grayscale" [src]="project.image"
             alt="Project Image" />
         </figure>
-        <div class="text-center md:p-4">
+
+        <div class="text-center md:p-auto mx-auto max-w-xl min-h-2xl ">
           <h3 class="text-xl font-bold mb-1">{{ project.title }}</h3>
-          <p class="text-secondary mb-2 max-md:px-4 lg:px-16 max-md:text-justify lg:text-left">
+          <p class="text-[var(--text-secondary)] mb-2 max-md:px-4 md:mx-8 max-md:text-justify lg:text-left">
             {{ project.description }}
           </p>
-          <button class="bg-btn-primary ring-1 ring-btn-secondary rounded-lg px-3 py-1 ">
-            <a class="flex flex-row items-center justify-center gap-2 " [href]="project.link" target="_self">
+          <button class="bg-btn-submit ring-1 ring-btn-secondary rounded-lg px-3 py-1 ">
+            <a class="flex flex-row items-center justify-center gap-2 text-secondary" [href]="project.link" target="_self">
               Ver más <i class="fa-solid fa-arrow-right"></i>
             </a>
           </button>
         </div>
+
       </div>
       }
     </div>

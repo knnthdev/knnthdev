@@ -1,6 +1,3 @@
-@source "./app/routes/**/*.{html,ts}";
-@source "./app/app.component.{html,ts}";
-
 @import "tailwindcss";
 
 @import "./typography.css";

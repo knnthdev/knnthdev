@@ -1,7 +1,5 @@
+@reference "../../../styles.css";
 
-main {
-  mask-image: radial-gradient(#000, #000);
-}
 
 /* figure {
   position: relative;
@@ -18,27 +16,3 @@ figure img {
   width: 100%;
 } */
 
-.columns {
-  columns: 2 320px;
-  column-gap: 0.8em;
-  -webkit-columns: 2 320px; /* Safari */
-  -webkit-column-gap: 0.8em; /* Safari */
-}
-
-@media screen and (max-width: 768px) {
-  .phone-device-img {
-    display: block;
-  }
-  .website-img {
-    display: none;
-  }
-}
-
-@media screen and (min-width: 769px) {
-  .phone-device-img {
-    display: none;
-  }
-  .website-img {
-    display: block;
-  }
-}
