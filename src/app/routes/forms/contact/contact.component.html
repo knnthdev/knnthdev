@@ -1,5 +1,5 @@
 <div class="mx-3">
-  <div class="flex flex-row max-md:flex-col">
+  <div class="flex flex-row max-md:flex-col md:gap-x-8">
     <section class="w-full ">
       <form id="contact-form" class="md:max-w-md sm:w-full mx-auto my-9 flex flex-col ">
         <formgroup id="put_name" class="mb-2">
@@ -27,7 +27,7 @@
             <div class="flex flex-row">
               <input id="chb-{{$index}}" name="{{it}}" type="checkbox" value=""
                 class="w-4 h-4 border border-gray-300 rounded focus:ring-1  focus:ring-blue-600 ring-offset-gray-800 ring-offset-2" />
-              <label data-tooltip="Si tienes prisa con algún proyecto clickea aquí" for="chb-{{$index}}"
+              <label data-tooltip="{{it}}" for="chb-{{$index}}"
                 class="ms-2 text-sm font-medium text-secondary">{{it}}</label>
             </div>
             }
@@ -63,7 +63,6 @@
         </section>
       </dialog>
     </section>
-
     <section class="w-full md:my-9 md:flex md:flex-col md:justify-between gap-y-5">
       <section>
         <h1 class="text-2xl">
