@@ -1,6 +1,7 @@
 <section id="home" class="md:pt-16 md:mx-2">
-  <section class="flex flex-col md:flex-row items-center justify-center max-md:mt-8">
-    <figure class="rounded-full overflow-hidden mx-auto size-fixed max-w-[95%]  border-3 border-btn-secondary ring ring-line ">
+  <section class="flex flex-col md:flex-row items-center justify-center max-md:mt-8 md:gap-x-4">
+    <figure class="rounded-full overflow-hidden min-w-95 max-w-[95%]
+    border-3 border-btn-secondary ring ring-line ">
       <img class="w-full h-auto" src="assets/perfil.webp" alt="photo" />
     </figure>
     <article id="about" class="flex flex-col items-center text-center
@@ -16,7 +17,7 @@
       </h1>
       <h2 class="text-2xl font-bold mb-5">Convierto tus ideas de negocio en soluciones digitales atractivas y funcionales 🍀</h2>
       <p class="text-lg text-secondary text-left ">
-        Soy un apasionado de la tecnología. Me considero un admirador del desarrollo de software, la inteligencia artificial y los negocios. Bienvenido a mi sitio web, desliza hacia abajo y averigua lo que puedo hacer.
+        Soy un apasionado de la tecnología. Me considero un admirador del desarrollo de software, la inteligencia artificial y los negocios. Bienvenido a mi sitio web, desliza hacia abajo y averigua lo que puedo hacer por ti.
       </p>
     </article>
   </section>
@@ -26,7 +27,7 @@
       <div class="flex {{($index % 2 == 0) ? 'silver' : 'dark' }} max-md:flex-col silver:md:flex-row-reverse items-center
         md:p-4 py-8 w-full gap-y-4">
 
-        <figure class="md:rounded-lg overflow-hidden w-full min-h-65 h-max lg:max-w-[55%]
+        <figure class="md:rounded-lg overflow-hidden md:min-w-85 w-full h-max lg:max-w-[55%]
          ">
           <img class="w-full h-fit object-cover backdrop:grayscale" [src]="project.image"
             alt="Project Image" />
@@ -34,7 +35,7 @@
 
         <div class="text-center md:p-auto mx-auto max-w-xl min-h-2xl ">
           <h3 class="text-xl font-bold mb-1">{{ project.title }}</h3>
-          <p class="text-[var(--text-secondary)] mb-2 max-md:px-4 md:mx-8 max-md:text-justify lg:text-left">
+          <p class="text-[var(--text-secondary)] mb-2 max-md:px-4 md:mx-8 max-md:text-justify md:text-left">
             {{ project.description }}
           </p>
           <button class="bg-btn-submit ring-1 ring-btn-secondary rounded-lg px-3 py-1 transition hover:scale-105

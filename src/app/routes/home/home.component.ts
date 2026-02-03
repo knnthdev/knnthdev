@@ -42,6 +42,12 @@ export class HomeComponent implements OnInit {
         'El mundo de la tecnología es un mundo muy competitivo asi que no dejo pasar esta oportunidad de ofrecerte mis habilidades de soporte técnico, obten apoyo para la instalación de redes y sistemas operativos ya sea para ti o tu organización, además de atender llamadas para tus clientes y contestar sus mensajes para dar respuesta inmediata.',
       link: 'tell-you',
     },
+    {
+      image: 'assets/projects/project-4.webp',
+      title: 'Diseño de contenido',
+      description: 'Como emprendedor, me fascina cómo el diseño de contenido digital puede transformar la presencia en línea de una marca. Me especializo en crear elementos visuales y textuales atractivos que no solo capturan la atención, sino que también impulsan la interacción en plataformas de redes sociales. Mi objetivo es que cada pieza de contenido resuene con la audiencia, comunicando mensajes clave de manera efectiva y contribuyendo al éxito de las campañas publicitarias.',
+      link: ''
+    }
   ];
   projects = HomeComponent.projects;
 
