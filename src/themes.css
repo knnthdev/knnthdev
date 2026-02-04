@@ -131,22 +131,22 @@
   color: var(--text-primary);
 }
 .yellow {
-  --navbar-onscroll: #b38600;
-  --bg-primary: #f1ba02;
+  --navbar-onscroll: #d6a206;
+  --bg-primary: #e9bf04;
   --bg-radial-gradient: radial-gradient(#5d5337, #3e3823, #1b0000);
-  --border-line: #ffd54f;
-  --text-primary: #4e3c02;
-  --text-secondary: #757303;
+  --border-line: #ffe591;
+  --text-primary: #024d4d;
+  --text-secondary: #2e2e24;
   --hover-button: rgba(255, 235, 59);
   --hover-figcaption: rgba(255, 235, 59, 0.5);
-  --btn-primary: #4e342e;
-  --btn-secondary: #6d4c41;
-  --btn-submit: #a1887f;
+  --btn-primary: #ebd300;
+  --btn-secondary: #dfab00;
+  --btn-submit: #366279;
   background-color: var(--bg-primary);
   color: var(--text-primary);
 }
 .dark {
-  --navbar-onscroll: #0a0a0a;
+  --navbar-onscroll: #000000;
   --bg-primary: #1b1b1b;
   --bg-radial-gradient: radial-gradient(#1f1f1f, #0a0a0a, #000000);
   --border-line: #e5e4e2;
