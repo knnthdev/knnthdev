@@ -18,57 +18,7 @@ export class HeadComponent implements OnInit {
     }
   }
 
-  @HostListener('document:click', ['$event.target'])
-  public onClick(targetElement: any) {
-    if (['icon-ham', 'ham'].includes(targetElement.id)) {
-      this.toggleMenuDesploy();
-      return;
-    }
-    const deployIsShown = document
-      .getElementById('desploy')
-      ?.classList.contains('show');
-
-    if (!deployIsShown) {
-      return;
-    }
-    const elementRef = document.getElementById('monitor');
-    const clickedInside = elementRef!.contains(targetElement);
-
-    if (!clickedInside) {
-      this.toggleMenuDesploy();
-    }
-  }
-
-  // setTheme(theme: string | null) {
-  //   if (this.rs.isLoaded() && theme) {
-  //     window.localStorage.setItem('theme', theme!);
-  //     document.documentElement.classList.remove('light', 'dark');
-  //     document.documentElement.classList.add(theme!);
-  //   }
-  // }
-
-  // getTheme(): string {
-  //   if (this.rs.isLoaded()) {
-  //     return window.localStorage.getItem('theme') || 'dark';
-  //   }
-  //   return 'undefined';
-  // }
-
-  // public toggleTheme() {
-  //   if (this.getTheme() === 'dark') {
-  //     this.setTheme('light');
-  //   } else {
-  //     this.setTheme('dark');
-  //   }
-  //   document.querySelector('#btn-theme')?.classList.toggle('fa-sun');
-  //   document.querySelector('#btn-theme')?.classList.toggle('fa-moon');
-  // }
-
-  public toggleMenuDesploy() {
-    if (this.rs.isLoaded()) {
-      document.getElementById('desploy')?.classList.toggle('show');
-    }
-  }
+  // 
 
   public scrollhandler(event: any) {
     if (

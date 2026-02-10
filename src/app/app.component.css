@@ -1,5 +1,8 @@
+@reference "../styles.css";
+
 #tooltip {
   --left: 50%;
+  @apply bg-navbar w-fit fixed px-2 mx-2 text-white rounded-md ;
 }
 
 #tooltip::before {
@@ -9,7 +12,7 @@
   left: var(--left);
   border-width: 10px;
   border-style: solid;
-  border-color: transparent transparent #09f transparent;
+  @apply border-transparent border-b-navbar;
 }
 
 #tooltip.overflow::before {
@@ -19,7 +22,7 @@
   left: var(--left);
   border-width: 10px;
   border-style: solid;
-  border-color: #09f transparent transparent transparent;
+  @apply border-transparent border-t-navbar;
 }
 
 main {

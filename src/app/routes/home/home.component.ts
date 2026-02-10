@@ -30,7 +30,7 @@ export class HomeComponent implements OnInit {
     },
     {
       image: 'assets/projects/project-2.jpg',
-      title: 'Emprendimiento',
+      title: 'Planes y Estrategias',
       description:
         'Me destaco por ser emprendedor y de intentar ser lo más autodidacta posible, en mi marca personal ofrezco la posibilidad de que trabajes conmigo para desarrollar lo que será tu herramienta, ayudar a tus clientes en contactar y conocer más sobre ti. Empieza ya y no te quedes sin tu sitio web.',
       link: 'get-your-plan',
@@ -47,7 +47,13 @@ export class HomeComponent implements OnInit {
       title: 'Diseño de contenido',
       description: 'Como emprendedor, me fascina cómo el diseño de contenido digital puede transformar la presencia en línea de una marca. Me especializo en crear elementos visuales y textuales atractivos que no solo capturan la atención, sino que también impulsan la interacción en plataformas de redes sociales. Mi objetivo es que cada pieza de contenido resuene con la audiencia, comunicando mensajes clave de manera efectiva y contribuyendo al éxito de las campañas publicitarias.',
       link: 'disign-content'
-    }
+    },
+    // {
+    //   image: 'assets/projects/project-4.webp',
+    //   title: 'Portfolio',
+    //   description: 'Como emprendedor, me fascina cómo el diseño de contenido digital puede transformar la presencia en línea de una marca. Me especializo en crear elementos visuales y textuales atractivos que no solo capturan la atención, sino que también impulsan la interacción en plataformas de redes sociales. Mi objetivo es que cada pieza de contenido resuene con la audiencia, comunicando mensajes clave de manera efectiva y contribuyendo al éxito de las campañas publicitarias.',
+    //   link: 'disign-content'
+    // }
   ];
   projects = HomeComponent.projects;
 
