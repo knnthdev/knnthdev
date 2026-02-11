@@ -62,78 +62,12 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     if (this.rs.isLoaded()) {
-      this.rs.changeTheme("green");
       this.settingMetaSEO();
+      this.rs.changeTheme("green");
     }
   }
 
   settingMetaSEO() {
-    this.title.setTitle('Kenneth Briones - Developer😉');
-
-    this.meta.addTags([
-      {
-        name : 'description',
-        content : 'Servicios de creación de sitios web y marketing digital. ¡Haz que tu negocio despegue en el mundo digital! 🚀'
-      },
-      {
-        name : 'keywords',
-        content : 'desarrollador web, marketing digital, creación de sitios web, seo, post, postear, redes sociales, social media'
-      },
-      {
-        name : 'author',
-        content : 'Kenneth Briones'
-      },
-      // twitter
-      {
-        name : 'twitter:card',
-        content : 'summary_large_image'
-      },
-      {
-        name : 'twitter:title',
-        content : 'Kenneth Briones 😉'
-      },
-      {
-        name : 'twitter:description',
-        content : 'Servicios de creación de contenido web y redes sociales. ¡Haz que tu negocio despegue en el mundo digital! 🚀'
-      },
-      {
-        name : 'twitter:image',
-        content: 'https://kennethbriones.com/assets/perfil.webp'
-      },
-      // open graph
-      {
-        property : 'og:title',
-        content : 'Kenneth Briones 😉'
-      },
-      {
-        property : 'og:description',
-        content : 'Servicios de creación de contenido web y redes sociales. ¡Haz que tu negocio despegue en el mundo digital! 🚀'
-      },
-      {
-        property : 'og:image',
-        content: 'https://kennethbriones.com/assets/perfil.webp'
-      },
-      {
-        property : 'og:url',
-        content : 'https://kennethbriones.com'
-      },
-      {
-        property : 'og:type',
-        content : 'website'
-      },
-      {
-        property : 'og:site_name',
-        content : 'Kenneth Briones'
-      },
-      {
-        property : 'og:locale',
-        content : 'es_ES'
-      },
-      {
-        property : 'og:locale:alternate',
-        content : 'en_US'
-      }
-    ]);    
   }
 
 }
