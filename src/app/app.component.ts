@@ -1,10 +1,8 @@
 import { Component, OnInit, HostListener } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { HomeComponent } from './routes/home/home.component';
 import { HeadComponent } from './routes/head/head.component';
 import { FootComponent } from './routes/foot/foot.component';
 import { ResponsiveService, TimeCounter } from './tools/responsive.service';
-import { timeEnd } from 'console';
 
 @Component({
   selector: 'app-root',
