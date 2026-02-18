@@ -14,93 +14,118 @@
   </div>
 
   <!-- Contenedor de los planes -->
-  <div
-    class="container mx-auto mt-16 grid grid-cols-1 gap-8 px-4 md:grid-cols-2 lg:grid-cols-3"
-  >
+  <div class="container mx-auto mt-16 grid grid-cols-1 gap-8 px-4 md:grid-cols-2 lg:grid-cols-3">
     <!-- Plan Económico -->
-    <div
-      class="flex flex-col rounded-2xl border border-gray-700 bg-gray-800 p-8 shadow-lg 
-      transition-transform duration-300 hover:scale-103 hover:border-neutral-300 z-2"
-    >
+    <div class="flex flex-col rounded-2xl border border-gray-700 bg-gray-800 p-8 shadow-lg 
+      transition-transform duration-300 hover:scale-103 hover:border-neutral-300 z-2">
       <div class="flex-grow">
         <h3 class="text-xl font-bold">Plan Económico 💰</h3>
         <p class="mt-2 text-gray-400">Arranque e impulso 🚀</p>
-        <ul class="mt-6 space-y-4 list-disc list-inside text-gray-300">
-          <li>Gestión de redes sociales y contenidos (hasta 3 plataformas).</li>
+        <p class="mt-2"><strong class="text-5xl">$160</strong><span class="ml-2 text-gray-500 text-2xl font-semibold">/mes</span></p>
+        <ul class="mt-6 space-y-4 list-inside text-gray-300 ">
           <li>
+            <i class="fa-solid fa-check bg-blue-600 rounded-full p-1 text-[9px] font-extrabold mr-2 "></i>
+            Gestión de redes sociales y contenidos (hasta 3 plataformas).
+          </li>
+          <li>
+            <i class="fa-solid fa-check bg-blue-600 rounded-full p-1 text-[9px] font-extrabold mr-2 "></i>
             Creación de contenido publicitario.
           </li>
-          <li>12-16 publicaciones por mes.</li>
-          <li>Reporte semanal de resultados y estrategias de marketing.</li>
-          <li>Duración máxima de la campaña orgánica: 3 meses.</li>
+          <li>
+            <i class="fa-solid fa-check bg-blue-600 rounded-full p-1 text-[9px] font-extrabold mr-2 "></i>
+            12-16 publicaciones por mes.
+          </li>
+          <li>
+            <i class="fa-solid fa-check bg-blue-600 rounded-full p-1 text-[9px] font-extrabold mr-2 "></i>
+            Reporte semanal de resultados y estrategias de marketing.
+          </li>
+          <li>
+            <i class="fa-solid fa-check bg-blue-600 rounded-full p-1 text-[9px] font-extrabold mr-2 "></i>
+            Duración máxima de la campaña orgánica: 3 meses.
+          </li>
         </ul>
       </div>
       <button
         class="mt-8 w-full rounded-lg border ring border-green-400 ring-green-800 bg-green-600 py-3 px-4 font-bold text-white transition hover:bg-green-700"
-      >
-        $ 480.00 USD
+        onclick="const it=document.querySelector('#message');it.innerHTML='Hola! Tengo interés en el plan profesional';it.style.color='#1d2';window.location.href=window.location.pathname+'#contact';">
+        Comienza ahora
       </button>
     </div>
 
     <!-- Plan Profesional (Destacado) -->
-    <div
-      class="flex flex-col rounded-2xl border-2 border-purple-500 ring-purple-500/50 hover:border-purple-600 hover:ring-purple-700/50
-      bg-gray-900 p-8 shadow-2xl ring-2 transform scale-103 hover:scale-104 lg:scale-110 hover:lg:scale-111 z-1"
-    >
+    <div class="flex flex-col rounded-2xl border-2 border-purple-500 ring-purple-500/50 hover:border-purple-600 hover:ring-purple-700/50
+      bg-gray-900 p-8 shadow-2xl ring-2 transform scale-103 hover:scale-104 lg:scale-110 hover:lg:scale-111 z-1">
       <p class="text-sm font-semibold uppercase tracking-wider text-purple-400">
         Más Popular
       </p>
       <div class="flex-grow">
         <h3 class="mt-2 text-2xl font-bold">Plan Profesional 💼</h3>
         <p class="mt-2 text-gray-400">Conecta con tu público 🍐</p>
-        <ul class="mt-6 space-y-4 list-disc list-inside text-gray-300">
-          <li>Campañas de ads pagados (Facebook, Instagram).</li>
-          <li>Gestión de la comunidad online.</li>
-          <li>Interacción con usuarios y respuesta a mensajes.</li>
+        <p class="mt-2"><strong class="text-5xl">$175</strong><span class="ml-2 text-gray-500 text-2xl font-semibold">/mes</span></p>
+        <ul class="mt-6 space-y-4 list-inside text-gray-300">
+          <li>
+            <i class="fa-solid fa-check bg-blue-600 rounded-full p-1 text-[9px] font-extrabold mr-2 "></i>
+            Campañas de ads pagados (Facebook, Instagram).
+          </li>
+          <li>
+            <i class="fa-solid fa-check bg-blue-600 rounded-full p-1 text-[9px] font-extrabold mr-2 "></i>
+            Gestión de la comunidad online.
+          </li>
+          <li>
+            <i class="fa-solid fa-check bg-blue-600 rounded-full p-1 text-[9px] font-extrabold mr-2 "></i>
+            Interacción con usuarios y respuesta a mensajes.
+          </li>
         </ul>
         <hr class="my-6 border-gray-700" />
         <h4 class="font-bold text-white">Incluye Plus ✨</h4>
-        <ul class="mt-4 space-y-4 list-disc list-inside text-gray-300">
-          <li>Creación de website responsive (hasta 8 páginas).</li>
-          <li>SEO inicial (optimización on-page y palabras clave).</li>
-          <li>Reportes detallados quincenales (tráfico y conversiones).</li>
-          <li>Duración recomendada: 6 meses. 🔥</li>
+        <ul class="mt-4 space-y-4 list-inside text-gray-300">
+          <li><i class="fa-solid fa-check bg-blue-600 rounded-full p-1 text-[9px] font-extrabold mr-2 "></i>Creación de
+            website responsive (hasta 8 páginas).</li>
+          <li><i class="fa-solid fa-check bg-blue-600 rounded-full p-1 text-[9px] font-extrabold mr-2 "></i>SEO inicial
+            (optimización on-page y palabras clave).</li>
+          <li><i class="fa-solid fa-check bg-blue-600 rounded-full p-1 text-[9px] font-extrabold mr-2 "></i>Reportes
+            detallados quincenales (tráfico y conversiones).</li>
+          <li><i class="fa-solid fa-check bg-blue-600 rounded-full p-1 text-[9px] font-extrabold mr-2 "></i>Duración
+            recomendada: 6 meses. 🔥</li>
         </ul>
       </div>
       <button
         class="mt-8 w-full rounded-lg bg-purple-600 hover:bg-purple-700 py-3 px-4 font-bold text-white transition "
-      >
-        $ 875.00 USD
+        onclick="const it=document.querySelector('#message');it.innerHTML='Hola! Tengo interés en el plan profesional';it.style.color='1d2';window.location.href=window.location.pathname+'#contact';">
+        Empieza Ahora
       </button>
     </div>
 
     <!-- Plan Inversores -->
     <div
-      class="flex flex-col rounded-2xl border border-gray-700 bg-gray-900 p-8 shadow-lg transition-transform duration-300 hover:scale-103 hover:border-blue-500 z-2"
-    >
+      class="flex flex-col rounded-2xl border border-gray-700 bg-gray-900 p-8 shadow-lg transition-transform duration-300 hover:scale-103 hover:border-blue-500 z-2">
       <div class="flex-grow">
-        <h3 class="text-xl font-bold">Plan Inversores 📢</h3>
+        <h3 class="text-xl font-bold">Plan Negocios 📢</h3>
         <p class="mt-2 text-gray-400">Llama la atención 🚨</p>
-        <ul class="mt-6 space-y-4 list-disc list-inside text-gray-300">
-          <li>Creación de website dinámico (hasta 12 páginas).</li>
-          <li>Email corporativo (opcional).</li>
-          <li>Marketing digital personalizado y análisis de competidores.</li>
-          <li>Desarrollo de imagen de marca (branding y guías de estilo).</li>
-          <li>Gestión integral de medios (email, content, SEO).</li>
-          <li>Soporte opcional por email.</li>
+        <p class="mt-2"><strong class="text-5xl">$250</strong><span class="ml-2 text-gray-500 text-2xl font-semibold">/mes</span></p>
+        <ul class="mt-6 space-y-4 list-inside text-gray-300">
+          <li><i class="fa-solid fa-check bg-blue-600 rounded-full p-1 text-[9px] font-extrabold mr-2 "></i>Creación de
+            website dinámico (hasta 12 páginas).</li>
+          <li><i class="fa-solid fa-check bg-blue-600 rounded-full p-1 text-[9px] font-extrabold mr-2 "></i>Email
+            corporativo (opcional).</li>
+          <li><i class="fa-solid fa-check bg-blue-600 rounded-full p-1 text-[9px] font-extrabold mr-2 "></i>Marketing
+            digital personalizado y análisis de competidores.</li>
+          <li><i class="fa-solid fa-check bg-blue-600 rounded-full p-1 text-[9px] font-extrabold mr-2 "></i>Desarrollo
+            de imagen de marca (branding y guías de estilo).</li>
+          <li><i class="fa-solid fa-check bg-blue-600 rounded-full p-1 text-[9px] font-extrabold mr-2 "></i>Gestión
+            integral de medios (email, content, SEO).</li>
+          <li><i class="fa-solid fa-check bg-blue-600 rounded-full p-1 text-[9px] font-extrabold mr-2 "></i>Soporte
+            opcional por email.</li>
         </ul>
       </div>
-      <button
-        class="mt-8 w-full rounded-lg bg-green-600 py-3 px-4 font-bold text-white transition hover:bg-green-700"
-      >
-        Más información
+      <button class="mt-8 w-full rounded-lg bg-green-600 py-3 px-4 font-bold text-white transition hover:bg-green-700">
+        Comienza Ahora
       </button>
     </div>
 
     <!-- Plan Emprendedores (sección especial) -->
     <div
-      class="col-span-1 md:col-span-2 lg:col-span-3 mt-12 rounded-2xl border border-dashed border-gray-600 bg-gray-900 p-8 text-white"
-    >
+      class="col-span-1 md:col-span-2 lg:col-span-3 mt-12 rounded-2xl border border-dashed border-gray-600 bg-gray-900 p-8 text-white">
       <div class="text-center">
         <h3 class="text-2xl font-bold">
           ✨ Plan Emprendedores: ¡Arranca tu Visibilidad Digital! ✨
@@ -109,31 +134,39 @@
           Diseñado para quienes tienen grandes ideas pero capital limitado.
           ¡Despega en el mundo digital sin una gran inversión inicial!
         </p>
+        <p class="mt-2"><strong class="text-5xl">$75</strong><span class="ml-2 text-gray-500 text-2xl font-semibold">/mes</span></p>
       </div>
       <div class="mt-8 grid grid-cols-1 gap-8 md:grid-cols-2">
         <div class="rounded-lg bg-gray-800 p-6">
           <h4 class="text-xl font-semibold">
             Tu Marca, Perfectamente Definida 🎨
           </h4>
-          <ul class="mt-4 list-disc list-inside space-y-2 text-gray-300">
+          <ul class="mt-4 list-inside space-y-2 text-gray-300">
             <li>
+              <i class="fa-solid fa-check bg-blue-600 rounded-full p-1 text-[9px] font-extrabold mr-2 "></i>
               Definición de reglas de contenido: colores, tipografías y logos.
             </li>
-            <li>Aseguramos una representación digital única y coherente.</li>
-            <li>Guías claras para mantener la esencia de tu negocio.</li>
+            <li><i class="fa-solid fa-check bg-blue-600 rounded-full p-1 text-[9px] font-extrabold mr-2 "></i>Aseguramos
+              una representación digital única y coherente.</li>
+            <li><i class="fa-solid fa-check bg-blue-600 rounded-full p-1 text-[9px] font-extrabold mr-2 "></i>Guías
+              claras para mantener la esencia de tu negocio.</li>
           </ul>
         </div>
         <div class="rounded-lg bg-gray-800 p-6">
           <h4 class="text-xl font-semibold">
             Contenido Orgánico que Conecta 🚀
           </h4>
-          <ul class="mt-4 list-disc list-inside space-y-2 text-gray-300">
+          <ul class="mt-4 list-inside space-y-2 text-gray-300">
             <li>
+              <i class="fa-solid fa-check bg-blue-600 rounded-full p-1 text-[9px] font-extrabold mr-2 "></i>
               Contenido orgánico en dos plataformas clave (ej. Instagram,
               Facebook).
             </li>
-            <li>2 a 3 publicaciones semanales estratégicas.</li>
-            <li>Estrategias para aumentar tu interacción y alcance natural.</li>
+            <li><i class="fa-solid fa-check bg-blue-600 rounded-full p-1 text-[9px] font-extrabold mr-2 "></i>2 a 3
+              publicaciones semanales estratégicas.</li>
+            <li><i
+                class="fa-solid fa-check bg-blue-600 rounded-full p-1 text-[9px] font-extrabold mr-2 "></i>Estrategias
+              para aumentar tu interacción y alcance natural.</li>
           </ul>
         </div>
       </div>
@@ -143,8 +176,7 @@
           abandonadas.
         </p>
         <button
-          class="mt-6 transform rounded-full bg-blue-600 py-3 px-8 font-bold text-white shadow-lg transition-all duration-300 hover:scale-105 hover:bg-blue-700"
-        >
+          class="mt-6 transform rounded-full bg-blue-600 py-3 px-8 font-bold text-white shadow-lg transition-all duration-300 hover:scale-105 hover:bg-blue-700">
           ¡Quiero que mi marca brille!
         </button>
       </div>
@@ -152,13 +184,96 @@
   </div>
 </section>
 <section class="mt-4">
-  <article class="card m-1 flex flex-col">
-    <p class="font-serif italic">&quot;El marketing en motores de búsqueda y la optimización de motores de búsqueda son de importancia crítica para los negocios en línea. Puede gastar cada centavo que tenga en un sitio web, pero todo será en vano si nadie sabe que su sitio está allí.&quot;</p>
+  <article class="card m-1 mx-auto lg:my-16 flex flex-col max-w-xl">
+    <p class="font-serif italic">&quot;El marketing en motores de búsqueda y la optimización de motores de búsqueda son
+      de importancia crítica para los negocios en línea. Puede gastar cada centavo que tenga en un sitio web, pero todo
+      será en vano si nadie sabe que su sitio está allí.&quot;</p>
     <span class="text-sm italic">— Marc Ostrofsky (experto en marketing digital y autor).</span>
   </article>
 </section>
-<section class="hidden">
-  <div class="bg-neutral-950/90 fixed size-full top-0 left-0 z-25 max-md:py-14 flex justify-center items-center ">
-    <app-contact class="dark z-26 rounded-xl "></app-contact>
+<section>
+  <section class="container mx-auto px-4 mt-16">
+  <h2 class="text-4xl font-extrabold text-center tracking-tight sm:text-5xl mb-12">
+    Comparativa de Planes
+  </h2>
+  <div class="overflow-x-auto rounded-lg shadow-xl">
+    <table class="w-full text-left text-gray-400">
+      <thead class="text-[14px] uppercase bg-gray-800 text-gray-300 ">
+        <tr class="*:min-w-12">
+          <th scope="col" class="py-6 px-3 rounded-l-lg sticky z-10 left-0">Característica</th>
+          <th scope="col" class="py-6 pl-1 w-64">Económico</th>
+          <th scope="col" class="py-6 pl-1 w-64 bg-purple-900 text-white rounded-t-lg">Profesional</th>
+          <th scope="col" class="py-6 pl-1 w-64">Negocios</th>
+          <th scope="col" class="py-6 pl-1 w-64 rounded-r-lg">Emprendedores</th>
+        </tr>
+      </thead>
+      <tbody class="[&_th]:px-3 [&_th]:sticky [&_th]:z-10 [&_th]:left-0 [&>tr>td:last-child]:pr-3 divide-y divide-border">
+        <tr class=" ">
+          <th scope="row" class="py-3 px-1 font-medium whitespace-nowrap text-white">Precio / Mes</th>
+          <td class="py-3 px-1 text-xl font-bold">$160</td>
+          <td class="py-3 px-1 bg-purple-900 text-white text-xl font-bold">$175</td>
+          <td class="py-3 px-1 text-xl font-bold">$250</td>
+          <td class="py-3 px-1 text-xl font-bold">$75</td>
+        </tr>
+        <tr class="">
+          <th scope="row" class="py-3 px-1 font-medium whitespace-nowrap text-white">Gestión RRSS y Contenido</th>
+          <td class="py-3 px-1"><i class="fa-solid fa-check text-green-500 mr-2"></i>3 plataformas, 3-4 posts/sem</td>
+          <td class="py-3 px-1 bg-purple-900 text-white"><i class="fa-solid fa-check text-green-500 mr-2"></i>Ads pagados, interacción, comunidad</td>
+          <td class="py-3 px-1"><i class="fa-solid fa-check text-green-500 mr-2"></i>Marketing digital personalizado, gestión integral de medios</td>
+          <td class="py-3 px-1"><i class="fa-solid fa-check text-green-500 mr-2"></i>2 plataformas, 2-3 posts/sem</td>
+        </tr>
+        <tr class="">
+          <th scope="row" class="py-3 px-1 font-medium whitespace-nowrap text-white">Creación de Contenido</th>
+          <td class="py-3 px-1"><i class="fa-solid fa-check text-green-500 mr-2"></i>Sí</td>
+          <td class="py-3 px-1 bg-purple-900 text-white"><i class="fa-solid fa-check text-green-500 mr-2"></i>En campañas de ads</td>
+          <td class="py-3 px-1"><i class="fa-solid fa-check text-green-500 mr-2"></i>Parte de marketing personalizado</td>
+          <td class="py-3 px-1"><i class="fa-solid fa-check text-green-500 mr-2"></i>Sí</td>
+        </tr>
+        <tr class="">
+          <th scope="row" class="py-3 px-1 font-medium whitespace-nowrap text-white">Branding / Imagen de Marca</th>
+          <td class="py-3 px-1"><i class="fa-solid fa-check text-green-500 mr-2"></i>Definición de reglas de contenido</td>
+          <td class="py-3 px-1 bg-purple-900 text-white"><i class="fa-solid fa-check text-green-500 mr-2"></i>Sí</td>
+          <td class="py-3 px-1"><i class="fa-solid fa-check text-green-500 mr-2"></i>Desarrollo de branding y guías</td>
+          <td class="py-3 px-1"><i class="fa-solid fa-check text-green-500 mr-2"></i>Definición de reglas de contenido</td>
+        </tr>
+        <tr class="">
+          <th scope="row" class="py-3 px-1 font-medium whitespace-nowrap text-white">Reportes</th>
+          <td class="py-3 px-1"><i class="fa-solid fa-check text-green-500 mr-2"></i>Semanal</td>
+          <td class="py-3 px-1 bg-purple-900 text-white"><i class="fa-solid fa-check text-green-500 mr-2"></i>Quincenal</td>
+          <td class="py-3 px-1"><i class="fa-solid fa-check text-green-500 mr-2"></i>Análisis de competidores</td>
+          <td class="py-3 px-1"><i class="fa-solid fa-xmark text-red-500 mr-2"></i>No incluye</td>
+        </tr>
+        <tr class="">
+          <th scope="row" class="py-3 px-1 font-medium whitespace-nowrap text-white">Website</th>
+          <td class="py-3 px-1"><i class="fa-solid fa-xmark text-red-500 mr-2"></i>No incluye</td>
+          <td class="py-3 px-1 bg-purple-900 text-white"><i class="fa-solid fa-check text-green-500 mr-2"></i>Sí</td>
+          <td class="py-3 px-1"><i class="fa-solid fa-check text-green-500 mr-2"></i>Gestión a Website existente</td>
+          <td class="py-3 px-1"><i class="fa-solid fa-xmark text-red-500 mr-2"></i>No incluye</td>
+        </tr>
+        <tr class="">
+          <th scope="row" class="py-3 px-1 font-medium whitespace-nowrap text-white">SEO Inicial</th>
+          <td class="py-3 px-1"><i class="fa-solid fa-xmark text-red-500 mr-2"></i>No incluye</td>
+          <td class="py-3 px-1 bg-purple-900 text-white"><i class="fa-solid fa-check text-green-500 mr-2"></i>On-page y palabras clave</td>
+          <td class="py-3 px-1"><i class="fa-solid fa-check text-green-500 mr-2"></i>Gestión integral de SEO</td>
+          <td class="py-3 px-1"><i class="fa-solid fa-xmark text-red-500 mr-2"></i>No incluye</td>
+        </tr>
+        <tr class="">
+          <th scope="row" class="py-3 px-1 font-medium whitespace-nowrap text-white">Email Corporativo</th>
+          <td class="py-3 px-1"><i class="fa-solid fa-xmark text-red-500 mr-2"></i>No incluye</td>
+          <td class="py-3 px-1 bg-purple-900 text-white"><i class="fa-solid fa-xmark text-red-500 mr-2"></i>No incluye</td>
+          <td class="py-3 px-1"><i class="fa-solid fa-check text-green-500 mr-2"></i>Opcional</td>
+          <td class="py-3 px-1"><i class="fa-solid fa-xmark text-red-500 mr-2"></i>No incluye</td>
+        </tr>
+        <tr class="">
+          <th scope="row" class="py-3 px-1 font-medium whitespace-nowrap text-white">Soporte </th>
+          <td class="py-3 px-1">Estándar</td>
+          <td class="py-3 px-1 bg-purple-900 text-white">Estándar</td>
+          <td class="py-3 px-1"><i class="fa-solid fa-check text-green-500 mr-2"></i>Opcional por email</td>
+          <td class="py-3 px-1">Estándar</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
+</section>
+
 </section>
