@@ -9,6 +9,28 @@ import { ResponsiveService } from '../../../tools/responsive.service';
     styleUrl: './layout3.component.css'
 })
 export class Layout3Component implements OnInit {
+    public prices = {
+        economic: {
+            name: "Plan Económico",
+            price: 160,
+            maxprice: 160,
+        },
+        professional: {
+            name: "Plan Profesional",
+            price: 175,
+            maxprice: 175
+        },
+        business: {
+            name: "Plan Negocios",
+            price: 250,
+            maxprice: 250
+        },
+        startup: {
+            name: "Plan Emprendedores",
+            price: 75,
+            maxprice: 89.99
+        }
+    }
     constructor(private rs: ResponsiveService) {}
     
     ngOnInit(): void {

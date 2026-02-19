@@ -6,7 +6,7 @@
     <h1 class="text-4xl font-extrabold tracking-tight sm:text-5xl">
       Gestión de Proyectos a tu Medida
     </h1>
-    <p class="mx-auto mt-6 max-w-2xl text-lg text-gray-400">
+    <p class="mx-auto mt-6 max-w-2xl text-lg text-secondary">
       Diseño, implemento y mantengo cada detalle de tu presencia en línea.
       Pruebo con dedicación para asegurar la máxima calidad y ofrecerte la mejor
       solución posible.
@@ -20,8 +20,8 @@
       transition-transform duration-300 hover:scale-103 hover:border-neutral-300 z-2">
       <div class="flex-grow">
         <h3 class="text-xl font-bold">Plan Económico 💰</h3>
-        <p class="mt-2 text-gray-400">Arranque e impulso 🚀</p>
-        <p class="mt-2"><strong class="text-5xl">$160</strong><span class="ml-2 text-gray-500 text-2xl font-semibold">/mes</span></p>
+        <p class="mt-2 text-secondary">Arranque e impulso 🚀</p>
+        <p class="mt-2"><strong class="text-5xl">${{this.prices.economic.price}}</strong><span class="ml-2 text-secondary text-2xl font-semibold">/mes</span></p>
         <ul class="mt-6 space-y-4 list-inside text-gray-300 ">
           <li>
             <i class="fa-solid fa-check bg-blue-600 rounded-full p-1 text-[9px] font-extrabold mr-2 "></i>
@@ -43,11 +43,22 @@
             <i class="fa-solid fa-check bg-blue-600 rounded-full p-1 text-[9px] font-extrabold mr-2 "></i>
             Aseguramos una representación digital única y coherente.
           </li>
+          <li>
+            <i class="fa-solid fa-check bg-blue-600 rounded-full p-1 text-[9px] font-extrabold mr-2 "></i>
+            Estrategias para aumentar tu interacción y alcance natural.
+          </li>
         </ul>
+        <hr class="my-6 border-gray-700" >
+        <h4 class="font-bold text-primary">Incluye Regalías 🎁</h4>
+        <ol>
+          <li><i class="fa-solid fa-check bg-blue-600 rounded-full p-1 text-[9px] font-extrabold mr-2 "></i>
+            Diseño digital de mockups (hasta 8 productos)
+          </li>
+        </ol>
       </div>
       <button
-        class="mt-8 w-full rounded-lg border ring border-green-400 ring-green-800 bg-green-600 py-3 px-4 font-bold text-white transition hover:bg-green-700"
-        onclick="const it=document.querySelector('#message');it.innerHTML='Hola! Tengo interés en el plan profesional';it.style.color='#1d2';window.location.href=window.location.pathname+'#contact';">
+        class="mt-8 w-full rounded-lg border ring border-green-400 ring-green-800 bg-green-600 py-3 px-4 font-bold text-primary transition hover:bg-green-700"
+        onclick="window.location.href='contact-me';">
         Comienza ahora
       </button>
     </div>
@@ -60,8 +71,8 @@
       </p>
       <div class="flex-grow">
         <h3 class="mt-2 text-2xl font-bold">Plan Profesional 💼</h3>
-        <p class="mt-2 text-gray-400">Conecta con tu público 🍐</p>
-        <p class="mt-2"><strong class="text-5xl">$175</strong><span class="ml-2 text-gray-500 text-2xl font-semibold">/mes</span></p>
+        <p class="mt-2 text-secondary">Conecta con tu público 🍐</p>
+        <p class="mt-2"><strong class="text-5xl">${{this.prices.professional.price}}</strong><span class="ml-2 text-secondary text-2xl font-semibold">/mes</span></p>
         <ul class="mt-6 space-y-4 list-inside text-gray-300">
           <li>
             <i class="fa-solid fa-check bg-blue-600 rounded-full p-1 text-[9px] font-extrabold mr-2 "></i>
@@ -77,7 +88,7 @@
           </li>
         </ul>
         <hr class="my-6 border-gray-700" />
-        <h4 class="font-bold text-white">Incluye Plus ✨</h4>
+        <h4 class="font-bold text-primary">Incluye Plus ✨</h4>
         <ul class="mt-4 space-y-4 list-inside text-gray-300">
           <li><i class="fa-solid fa-check bg-blue-600 rounded-full p-1 text-[9px] font-extrabold mr-2 "></i>Creación de
             website responsive (hasta 8 páginas).</li>
@@ -90,7 +101,7 @@
         </ul>
       </div>
       <button
-        class="mt-8 w-full rounded-lg bg-purple-600 hover:bg-purple-700 py-3 px-4 font-bold text-white transition "
+        class="mt-8 w-full rounded-lg bg-purple-600 hover:bg-purple-700 py-3 px-4 font-bold text-primary transition "
         onclick="const it=document.querySelector('#message');it.innerHTML='Hola! Tengo interés en el plan profesional';it.style.color='1d2';window.location.href=window.location.pathname+'#contact';">
         Empieza Ahora
       </button>
@@ -101,8 +112,8 @@
       class="flex flex-col rounded-2xl border border-gray-700 bg-gray-900 p-8 shadow-lg transition-transform duration-300 hover:scale-103 hover:border-blue-500 z-2">
       <div class="flex-grow">
         <h3 class="text-xl font-bold">Plan Negocios 📢</h3>
-        <p class="mt-2 text-gray-400">Llama la atención 🚨</p>
-        <p class="mt-2"><strong class="text-5xl">$250</strong><span class="ml-2 text-gray-500 text-2xl font-semibold">/mes</span></p>
+        <p class="mt-2 text-secondary">Llama la atención 🚨</p>
+        <p class="mt-2"><strong class="text-5xl">${{this.prices.business.price}}</strong><span class="ml-2 text-secondary text-2xl font-semibold">/mes</span></p>
         <ul class="mt-6 space-y-4 list-inside text-gray-300">
           <li><i class="fa-solid fa-check bg-blue-600 rounded-full p-1 text-[9px] font-extrabold mr-2 "></i>Creación de
             website dinámico (hasta 12 páginas).</li>
@@ -118,23 +129,23 @@
             opcional por email.</li>
         </ul>
       </div>
-      <button class="mt-8 w-full rounded-lg bg-green-600 py-3 px-4 font-bold text-white transition hover:bg-green-700">
+      <button class="mt-8 w-full rounded-lg bg-green-600 py-3 px-4 font-bold text-primary transition hover:bg-green-700">
         Comienza Ahora
       </button>
     </div>
 
     <!-- Plan Emprendedores (sección especial) -->
     <div
-      class="col-span-1 md:col-span-2 lg:col-span-3 mt-12 rounded-2xl border border-dashed border-gray-600 bg-gray-900 p-8 text-white">
+      class="col-span-1 md:col-span-2 lg:col-span-3 mt-12 rounded-2xl border border-dashed border-gray-600 bg-gray-900 p-8 text-primary">
       <div class="text-center">
         <h3 class="text-2xl font-bold">
           ✨ Plan Emprendedores: ¡Arranca tu Visibilidad Digital! ✨
         </h3>
-        <p class="mt-4 max-w-3xl mx-auto text-gray-400">
+        <p class="mt-4 max-w-3xl mx-auto text-secondary">
           Diseñado para quienes tienen grandes ideas pero capital limitado.
           ¡Despega en el mundo digital sin una gran inversión inicial!
         </p>
-        <p class="mt-2"><strong class="text-5xl">$75</strong><small class="text-gray-400 line-through text-xl ml-2">$89.99</small><span class="ml-2 text-gray-500 text-2xl font-semibold">/mes</span></p>
+        <p class="mt-2"><strong class="text-5xl"><small class="text-secondary line-through text-xl mr-2">${{this.prices.startup.maxprice}}</small>${{this.prices.startup.price}}</strong><span class="ml-2 text-secondary text-2xl font-semibold">/mes</span></p>
       </div>
       <div class="mt-8 grid grid-cols-1 gap-8 md:grid-cols-2">
         <div class="rounded-lg bg-gray-800 p-6">
@@ -176,7 +187,7 @@
           abandonadas.
         </p>
         <button
-          class="mt-6 transform rounded-full bg-blue-600 py-3 px-8 font-bold text-white shadow-lg transition-all duration-300 hover:scale-105 hover:bg-blue-700">
+          class="mt-6 transform rounded-full bg-blue-600 py-3 px-8 font-bold text-primary shadow-lg transition-all duration-300 hover:scale-105 hover:bg-blue-700">
           ¡Quiero que mi marca brille!
         </button>
       </div>
@@ -198,77 +209,77 @@
     Comparativa de Planes
   </h2>
   <div class="overflow-x-auto rounded-lg shadow-xl md:border md:border-dashed md:border-gray-600 md:p-4  ">
-    <table class="w-full text-left text-gray-400 ">
+    <table class="w-full text-left text-secondary ">
       <thead class="text-[14px] uppercase bg-gray-800 text-gray-300">
         <tr class="">
           <th scope="col" class="py-6 px-3 rounded-l-lg sticky z-10 left-0">Característica</th>
           <th scope="col" class="py-6 pl-1 pr-20 md:pr-16">Económico</th>
-          <th scope="col" class="py-6 pl-1 pr-20 md:pr-16 bg-purple-900 text-white rounded-t-lg">Profesional</th>
+          <th scope="col" class="py-6 pl-1 pr-20 md:pr-16 bg-purple-900 text-primary rounded-t-lg">Profesional</th>
           <th scope="col" class="py-6 pl-1 pr-20 md:pr-16">Negocios</th>
           <th scope="col" class="py-6 pl-1 pr-20 md:pr-16 rounded-r-lg">Emprendedores</th>
         </tr>
       </thead>
       <tbody class="[&_th]:px-3 [&_th]:sticky [&_th]:z-10 [&_th]:left-0 divide-y divide-border">
         <tr class=" ">
-          <th scope="row" class="py-3 px-3 font-medium whitespace-nowrap text-white">Precio / Mes</th>
-          <td class="py-3 px-3 text-xl font-bold">$160 <small class="text-gray-500">USD</small></td>
-          <td class="py-3 px-3 bg-purple-900 text-white text-xl font-bold">$175 <small class="text-gray-500">USD</small></td>
-          <td class="py-3 px-3 text-xl font-bold">$250 <small class="text-gray-500">USD</small></td>
-          <td class="py-3 px-3 text-xl font-bold">$75 <small class="text-gray-500">USD</small></td>
+          <th scope="row" class="py-3 px-3 font-medium whitespace-nowrap text-primary">Precio / Mes</th>
+          <td class="py-3 px-3 text-xl font-bold">${{this.prices.economic.price}} <small class="text-secondary">USD</small></td>
+          <td class="py-3 px-3 bg-purple-900 text-primary text-xl font-bold">${{this.prices.professional.price}} <small class="text-secondary">USD</small></td>
+          <td class="py-3 px-3 text-xl font-bold">${{this.prices.business.price}} <small class="text-secondary">USD</small></td>
+          <td class="py-3 px-3 text-xl font-bold text-primary"><small class="text-secondary line-through text-md mr-2">${{this.prices.startup.maxprice}}</small>${{this.prices.startup.price}} <small class="text-secondary">USD</small></td>
         </tr>
         <tr class="">
-          <th scope="row" class="py-3 px-3 font-medium whitespace-nowrap text-white">Gestión RRSS y Contenido</th>
+          <th scope="row" class="py-3 px-3 font-medium whitespace-nowrap text-primary">Gestión RRSS y Contenido</th>
           <td class="py-3 px-3"><i class="fa-solid fa-check text-green-500 mr-2"></i>3 plataformas, 3-4 posts/sem</td>
-          <td class="py-3 px-3 bg-purple-900 text-white"><i class="fa-solid fa-check text-green-500 mr-2"></i>Ads pagados, interacción, comunidad</td>
+          <td class="py-3 px-3 bg-purple-900 text-primary"><i class="fa-solid fa-check text-green-500 mr-2"></i>Ads pagados, interacción, comunidad</td>
           <td class="py-3 px-3"><i class="fa-solid fa-check text-green-500 mr-2"></i>Marketing digital personalizado, gestión integral de medios</td>
           <td class="py-3 px-3"><i class="fa-solid fa-check text-green-500 mr-2"></i>2 plataformas, 2-3 posts/sem</td>
         </tr>
         <tr class="">
-          <th scope="row" class="py-3 px-3 font-medium whitespace-nowrap text-white">Creación de Contenido</th>
+          <th scope="row" class="py-3 px-3 font-medium whitespace-nowrap text-primary">Creación de Contenido</th>
           <td class="py-3 px-3"><i class="fa-solid fa-check text-green-500 mr-2"></i>Sí</td>
-          <td class="py-3 px-3 bg-purple-900 text-white"><i class="fa-solid fa-check text-green-500 mr-2"></i>En campañas de ads</td>
+          <td class="py-3 px-3 bg-purple-900 text-primary"><i class="fa-solid fa-check text-green-500 mr-2"></i>En campañas de ads</td>
           <td class="py-3 px-3"><i class="fa-solid fa-check text-green-500 mr-2"></i>Parte de marketing personalizado</td>
           <td class="py-3 px-3"><i class="fa-solid fa-check text-green-500 mr-2"></i>Sí</td>
         </tr>
         <tr class="">
-          <th scope="row" class="py-3 px-3 font-medium whitespace-nowrap text-white">Branding / Imagen de Marca</th>
+          <th scope="row" class="py-3 px-3 font-medium whitespace-nowrap text-primary">Branding / Imagen de Marca</th>
           <td class="py-3 px-3"><i class="fa-solid fa-check text-green-500 mr-2"></i>Definición de reglas de contenido</td>
-          <td class="py-3 px-3 bg-purple-900 text-white"><i class="fa-solid fa-check text-green-500 mr-2"></i>Sí</td>
+          <td class="py-3 px-3 bg-purple-900 text-primary"><i class="fa-solid fa-check text-green-500 mr-2"></i>Sí</td>
           <td class="py-3 px-3"><i class="fa-solid fa-check text-green-500 mr-2"></i>Desarrollo de branding y guías</td>
           <td class="py-3 px-3"><i class="fa-solid fa-check text-green-500 mr-2"></i>Definición de reglas de contenido</td>
         </tr>
         <tr class="">
-          <th scope="row" class="py-3 px-3 font-medium whitespace-nowrap text-white">Reportes</th>
+          <th scope="row" class="py-3 px-3 font-medium whitespace-nowrap text-primary">Reportes</th>
           <td class="py-3 px-3"><i class="fa-solid fa-check text-green-500 mr-2"></i>Semanal</td>
-          <td class="py-3 px-3 bg-purple-900 text-white"><i class="fa-solid fa-check text-green-500 mr-2"></i>Quincenal</td>
+          <td class="py-3 px-3 bg-purple-900 text-primary"><i class="fa-solid fa-check text-green-500 mr-2"></i>Quincenal</td>
           <td class="py-3 px-3"><i class="fa-solid fa-check text-green-500 mr-2"></i>Análisis de competidores</td>
           <td class="py-3 px-3"><i class="fa-solid fa-xmark text-red-500 mr-2"></i>No incluye</td>
         </tr>
         <tr class="">
-          <th scope="row" class="py-3 px-3 font-medium whitespace-nowrap text-white">Website</th>
+          <th scope="row" class="py-3 px-3 font-medium whitespace-nowrap text-primary">Website</th>
           <td class="py-3 px-3"><i class="fa-solid fa-xmark text-red-500 mr-2"></i>No incluye</td>
-          <td class="py-3 px-3 bg-purple-900 text-white"><i class="fa-solid fa-check text-green-500 mr-2"></i>Sí</td>
+          <td class="py-3 px-3 bg-purple-900 text-primary"><i class="fa-solid fa-check text-green-500 mr-2"></i>Sí</td>
           <td class="py-3 px-3"><i class="fa-solid fa-check text-green-500 mr-2"></i>Gestión a Website existente</td>
           <td class="py-3 px-3"><i class="fa-solid fa-xmark text-red-500 mr-2"></i>No incluye</td>
         </tr>
         <tr class="">
-          <th scope="row" class="py-3 px-3 font-medium whitespace-nowrap text-white">SEO Inicial</th>
+          <th scope="row" class="py-3 px-3 font-medium whitespace-nowrap text-primary">SEO Inicial</th>
           <td class="py-3 px-3"><i class="fa-solid fa-xmark text-red-500 mr-2"></i>No incluye</td>
-          <td class="py-3 px-3 bg-purple-900 text-white"><i class="fa-solid fa-check text-green-500 mr-2"></i>On-page y palabras clave</td>
+          <td class="py-3 px-3 bg-purple-900 text-primary"><i class="fa-solid fa-check text-green-500 mr-2"></i>On-page y palabras clave</td>
           <td class="py-3 px-3"><i class="fa-solid fa-check text-green-500 mr-2"></i>Gestión integral de SEO</td>
           <td class="py-3 px-3"><i class="fa-solid fa-xmark text-red-500 mr-2"></i>No incluye</td>
         </tr>
         <tr class="">
-          <th scope="row" class="py-3 px-3 font-medium whitespace-nowrap text-white">Email Corporativo</th>
+          <th scope="row" class="py-3 px-3 font-medium whitespace-nowrap text-primary">Email Corporativo</th>
           <td class="py-3 px-3"><i class="fa-solid fa-xmark text-red-500 mr-2"></i>No incluye</td>
-          <td class="py-3 px-3 bg-purple-900 text-white"><i class="fa-solid fa-xmark text-red-500 mr-2"></i>Opcional</td>
+          <td class="py-3 px-3 bg-purple-900 text-primary"><i class="fa-solid fa-xmark text-red-500 mr-2"></i>Opcional</td>
           <td class="py-3 px-3"><i class="fa-solid fa-check text-green-500 mr-2"></i>A convenir</td>
           <td class="py-3 px-3"><i class="fa-solid fa-xmark text-red-500 mr-2"></i>No incluye</td>
         </tr>
         <tr class="">
-          <th scope="row" class="py-3 px-3 font-medium text-white">Responder Mensajes y Comentarios </th>
+          <th scope="row" class="py-3 px-3 font-medium text-primary">Responder Mensajes y Comentarios </th>
           <td class="py-3 px-3"><i class="fa-solid fa-xmark text-red-500 mr-2"></i>No incluye</td>
-          <td class="py-3 px-3 bg-purple-900 text-white"><i class="fa-solid fa-xmark text-red-500 mr-2"></i>No incluye</td>
+          <td class="py-3 px-3 bg-purple-900 text-primary"><i class="fa-solid fa-xmark text-red-500 mr-2"></i>No incluye</td>
           <td class="py-3 px-3"><i class="fa-solid fa-check text-green-500 mr-2"></i>Sí</td>
           <td class="py-3 px-3"><i class="fa-solid fa-xmark text-red-500 mr-2"></i>No incluye</td>
         </tr>

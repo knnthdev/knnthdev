@@ -1,13 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { ContactComponent } from '../forms/contact/contact.component';
-import { CVComponent } from '../forms/cv/cv.component';
-import { ResponsiveService } from '../../tools/responsive.service';
+import { RouterModule } from '@angular/router';
 import { Title, Meta } from '@angular/platform-browser';
+import { ResponsiveService } from '../../tools/responsive.service';
+import { CVComponent } from '../forms/cv/cv.component';
 
 
 @Component({
   selector: 'app-home',
-  imports: [ContactComponent],
+  imports: [ContactComponent, RouterModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
 })
