@@ -64,7 +64,7 @@ export class ContactComponent implements OnInit {
 
     // debug.push("submitForm)
     this.brevo.sendEmail(this.form.value).subscribe({
-      next: (res) => {
+      next: (res: any) => {
         this.OpenDialog();
 
         this.IsSubmitted = true;
@@ -72,7 +72,7 @@ export class ContactComponent implements OnInit {
         // debug.push("res: " + JSON.stringify(res));
         // display.innerHTML = debug.join("<br>");
       },
-      error: (err) => {
+      error: (err: any) => {
         this.IsSubmitted = false;
 
         this.OpenDialog();
