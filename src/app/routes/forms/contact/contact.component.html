@@ -1,27 +1,48 @@
 <section id="">
-  <a class="md:hidden" addto="myNavbar" show-if-view="/contact-me" href="https://wa.me/50584739470"><i
+  <a id="wame" class="md:hidden" addto="myNavbar" show-if-view="/contact-me" href="https://wa.me/50584739470"><i
       class="fa-brands fa-whatsapp"></i> Whatsapp</a>
 </section>
 <section class="mx-3">
   <div class="flex flex-row max-md:flex-col md:gap-x-8">
     <section class="w-full ">
-      <form id="contact-form" class="md:max-w-md sm:w-full mx-auto my-9 flex flex-col ">
-        <formgroup id="put_name" class="mb-2">
-          <label for="name" class="block mb-2 text-sm font-medium text-primary">Escribe tu nombre</label>
-          <input type="text" id="name" name="name" class="outline-none border text-sm rounded-lg block w-full p-2.5 bg-btn-secondary border-gray-400
-            placeholder-gray-400 text-secondary focus:ring-blue-500 focus:border-hoverbutton"
+      <form id="contact-form" class="md:max-w-md sm:w-full mx-auto my-9 flex flex-col " [formGroup]="form"
+        (ngSubmit)="this.submitForm()">
+
+        <formgroup id="put_name" class="relative mb-2">
+          <label for="name" class="mb-2 text-sm font-medium text-primary w-full relative">
+            Escribe tu nombre
+          </label>
+          <input type="text" id="name" name="name" formControlName="name" class="outline-none border text-sm rounded-lg block w-full p-2.5 bg-btn-secondary border-gray-400
+              placeholder-gray-400 text-secondary focus:ring-blue-500 focus:border-hoverbutton"
             placeholder="Dejame saber tu nombre..." required />
+          <i id="name-invalid" class="fa fa-exclamation-triangle absolute right-2 top-2 text-amber-500 " data-tooltip="Este campo es requerido."
+            data-tooltip-theme="yellow">
+          </i>
+          <i id="name-valid" class="fa-solid fa-circle-check absolute right-2 top-2 text-green-500 " data-tooltip="Enviado"
+            data-tooltip-theme="green">
+          </i>
         </formgroup>
-        <formgroup id="put_email" class="mb-2">
-          <label for="email" class="block mb-2 text-sm font-medium text-primary">Escribe tu email o número de teléfono</label>
-          <input type="email" id="email" name="email" class="outline-none border text-secondary text-sm rounded-lg block w-full p-2.5 bg-btn-secondary border-gray-400
+
+        <formgroup id="put_email" class="relative mb-2">
+          <label for="email" class="block mb-2 text-sm font-medium text-primary">Escribe tu email o número de
+            teléfono</label>
+          <input type="email" id="email" name="email" formControlName="email" class="outline-none border text-secondary text-sm rounded-lg block w-full p-2.5 bg-btn-secondary border-gray-400
            placeholder-gray-400 focus:ring-blue-500 focus:border-hoverbutton" placeholder="name@example.com"
             required />
+            <i id="email-invalid" class="fa fa-exclamation-triangle absolute right-2 top-2 text-amber-500 " data-tooltip="Este campo es requerido."
+            data-tooltip-theme="yellow">
+          </i>
+          <i id="email-valid" class="fa-solid fa-circle-check absolute right-2 top-2 text-green-500 " data-tooltip="Enviado"
+            data-tooltip-theme="green">
+          </i>
+          <i id="email-error" class="fa-solid fa-circle-x absolute right-2 top-2 text-red-600 " data-tooltip="El formato de correo no es el correcto, ej: name@example.com"
+            data-tooltip-theme="yellow">
+          </i>
         </formgroup>
 
         <formgroup id="put_msg" class="mb-4">
           <label for="message" class="block mb-2 text-sm font-medium text-primary">Escribe tu mensaje</label>
-          <textarea id="message" name="message" rows="4" class="outline-none block p-2.5 w-full text-sm text-secondary rounded-lg border border-gray-400 bg-btn-secondary
+          <textarea id="message" name="message" formControlName="msg" rows="4" class="outline-none block p-2.5 w-full text-sm text-secondary rounded-lg border border-gray-400 bg-btn-secondary
             placeholder-gray-400 focus:ring-blue-500 focus:border-hoverbutton "
             placeholder="En qué te puedo ayudarte?..."></textarea>
         </formgroup>
@@ -31,19 +52,19 @@
             @for (it of this.checklist; track $index) {
             <div class="flex flex-row">
               <input id="chb-{{$index}}" name="{{it}}" type="checkbox" value=""
-                class="min-w-4 min-h-4 size-4 outline-none border rounded focus:ring-1  focus:ring-btn-secondary ring-offset-0 accent-btn-primary " />
+                class="min-w-4 min-h-4 size-4 outline-none border rounded focus:ring-1 focus:ring-btn-secondary ring-offset-0 accent-btn-primary " />
               <label id="label-{{$index}}" attr.data-tooltip="{{it}}" for="chb-{{$index}}"
                 class="ms-2 text-sm font-medium text-secondary">{{it}}</label>
             </div>
             }
           </formgroup>
         </fieldset>
-        <button type="submit"
-          class="text-white hover:bg-hoverbutton focus:ring-4 focus:outline-none font-medium rounded-lg text-sm w-full sm:w-auto px-5 mt-4 py-2.5 text-center bg-btn-submit focus:ring-btn-submit">
+        <button type="submit" class="text-white hover:bg-hoverbutton focus:ring-4 focus:outline-none font-medium rounded-lg text-sm w-full sm:w-auto px-5 mt-4 py-2.5
+          text-center bg-btn-submit focus:ring-btn-submit">
           Enviar
         </button>
       </form>
-      <console id="console" class="block h-max w-full mx-auto p-3 bg-[#111] rounded-sm shadow-lg hidden">
+      <console id="console" class="block h-max w-full mx-auto p-3 bg-[#111] rounded-sm shadow-sm mb-8 whitespace-pre-wrap">
         .
       </console>
       <dialog id="dialog">
@@ -139,9 +160,11 @@
       </span>
     </a>
   </div>
-  <div show-if-view="/contact-me" class="flex items-center my-2 rounded-xl p-2 w-fit max-h-9 border border-neutral-100" data-tooltip="para la creación de QR totalmente gratuito y personalizable.">
+  <div show-if-view="/contact-me" class="flex items-center my-2 rounded-xl p-2 w-fit max-h-9 border border-neutral-100"
+    data-tooltip="para la creación de QR totalmente gratuito y personalizable.">
     <a href="https://www.qrcode-monkey.com/en" target="_blank" id="qr-monkey-logo" class="">
-      <img src="https://www.qrcode-monkey.com/img/qr-code-monkey-logo-new-white.svg" class="h-6 w-auto" alt="QR Code Monkey Logo">
+      <img src="https://www.qrcode-monkey.com/img/qr-code-monkey-logo-new-white.svg" class="h-6 w-auto"
+        alt="QR Code Monkey Logo">
     </a>
   </div>
 </section>

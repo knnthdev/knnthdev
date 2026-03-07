@@ -1,7 +1,10 @@
 @import "tailwindcss";
 
-@import "./typography.css";
 @import "./themes.css";
+
+@source "./app/routes/forms/**/*.component.{html,ts,css}";
+@source "./app/routes/projects/**/*.component.{html,ts,css}";
+@source "./app/routes/**/*.component.{html,ts,css}";
 
 html {
   line-height: 1.8;

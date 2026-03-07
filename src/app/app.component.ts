@@ -93,11 +93,17 @@ export class AppComponent implements OnInit {
 
     this.timer?.setCallback((this._hideTooltip as Function).bind(this));
     this.timer?.start(this.limitTime);
-    //this._showTooltipWhileMoving(eventmouse);
+
+    const class_custumer = (eventmouse.target as HTMLElement).getAttribute("data-tooltip-theme");
+    if (class_custumer) {
+      this.tooltip.classList.add(class_custumer);
+      console.log(class_custumer);
+    }
+
+    this._showTooltipWhileMoving(eventmouse);
   }
 
   _showTooltipWhileMoving(eventmouse: MouseEvent) {
-    
     const windowMouseY = eventmouse.clientY;
     const windowMouseX = eventmouse.clientX;
     const tooltipWidth = this.tooltip.offsetWidth;
@@ -106,7 +112,7 @@ export class AppComponent implements OnInit {
     const viewportWidth = window.innerWidth;
     const viewportHeight = window.innerHeight;
     const positionl = windowMouseX - (tooltipWidth / 2);
-        
+    
     const positionLeft = this.tooltip.getBoundingClientRect().left;
     const positionRight = this.tooltip.getBoundingClientRect().right;
     const Cdivx = windowMouseX - positionLeft;
@@ -139,5 +145,8 @@ export class AppComponent implements OnInit {
   _hideTooltip() {
     this.timer?.stop();
     this.tooltip.style.visibility = "hidden";
+    this.tooltip.style.top = "0px";
+    this.tooltip.style.left = "0px";
+    this.tooltip.className = "";
   }
 }

@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ContactComponent } from '../../forms/contact/contact.component';
 import { ResponsiveService } from '../../../tools/responsive.service';
 
 @Component({
     selector: 'app-layout3',
-    imports: [ContactComponent],
+    imports: [],
     templateUrl: './layout3.component.html',
     styleUrl: './layout3.component.css'
 })

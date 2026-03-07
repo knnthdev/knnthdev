@@ -20,7 +20,9 @@
             "outputPath": "dist/knnthdev",
             "index": "src/index.html",
             "browser": "src/main.ts",
-            "polyfills": ["zone.js"],
+            "polyfills": [
+              "zone.js"
+            ],
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "css",
             "assets": [
@@ -30,12 +32,19 @@
               }
             ],
             "styles": [
-              "src/styles.css",
-              "src/themes.css",
+              "src/all.css",
               "src/typography.css",
-              "src/all.css"
+              "src/themes.css",
+              "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "src/app/routes",
+                "src/app/routes/forms",
+                "src/app/routes/projects"
+              ]
+            }
           },
           "configurations": {
             "production": {
@@ -92,10 +101,10 @@
               }
             ],
             "styles": [
-              "src/styles.css",
-              "src/themes.css",
+              "src/all.css",
               "src/typography.css",
-              "src/all.css"
+              "src/themes.css",
+              "src/styles.css"
             ],
             "scripts": []
           }
