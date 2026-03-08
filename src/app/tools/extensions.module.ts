@@ -260,23 +260,24 @@ export class Extension implements ExtendedElement<HTMLElement> {
             }
         return this;
     }
-    public select(selector: string): ExtendedElement<HTMLElement>[] {
+    public select(callback: (el: HTMLElement | HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement, index?: number) => boolean): ExtendedElement<HTMLElement> {
         if (this.elements) {
-            const result: ExtendedElement<HTMLElement>[] = [];
-            for (const element of this.elements) {
-                const elements = element.querySelectorAll(selector);
-                for (let i = 0; i < elements.length; i++) {
-                    result.push(new Extension(elements[i] as HTMLElement));
-                }
+            let list: HTMLElement[] = [];
+            for (let i = 0; i < this.elements.length; i++) {
+                const result = callback.bind(this)(this.elements[i], i);
+                if (result)
+                    list.push(this.elements[i]);
             }
-            return result;
+            return new Extension(list);
         }
-        const elements = this.element!.querySelectorAll(selector);
-        const result: ExtendedElement<HTMLElement>[] = [];
-        for (let i = 0; i < elements.length; i++) {
-            result.push(new Extension(elements[i] as HTMLElement));
+        if (this.element) {
+            for (let i = 0; i < this.element!.children.length; i++) {
+                const result = callback.bind(this)(this.element!.children[i] as HTMLElement, i);
+                if (result)
+                    return new Extension(this.element!.children[i] as HTMLElement);
+            }
         }
-        return result;
+        return new Extension(null);   
     }
     public isEmpty(): boolean {
         return (this.element!.textContent == '' && this.length == 0);
@@ -465,7 +466,7 @@ interface ExtendedElement<T extends HTMLElement = HTMLElement> {
 
     // Iteration
     forEach(callback: (el: T, index?: number, array?: T[]) => void): this;
-    select(selector: string): ExtendedElement<HTMLElement>[];
+    select(callback: (el: T, index?: number) => boolean): ExtendedElement<HTMLElement>;
 
     // Utility
     isEmpty(): boolean;

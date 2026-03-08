@@ -15,11 +15,11 @@
           <input type="text" id="name" name="name" formControlName="name" class="outline-none border text-sm rounded-lg block w-full p-2.5 bg-btn-secondary border-gray-400
               placeholder-gray-400 text-secondary focus:ring-blue-500 focus:border-hoverbutton"
             placeholder="Dejame saber tu nombre..." required />
-          <i id="name-invalid" class="fa fa-exclamation-triangle absolute right-2 top-2 text-amber-500 " data-tooltip="Este campo es requerido."
-            data-tooltip-theme="yellow">
+          <i id="name-invalid" class="fa fa-exclamation-triangle absolute right-2 top-2 text-amber-500 invisible"
+            data-tooltip="Este campo es requerido." data-tooltip-theme="yellow">
           </i>
-          <i id="name-valid" class="fa-solid fa-circle-check absolute right-2 top-2 text-green-500 " data-tooltip="Enviado"
-            data-tooltip-theme="green">
+          <i id="name-valid" class="fa-solid fa-circle-check absolute right-2 top-2 text-green-500 invisible"
+            data-tooltip="Enviado" data-tooltip-theme="green">
           </i>
         </formgroup>
 
@@ -29,25 +29,25 @@
           <input type="email" id="email" name="email" formControlName="email" class="outline-none border text-secondary text-sm rounded-lg block w-full p-2.5 bg-btn-secondary border-gray-400
            placeholder-gray-400 focus:ring-blue-500 focus:border-hoverbutton" placeholder="name@example.com"
             required />
-            <i id="email-invalid" class="fa fa-exclamation-triangle absolute right-2 top-2 text-amber-500 " data-tooltip="Este campo es requerido."
-            data-tooltip-theme="yellow">
+          <i id="email-invalid" class="fa fa-exclamation-triangle absolute right-2 top-2 text-amber-500 invisible"
+            data-tooltip="Este campo es requerido." data-tooltip-theme="yellow">
           </i>
-          <i id="email-valid" class="fa-solid fa-circle-check absolute right-2 top-2 text-green-500 " data-tooltip="Enviado"
-            data-tooltip-theme="green">
+          <i id="email-valid" class="fa-solid fa-circle-check absolute right-2 top-2 text-green-500 invisible"
+            data-tooltip="Enviado" data-tooltip-theme="green">
           </i>
-          <i id="email-error" class="fa-solid fa-circle-x absolute right-2 top-2 text-red-600 " data-tooltip="El formato de correo no es el correcto, ej: name@example.com"
-            data-tooltip-theme="yellow">
+          <i id="email-error" class="fa-solid fa-circle-x absolute right-2 top-2 text-red-600 invisible"
+            data-tooltip="El formato de correo no es el correcto, ej: name@example.com" data-tooltip-theme="yellow">
           </i>
         </formgroup>
 
         <formgroup id="put_msg" class="mb-4">
-          <label for="message" class="block mb-2 text-sm font-medium text-primary">Escribe tu mensaje</label>
-          <textarea id="message" name="message" formControlName="msg" rows="4" class="outline-none block p-2.5 w-full text-sm text-secondary rounded-lg border border-gray-400 bg-btn-secondary
+          <label for="msg" class="block mb-2 text-sm font-medium text-primary">Escribe tu mensaje</label>
+          <textarea id="msg" name="msg" formControlName="msg" rows="4" class="outline-none block p-2.5 w-full text-sm text-secondary rounded-lg border border-gray-400 bg-btn-secondary
             placeholder-gray-400 focus:ring-blue-500 focus:border-hoverbutton "
             placeholder="En qué te puedo ayudarte?..."></textarea>
         </formgroup>
 
-        <fieldset id="checkboxes" class="flex items-start">
+        <fieldset id="checkboxes" class="flex items-start" >
           <formgroup class="grid grid-cols-2 gap-4 bg-btn-secondary rounded-lg border border-line p-4">
             @for (it of this.checklist; track $index) {
             <div class="flex flex-row">
@@ -64,7 +64,8 @@
           Enviar
         </button>
       </form>
-      <console id="console" class="block h-max w-full mx-auto p-3 bg-[#111] rounded-sm shadow-sm mb-8 whitespace-pre-wrap">
+      <console id="console"
+        class="block h-max w-full mx-auto p-3 bg-[#111] rounded-sm shadow-sm mb-8 whitespace-pre-wrap">
         .
       </console>
       <dialog id="dialog">

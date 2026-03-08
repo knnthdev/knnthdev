@@ -96,6 +96,7 @@ export class ContactComponent implements OnInit {
   private v_signal() {
     const name = this.form.get('name');
     const email = this.form.get('email');
+    const msg = this.form.get('msg');
 
     const ds = {
       nameValid: $('name-valid'),
@@ -111,7 +112,7 @@ export class ContactComponent implements OnInit {
       it.hide();
     });
 
-    if (name?.touched || email?.touched) {
+    if (name?.touched || email?.touched || msg?.touched || $('[type="checkbox"]').select((it) => (it as HTMLInputElement).checked ).isChecked()) {
       if (name?.invalid)
         ds.nameInvalid.show();
       else
