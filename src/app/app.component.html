@@ -1,7 +1,10 @@
-<!-- <div id="container" class="w-screen h-screen overflow-y-scroll"> -->
 <app-head class="visible" role="banner"></app-head>
-<main class="lg:container overflow-hidden mx-auto" role="main">
+<!-- 
+  Hemos añadido padding-top (pt-12 y md:pt-14) para dejar espacio para el encabezado fijo.
+  Esto empuja el contenido hacia abajo para que no quede oculto.
+-->
+<main id="main" class="lg:container overflow-hidden mx-auto pt-12 md:pt-14" role="main">
   <router-outlet></router-outlet>
+  <app-foot role="contentinfo"></app-foot>
 </main>
-<app-foot role="contentinfo"></app-foot>
 <div id="tooltip" role="tooltip"></div>

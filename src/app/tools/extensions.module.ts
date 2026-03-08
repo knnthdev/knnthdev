@@ -16,10 +16,10 @@ export class Extension implements ExtendedElement<HTMLElement> {
             let siblings: any = null;
             if (selector.trim().startsWith('<'))
                 this.element = document.createElement(selector as string);
+            else
+                siblings = document.querySelectorAll(selector as string);
 
-            siblings = document.querySelectorAll(selector as string);
-
-            if (siblings.length == 0 && !selector.trim().startsWith('[')) {
+            if (siblings.length == 0 && !['[', '#', '.'].includes(selector[0] as string) && !this.element) {
                 this.element = document.querySelector(`#${selector}`) as HTMLElement;
             }
 
@@ -201,14 +201,13 @@ export class Extension implements ExtendedElement<HTMLElement> {
         return this;
     }
 
-    public on(eventName: string, listener: (ev: Event, it: ExtendedElement<HTMLElement>) => any, options?: boolean | AddEventListenerOptions): this
+    public on(eventName: string, listener: (ev: Event | any, it?: HTMLElement) => void, options?: boolean | AddEventListenerOptions): this
     {
-        this.element!.addEventListener(eventName as string, (event) => {
-            listener(event, new Extension(event.target as HTMLElement));
+        this.element!?.addEventListener(eventName as string, (event) => {
+            listener(event, event.target as HTMLElement);
         }, options as boolean | AddEventListenerOptions);
         return this;
     }
-    public off(eventName: string, listener?: ((this: HTMLElement, ev: Event) => any) | undefined, options?: boolean | EventListenerOptions): this;
     public off(eventName: unknown, listener?: unknown, options?: unknown): this {
         this.element!.removeEventListener(eventName as string, listener as (this: HTMLElement, ev: Event) => any, options as boolean | EventListenerOptions);
         return this;
@@ -452,8 +451,8 @@ interface ExtendedElement<T extends HTMLElement = HTMLElement> {
 
     // Event Handling
     //on(eventName: string, eventName1?: string, eventName2?: string, eventName3?: string, eventName4?: string, listener?: (ev: Event, it: ExtendedElement<HTMLElement>) => any, options?: boolean | AddEventListenerOptions): this
-    on(eventName: string, listener: (this: T, ev: Event) => any, options?: boolean | AddEventListenerOptions): this;
-    off(eventName: string, listener?: (this: T, ev: Event) => any, options?: boolean | EventListenerOptions): this;
+    on(eventName: string, listener: (ev: Event | any, it?: T) => void, options?: boolean | AddEventListenerOptions): this;
+    off(eventName: string, listener?: (ev: Event | any, it?: T) => void, options?: boolean | EventListenerOptions): this;
     trigger(event: Event): this;
 
     // RxJS Observables for Events

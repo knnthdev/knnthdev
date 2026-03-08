@@ -1,68 +1,44 @@
-<nav
-  id="navbar"
-  class="z-50 top-0 left-0 w-full max-md:bg-transparent"
->
+<nav id="navbar" class="fixed top-0 left-0 w-full z-20 transition-colors duration-300" [class.scrolled]="isScrolled">
   <div class="w-full justify-center flex-col items-center p-0 md:px-24">
-    <div
-      class="lg:container lg:mx-auto md:h-14 flex justify-between p-3 max-md:max-h-12 items-center
-      [&_a]:hover:text-hoverbutton"
-      id="myNavbar"
-    >
+    <div id="ref" class="lg:container lg:mx-auto md:h-14 flex justify-between p-3 max-md:max-h-12 items-center [&_a]:hover:text-hoverbutton">
+      <!-- Botón de menú móvil -->
       <section class="md:hidden flex flex-row items-center">
-        <label id="ham" class="pointer" title="Navigation Menu">
+        <label id="ham" class="pointer" title="Navigation Menu" (click)="toggleMenu()">
           <i id="icon-ham" class="fa fa-bars p-3 mr-1 rounded hover:bg-btn-secondary"></i>
         </label>
         <figure class="block">
-          <a href="#navbar" class="no-underline ">
-            <img src="/assets/logo.svg" width="30px" height="30px" >
+          <a href="#navbar" class="no-underline">
+            <img src="/assets/logo.svg" width="30px" height="30px">
           </a>
         </figure>
       </section>
-      <a href="/home#home" class=" max-md:hidden"
-        ><i class="fa-solid fa-home"></i> Inicio</a
-      >
-      <a href="/home#about" class=" max-md:hidden"
-        ><i class="fa-solid fa-user"></i> Sobre mí</a
-      >
-      <a href="/home#portfolio" class=" max-md:hidden"
-        ><i class="fa-solid fa-briefcase"></i> Mis Servicios</a
-      >
-      <a href="/home#contact" class=" max-md:hidden"
-        ><i class="fa fa-envelope"></i> Contacto
-      </a>
-      <p class="hidden" id="log">
 
-      </p>
-      <!-- <i
-        id="btn-theme"
-        class="mr-3 size-8 md:m-3 text-center content-center rounded-full hover:bg-gray-300 hover:text-blue dark:hover:text-black fa-solid fa-sun"
-        (click)="toggleTheme()"
-      >
-      </i> -->
+      <!-- Enlaces para escritorio -->
+      <a href="/home#home" class="max-md:hidden"><i class="fa-solid fa-home"></i> Inicio</a>
+      <a href="/home#about" class="max-md:hidden"><i class="fa-solid fa-user"></i> Sobre mí</a>
+      <a href="/home#portfolio" class="max-md:hidden"><i class="fa-solid fa-briefcase"></i> Portfolio</a>
+      <a href="/home#services" class="max-md:hidden"><i class="fa-solid fa-diagram-project"></i> Servicios</a>
+      <a href="/home#contact" class="max-md:hidden"><i class="fa-solid fa-envelope"></i> Contacto</a>
     </div>
-
-    <!-- Navbar on small screens -->
-    <section id="desploy" class="bg-background left-0 w-full absolute">
-      <div
-        id="monitor"
-        class="max-md:flex w-full p-5 justify-center flex-col items-center"
-      >
-        <a
-          href="/home#about"
-          class="hover:text-gray-600 m-1"
-          >ABOUT</a
-        >
-        <a
-          href="/home#portfolio"
-          class="hover:text-gray-600 m-1"
-          >PORTFOLIO</a
-        >
-        <a
-          href="/home#contact"
-          class="hover:text-gray-600 m-1"
-          >CONTACT</a
-        >
-      </div>
-    </section>
   </div>
 </nav>
+
+<!-- Menú Deslizable desde Arriba -->
+<div 
+  id="full-screen-menu"
+  class="fixed top-0 left-0 w-full h-full bg-opacity-90 z-50 flex flex-col items-center justify-center space-y-8"
+  [ngStyle]="menuStyle"
+  (touchstart)="onTouchStart($event)"
+  (touchmove)="onTouchMove($event)"
+  (touchend)="onTouchEnd()"
+>
+  <a href="/home#home" class="text-4xl text-gray-300 hover:text-white" (click)="toggleMenu()">Inicio</a>
+  <a href="/home#about" class="text-4xl text-gray-300 hover:text-white" (click)="toggleMenu()">Sobre mí</a>
+  <a href="/home#portfolio" class="text-4xl text-gray-300 hover:text-white" (click)="toggleMenu()">Portfolio</a>
+  <a href="/home#services" class="text-4xl text-gray-300 hover:text-white" (click)="toggleMenu()">Servicios</a>
+  <a href="/home#contact" class="text-4xl text-gray-300 hover:text-white" (click)="toggleMenu()">Contacto</a>
+
+  <a href="javascript:void(0)" class="absolute top-5 right-5 text-4xl text-gray-300 hover:text-white" (click)="toggleMenu()">
+    &times;
+  </a>
+</div>
