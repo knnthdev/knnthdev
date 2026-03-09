@@ -1,12 +1,13 @@
 import { Component, NO_ERRORS_SCHEMA, OnInit } from '@angular/core';
 import { BrevoService } from '../../../tools/brevo.service';
 import { ReactiveFormsModule, FormControl, FormGroup, Validators } from '@angular/forms';
+import { RouterModule, ActivatedRoute } from '@angular/router';
 import { ResponsiveService } from '../../../tools/responsive.service';
 import { $ } from '../../../tools/extensions.module';
 
 @Component({
   selector: 'app-contact',
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, RouterModule],
   templateUrl: './contact.component.html',
   styleUrl: './contact.component.css',
   schemas: [NO_ERRORS_SCHEMA]
@@ -49,8 +50,6 @@ export class ContactComponent implements OnInit {
       $.ready(() => {
         this.v_signal();
       });
-      // get the checklist checked in form
-      // const debug: string[] = [];
     }
   }
 

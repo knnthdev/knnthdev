@@ -7,7 +7,7 @@
           <i id="icon-ham" class="fa fa-bars p-3 mr-1 rounded hover:bg-btn-secondary"></i>
         </label>
         <figure class="block">
-          <a href="#navbar" class="no-underline">
+          <a class="cursor-pointer" routerLink="/home" target="_self">
             <img src="/assets/logo.svg" width="30px" height="30px">
           </a>
         </figure>
@@ -16,7 +16,6 @@
       <!-- Enlaces para escritorio -->
       <a href="/home#home" class="max-md:hidden"><i class="fa-solid fa-home"></i> Inicio</a>
       <a href="/home#about" class="max-md:hidden"><i class="fa-solid fa-user"></i> Sobre mí</a>
-      <a href="/home#portfolio" class="max-md:hidden"><i class="fa-solid fa-briefcase"></i> Portfolio</a>
       <a href="/home#services" class="max-md:hidden"><i class="fa-solid fa-diagram-project"></i> Servicios</a>
       <a href="/home#contact" class="max-md:hidden"><i class="fa-solid fa-envelope"></i> Contacto</a>
     </div>
@@ -32,13 +31,12 @@
   (touchmove)="onTouchMove($event)"
   (touchend)="onTouchEnd()"
 >
-  <a href="/home#home" class="text-4xl text-gray-300 hover:text-white" (click)="toggleMenu()">Inicio</a>
-  <a href="/home#about" class="text-4xl text-gray-300 hover:text-white" (click)="toggleMenu()">Sobre mí</a>
-  <a href="/home#portfolio" class="text-4xl text-gray-300 hover:text-white" (click)="toggleMenu()">Portfolio</a>
-  <a href="/home#services" class="text-4xl text-gray-300 hover:text-white" (click)="toggleMenu()">Servicios</a>
-  <a href="/home#contact" class="text-4xl text-gray-300 hover:text-white" (click)="toggleMenu()">Contacto</a>
+  <a href="/home#home" class="text-4xl text-primary hover:text-secondary" (click)="toggleMenu()">Inicio</a>
+  <a href="/home#about" class="text-4xl text-primary hover:text-secondary" (click)="toggleMenu()">Sobre mí</a>
+  <a href="/home#services" class="text-4xl text-primary hover:text-secondary" (click)="toggleMenu()">Servicios</a>
+  <a href="/home#contact" class="text-4xl text-primary hover:text-secondary" (click)="toggleMenu()">Contacto</a>
 
-  <a href="javascript:void(0)" class="absolute top-5 right-5 text-4xl text-gray-300 hover:text-white" (click)="toggleMenu()">
+  <a href="javascript:void(0)" class="absolute top-5 right-5 text-4xl text-primary hover:text-secondary" (click)="toggleMenu()">
     &times;
   </a>
 </div>

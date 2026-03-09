@@ -1,12 +1,13 @@
 import { Component, HostListener } from '@angular/core';
 import { CommonModule, NgStyle } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-head',
   standalone: true,
-  imports: [CommonModule, NgStyle],
+  imports: [CommonModule, NgStyle, RouterModule],
   templateUrl: './head.component.html',
-  styleUrls: ['./head.component.css']
+  styleUrl: './head.component.css'
 })
 export class HeadComponent {
   isMenuOpen = false;
