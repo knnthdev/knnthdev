@@ -278,6 +278,20 @@ export class Extension implements ExtendedElement<HTMLElement> {
         }
         return new Extension(null);   
     }
+    public map<outcome>(callback: (el: HTMLElement, index?: number) => outcome): outcome[] {
+        if (this.elements) {
+            let list: outcome[] = [];
+            for (let i = 0; i < this.elements.length; i++) {
+                list.push(callback.bind(this)(this.elements[i], i));
+            }
+            return list;
+        }
+        if (this.element) 
+            Array.from(this.element.children).flatMap((it) => {
+                return callback.bind(this)(it as HTMLElement);
+            });
+        return [];
+    }
     public isEmpty(): boolean {
         return (this.element!.textContent == '' && this.length == 0);
     }
@@ -466,6 +480,7 @@ interface ExtendedElement<T extends HTMLElement = HTMLElement> {
     // Iteration
     forEach(callback: (el: T, index?: number, array?: T[]) => void): this;
     select(callback: (el: T, index?: number) => boolean): ExtendedElement<HTMLElement>;
+    map<outcome>(callback: (el: T, index?: number) => outcome ): outcome[];
 
     // Utility
     isEmpty(): boolean;

@@ -62,7 +62,9 @@ export class ContactComponent implements OnInit {
       return;
 
     // debug.push("submitForm)
-    this.brevo.sendEmail(this.form.value).subscribe({
+    this.brevo.sendEmail(this.form.value,
+      $('[type="checkbox"]').select((it) => (it as HTMLInputElement).checked ).map((it)=>{return it.textContent as string}))
+      .subscribe({
       next: (res: any) => {
         this.OpenDialog();
 
