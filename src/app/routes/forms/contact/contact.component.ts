@@ -38,22 +38,21 @@ export class ContactComponent implements OnInit {
   });
   IsSubmitted = false;
 
-  constructor(public brevo: BrevoService, private rs: ResponsiveService) {
+  constructor(public brevo: BrevoService, private rs: ResponsiveService, private route: ActivatedRoute) {
   }
-
+  
   ngOnInit(): void {
     if (this.rs.isLoaded()) {
       // if the path is /contact-me
       if ($.amIn("/contact-me"))
         this.rs.changeTheme("blue");
-
+      
       $.ready(() => {
         this.v_signal();
       });
+      
     }
   }
-
-
 
   public submitForm() {
     this.v_signal();
@@ -63,22 +62,19 @@ export class ContactComponent implements OnInit {
 
     // debug.push("submitForm)
     this.brevo.sendEmail(this.form.value,
-      $('[type="checkbox"]').select((it) => (it as HTMLInputElement).checked ).map((it)=>{return it.textContent as string}))
+      $('[type="checkbox"]').select((it) => (it as HTMLInputElement).checked ).map((it)=>{return $(it).next().text()}))
       .subscribe({
       next: (res: any) => {
         this.OpenDialog();
 
         this.IsSubmitted = true;
         this.form.reset();
-        // debug.push("res: " + JSON.stringify(res));
-        // display.innerHTML = debug.join("<br>");
+        this.v_signal();
       },
       error: (err: any) => {
         this.IsSubmitted = false;
 
         this.OpenDialog();
-        // debug.push("error: " + err.message);
-        // display.innerHTML = debug.join("<br>");
       }
     });
 
@@ -127,8 +123,17 @@ export class ContactComponent implements OnInit {
         ds.emailValid.show();
 
 
-    }
-
-
+    }    
   }
+
+  public nameValid(): boolean {
+    const name = this.form.get('name');
+    return name?.valid ?? false;      
+  }
+
+  public emailValid(): boolean {
+    const email = this.form.get('email');
+    return (email?.valid ?? false);
+  }
+
 }

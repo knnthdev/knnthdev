@@ -106,17 +106,17 @@ export class BrevoService {
                               font-size: 16px;
                               font-weight: bold;
                               color: #1b5e20;">
-                      Nombre / Organización
+                      Kenneth Briones
                     </p>
                     <p style="margin: 0 0 4px 0;
                               font-size: 13px;
                               color: #777777;">
-                      Cargo o descripción
+                      Marketing digital y desarrollo web
                     </p>
                     <p style="margin: 0;
                               font-size: 13px;
                               color: #777777;">
-                      sitio@web.com &nbsp;|&nbsp; +00 000 000 0000
+                      business@kennethbriones.com &nbsp;|&nbsp; +505 8473 9470
                     </p>
                   </td>
                 </tr>
@@ -133,7 +133,7 @@ export class BrevoService {
               <p style="margin: 0;
                         color: #a5d6a7;
                         font-size: 12px;">
-                © 2026 Tu Organización · Todos los derechos reservados
+                © 2026 www.kennethbriones.com · Todos los derechos reservados
               </p>
             </td>
           </tr>

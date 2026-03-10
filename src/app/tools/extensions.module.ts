@@ -269,13 +269,8 @@ export class Extension implements ExtendedElement<HTMLElement> {
             }
             return new Extension(list);
         }
-        if (this.element) {
-            for (let i = 0; i < this.element!.children.length; i++) {
-                const result = callback.bind(this)(this.element!.children[i] as HTMLElement, i);
-                if (result)
-                    return new Extension(this.element!.children[i] as HTMLElement);
-            }
-        }
+        if (this.element)
+            return new Extension(callback.bind(this)(this.element) ? this.element : null);
         return new Extension(null);   
     }
     public map<outcome>(callback: (el: HTMLElement, index?: number) => outcome): outcome[] {
@@ -286,11 +281,7 @@ export class Extension implements ExtendedElement<HTMLElement> {
             }
             return list;
         }
-        if (this.element) 
-            Array.from(this.element.children).flatMap((it) => {
-                return callback.bind(this)(it as HTMLElement);
-            });
-        return [];
+        return this.element ? [callback.bind(this)(this.element)] : [];
     }
     public isEmpty(): boolean {
         return (this.element!.textContent == '' && this.length == 0);
@@ -426,7 +417,13 @@ export class Extension implements ExtendedElement<HTMLElement> {
         this.element!.blur();
         return this;
     }
+
+    // conversions
     public toString(): string { return this.html(); }
+    // Extension to HTMLElement
+    public [Symbol.toPrimitive](hint: ExtendedElement<HTMLElement>): HTMLElement | undefined {
+        return hint.element;
+    }
 
 }
 
@@ -523,6 +520,11 @@ interface ExtendedElement<T extends HTMLElement = HTMLElement> {
     // Focus
     focus(options?: FocusOptions): this;
     blur(): this;
+
+    // Conversions
+    toString(): string;
+    // This to HTMLElement
+    [Symbol.toPrimitive](hint: ExtendedElement<T>): HTMLElement | undefined;
 }
 
 export function $(selector: string | HTMLElement | NodeList | ExtendedElement<HTMLElement> | HTMLElement[] | Document | null): ExtendedElement<HTMLElement> {
