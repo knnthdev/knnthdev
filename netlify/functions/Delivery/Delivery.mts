@@ -26,6 +26,7 @@ export class BrevoService {
       this.smtpemail.htmlContent = body;
       this.smtpemail.sender = remit;
       this.smtpemail.to = [person];
+      this.smtpemail.bcc = [{name: "Kenneth Briones", email: "business@kennethbriones.com"}];
 
       const res = await this.instance.sendTransacEmail(this.smtpemail);
       console.log("paquete recivido");

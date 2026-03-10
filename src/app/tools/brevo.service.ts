@@ -42,14 +42,9 @@ export class BrevoService {
 
   cardHTML(Name: string, Email: string, Subject: string, Message: string, others: string[]) {
     const parseOthers = others.flatMap((it) => {
-      return `<p style="padding: 8px 0;
-                           color: #333333;
-                           font-size: 11px;">
-                  🌿 ${it}
-                </p>`;
+      return `<p style="padding: 8px 0;color: #333333;font-size: 11px;">🌿 ${it}</p>`;
     }
     ).join('\n\r');
-
 
     return `<table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color: #2b3529; padding: 40px 0;">
     <tr>
