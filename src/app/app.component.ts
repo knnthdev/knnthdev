@@ -1,8 +1,9 @@
 import { Component, OnInit, HostListener } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { RouterOutlet, Router, NavigationEnd, NavigationStart } from '@angular/router';
 import { HeadComponent } from './routes/head/head.component';
 import { FootComponent } from './routes/foot/foot.component';
 import { ResponsiveService, TimeCounter } from './tools/responsive.service';
+import { $ } from './tools/extensions.module';
 
 @Component({
   selector: 'app-root',
@@ -21,7 +22,8 @@ export class AppComponent implements OnInit {
   limitTime = 4000;
   timer: TimeCounter | undefined;
 
-  constructor(private rs: ResponsiveService) {
+  constructor(private rs: ResponsiveService, private router: Router) {
+    
   }
 
   ngOnInit(): void {
@@ -29,8 +31,8 @@ export class AppComponent implements OnInit {
       this.timer = new TimeCounter();
 
       this.tooltipHandle();
-      this.pluginsComponentsHandle();
       this.viewElementHandle();
+      this.pluginsComponentsHandle();
     }
   }
 
@@ -40,26 +42,36 @@ export class AppComponent implements OnInit {
   }
 
   viewElementHandle() {
-    window.addEventListener("load", () => {
-      let elementsSelected = document.querySelectorAll("[show-if-view]") as NodeListOf<HTMLElement>;
-      elementsSelected.forEach((it) => {
-        const view = it.getAttribute("show-if-view")!;
-        // if path is the same in view, show the element
-        if (window.location.pathname !== view) {
-          it.style.display = "none";
+    interface scroll {routerEvent: any; position: null; anchor: null; type: any};
+    $.ready(() => {
+      let elementsSelected = $("[show-if-view]");
+      this.router.events.subscribe((event) => {
+        console.log(event);
+        if ((event as scroll ).routerEvent instanceof NavigationEnd)
+        {
+          elementsSelected.forEach((it) => {
+            const view = $(it).attr("show-if-view")!;
+            // if path is the same in view, show the element
+              if ($.amIn(view)) {
+                $(it).show();
+              } else {
+                $(it).hide();
+              }    
+          });
         }
       });
+
     });
   }
 
   pluginsComponentsHandle() {
-    window.addEventListener("load", () => {
-      let pluginsElements = document.querySelectorAll("[addto]") as NodeListOf<HTMLElement>;
+    $.ready(() => {
+      let pluginsElements = $('[addto]');
       pluginsElements.forEach((it) => {
-        const toID = it.getAttribute("addto")!;
-        const toElement = document.getElementById(toID);
+        const toID = $(it).attr("addto");
+        const toElement = $(toID);
         if (toElement) {
-          toElement.appendChild(it);
+          toElement.append(it);
           it.removeAttribute("addto");
         }
       });
@@ -68,18 +80,18 @@ export class AppComponent implements OnInit {
   }
 
   tooltipHandle() {
-    window.addEventListener("load", () => {
+    $.ready(() => {
       this.tipitems = document.querySelectorAll("[data-tooltip]") as NodeListOf<HTMLElement>;
       this.tooltip = document.getElementById("tooltip") as HTMLElement;
       this.tipitems.forEach(item => {
-        item.addEventListener("mouseover", (event) => {
+        $(item).on("mouseover", (event) => {
           const msg = item.getAttribute("data-tooltip")!;
           this._showTooltip(msg, event);
         });
-        item.addEventListener("mouseout", () => {
+        $(item).on("mouseout", () => {
           this._hideTooltip();
         });
-        item.addEventListener("mousemove", (event) => {
+        $(item).on("mousemove", (event) => {
           this._showTooltipWhileMoving(event);
         });
       });
@@ -108,11 +120,11 @@ export class AppComponent implements OnInit {
     const windowMouseX = eventmouse.clientX;
     const tooltipWidth = this.tooltip.offsetWidth;
     const tooltipHeight = this.tooltip.offsetHeight;
-    
+
     const viewportWidth = window.innerWidth;
     const viewportHeight = window.innerHeight;
     const positionl = windowMouseX - (tooltipWidth / 2);
-    
+
     const positionLeft = this.tooltip.getBoundingClientRect().left;
     const positionRight = this.tooltip.getBoundingClientRect().right;
     const Cdivx = windowMouseX - positionLeft;
@@ -127,7 +139,7 @@ export class AppComponent implements OnInit {
     }
     else
       this.tooltip.style.left = `${handleX}px`;
-    
+
     this.tooltip.style.setProperty('--left', `${Cdivx - 5}px`);
 
     if (windowMouseY > (viewportHeight - (tooltipHeight + 50))) {

@@ -1,10 +1,7 @@
-<section id="">
-  <a id="wame" class="md:hidden" addto="ref" show-if-view="/contact-me" href="https://wa.me/50584739470"><i
-      class="fa-brands fa-whatsapp"></i> Whatsapp</a>
-</section>
 <section class="mx-3">
-  <div class="flex flex-row max-md:flex-col md:gap-x-8">
-    <section class="w-full ">
+  <div class="flex flex-row max-md:flex-col md:gap-8 blue:card">
+    <section class="w-full">
+      <div id="header" class="md:max-w-md sm:w-full mx-auto my-9"></div>
       <form id="contact-form" class="md:max-w-md sm:w-full mx-auto my-9 flex flex-col " [formGroup]="form"
         (ngSubmit)="this.submitForm()">
 
@@ -47,7 +44,7 @@
             placeholder="En qué te puedo ayudarte?..."></textarea>
         </formgroup>
 
-        <fieldset id="checkboxes" class="flex items-start" >
+        <fieldset id="checkboxes" class="flex items-start">
           <formgroup class="grid grid-cols-2 gap-4 bg-btn-secondary rounded-lg border border-line p-4">
             @for (it of this.checklist; track $index) {
             <div class="flex flex-row">
@@ -65,7 +62,7 @@
         </button>
       </form>
       <console id="console"
-        class="block h-max w-full mx-auto p-3 bg-[#111] rounded-sm shadow-sm mb-8 whitespace-pre-wrap">
+        class="hidden h-max w-full mx-auto p-3 bg-[#111] rounded-sm shadow-sm mb-8 whitespace-pre-wrap">
         .
       </console>
       <dialog id="dialog">
@@ -92,10 +89,10 @@
     </section>
     <section class="w-full md:my-9 md:flex md:flex-col md:justify-between gap-y-5">
       <section>
-        <h1 class="text-2xl">
+        <h2 class="text-2xl">
           <i class="fas fa-envelope"></i>
           <strong> Contáctame </strong>
-        </h1>
+        </h2>
         <p>
           Si tienes alguna duda o necesitas ayuda, no dudes en contactarme. Mi
           equipo y yo estaremos encantado de ayudarte.
@@ -148,6 +145,7 @@
   </div>
 </section>
 <section addto="credits" class="flex flex-row w-full justify-evenly mx-2 items-center max-h-9 mb-5">
+
   <div class="flex items-center my-2 bg-[#C1FFA4] rounded-xl p-2 w-fit h-9"
     data-tooltip="Este sitio utiliza los servicios de Brevo para la recepción de mensajes">
     <a href="https://www.brevo.com/es" target="_self" aria-label="Brevo" id="brevo-logo">
@@ -161,7 +159,9 @@
       </span>
     </a>
   </div>
-  <div show-if-view="/contact-me" class="flex items-center my-2 rounded-xl p-2 w-fit max-h-9 border border-neutral-100"
+
+  <div [class.hidden]="!this.amRoute"
+    class="flex items-center my-2 rounded-xl p-2 w-fit max-h-9 border border-neutral-100"
     data-tooltip="para la creación de QR totalmente gratuito y personalizable.">
     <a href="https://www.qrcode-monkey.com/en" target="_blank" id="qr-monkey-logo" class="">
       <img src="https://www.qrcode-monkey.com/img/qr-code-monkey-logo-new-white.svg" class="h-6 w-auto"

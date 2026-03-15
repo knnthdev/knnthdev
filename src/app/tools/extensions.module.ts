@@ -14,8 +14,11 @@ export class Extension implements ExtendedElement<HTMLElement> {
         else if (typeof (selector) === 'string') {
             // detect if it's id, tag, or class
             let siblings: any = null;
-            if (selector.trim().startsWith('<'))
-                this.element = document.createElement(selector as string);
+            if (selector.trim().startsWith('<')){
+                this.element = document.createElement('div');
+                this.element!.insertAdjacentHTML('beforeend', selector);
+                this.element = this.element!.firstChild as HTMLElement;
+            }
             else
                 siblings = document.querySelectorAll(selector as string);
 
@@ -91,6 +94,15 @@ export class Extension implements ExtendedElement<HTMLElement> {
     }
     public parent(): ExtendedElement<HTMLElement> {
         return new Extension(this.element?.parentElement as HTMLElement);
+    }
+    public children(): ExtendedElement<HTMLElement> {
+        return new Extension(Array.from(this.element?.children as HTMLCollection) as HTMLElement[]);
+    }
+    public first(): ExtendedElement<HTMLElement> {
+        return new Extension(this.element?.firstElementChild as HTMLElement);
+    }
+    public last(): ExtendedElement<HTMLElement> {
+        return new Extension(this.element?.lastElementChild as HTMLElement);
     }
     public next(): ExtendedElement<HTMLElement> {
         return new Extension(this.element?.nextElementSibling as HTMLElement);
@@ -212,10 +224,9 @@ export class Extension implements ExtendedElement<HTMLElement> {
         this.element!.removeEventListener(eventName as string, listener as (this: HTMLElement, ev: Event) => any, options as boolean | EventListenerOptions);
         return this;
     }
-    public trigger(event: Event): this;
-    public trigger(eventName: unknown, detail?: unknown): this {
-        const event = new CustomEvent(eventName as string, { detail: detail || null });
-        this.element!.dispatchEvent(event);
+    public trigger(event: string, detail?: unknown): this {
+        const eventy = new CustomEvent(event as string, { detail: detail || null });
+        this.element!.dispatchEvent(eventy);
         return this;
     }
     public on$(eventName: string, options?: AddEventListenerOptions): Observable<Event>;
@@ -432,6 +443,9 @@ interface ExtendedElement<T extends HTMLElement = HTMLElement> {
     find(selector: string): ExtendedElement<HTMLElement>;
     closest(selector: string): ExtendedElement<HTMLElement>;
     parent(): ExtendedElement<HTMLElement>;
+    children(): ExtendedElement<HTMLElement>;
+    first(): ExtendedElement<HTMLElement>;
+    last(): ExtendedElement<HTMLElement>;
     next(): ExtendedElement<HTMLElement>;
     prev(): ExtendedElement<HTMLElement>;
 
@@ -464,7 +478,7 @@ interface ExtendedElement<T extends HTMLElement = HTMLElement> {
     //on(eventName: string, eventName1?: string, eventName2?: string, eventName3?: string, eventName4?: string, listener?: (ev: Event, it: ExtendedElement<HTMLElement>) => any, options?: boolean | AddEventListenerOptions): this
     on(eventName: string, listener: (ev: Event | any, it?: T) => void, options?: boolean | AddEventListenerOptions): this;
     off(eventName: string, listener?: (ev: Event | any, it?: T) => void, options?: boolean | EventListenerOptions): this;
-    trigger(event: Event): this;
+    trigger(event: string, detail?: unknown): this;
 
     // RxJS Observables for Events
     on$(eventName: string, options?: AddEventListenerOptions): Observable<Event>;

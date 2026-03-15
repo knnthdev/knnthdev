@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ResponsiveService } from '../../../tools/responsive.service';
-
+import { RouterModule } from '@angular/router';
+import { $ } from '../../../tools/extensions.module';
 
 @Component({
     selector: 'app-layout4',
-    imports: [],
+    imports: [RouterModule],
     templateUrl: './layout4.component.html',
     styleUrl: './layout4.component.css'
 })

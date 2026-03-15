@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ResponsiveService } from '../../../tools/responsive.service';
+import { RouterModule } from "@angular/router";
 
 @Component({
   selector: 'app-layout5',
-  imports: [],
+  imports: [RouterModule],
   templateUrl: './layout5.component.html',
   styleUrl: './layout5.component.css'
 })

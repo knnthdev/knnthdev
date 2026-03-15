@@ -45,6 +45,10 @@ export const routes: Routes = [
         component: ContactComponent
     },
     {
+        path: 'contact-me/:type/:price',
+        component: ContactComponent
+    },
+    {
         path: 'cv',
         component: CVComponent
     },

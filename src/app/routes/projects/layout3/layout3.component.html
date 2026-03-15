@@ -14,11 +14,11 @@
   </div>
 
   <!-- Contenedor de los planes -->
-  <div class="container mx-auto mt-16 grid grid-cols-1 gap-8 px-4 md:grid-cols-2 lg:grid-cols-3">
+  <div id="plans" class="container mx-auto mt-16 grid grid-cols-1 gap-8 px-4 md:grid-cols-2 lg:grid-cols-3">
     <!-- Plan Económico -->
     <div class="flex flex-col rounded-2xl border border-gray-700 bg-gray-800 p-8 shadow-lg 
       transition-transform duration-300 hover:scale-103 hover:border-neutral-300 z-2">
-      <div class="flex-grow">
+      <div id="plan1" class="flex-grow">
         <h3 class="text-xl font-bold">Plan Económico 💰</h3>
         <p class="mt-2 text-secondary">Arranque e impulso 🚀</p>
         <p class="mt-2"><strong class="text-5xl">${{this.prices.economic.price}}</strong><span
@@ -59,13 +59,13 @@
       </div>
       <button
         class="mt-8 w-full rounded-lg border ring border-green-400 ring-green-800 bg-green-600 py-3 px-4 font-bold text-primary transition hover:bg-green-700"
-        routerLink="/contact-me">
+        routerLink="/contact-me" [queryParams]="{ type: prices.economic.name, price: prices.economic.price }">
         Comienza ahora
       </button>
     </div>
 
     <!-- Plan Profesional (Destacado) -->
-    <div class="flex flex-col rounded-2xl border-2 border-purple-500 ring-purple-500/50 hover:border-purple-600 hover:ring-purple-700/50
+    <div id="plan2" class="flex flex-col rounded-2xl border-2 border-purple-500 ring-purple-500/50 hover:border-purple-600 hover:ring-purple-700/50
       bg-gray-900 p-8 shadow-2xl ring-2 transform scale-103 hover:scale-104 lg:scale-110 hover:lg:scale-111 z-1">
       <p class="text-sm font-semibold uppercase tracking-wider text-purple-400">
         Más Popular
@@ -104,13 +104,13 @@
       </div>
       <button
         class="mt-8 w-full rounded-lg bg-purple-600 hover:bg-purple-700 py-3 px-4 font-bold text-primary transition "
-        routerLink="/contact-me">
+        routerLink="/contact-me" [queryParams]="{ type: prices.professional.name, price: prices.professional.price }">
         Empieza Ahora
       </button>
     </div>
 
     <!-- Plan Inversores -->
-    <div
+    <div id="plan3"
       class="flex flex-col rounded-2xl border border-gray-700 bg-gray-900 p-8 shadow-lg transition-transform duration-300 hover:scale-103 hover:border-blue-500 z-2">
       <div class="flex-grow">
         <h3 class="text-xl font-bold">Plan Negocios 📢</h3>
@@ -133,13 +133,13 @@
         </ul>
       </div>
       <button class="mt-8 w-full rounded-lg bg-green-600 py-3 px-4 font-bold text-primary transition hover:bg-green-700"
-        routerLink="/contact-me">
+        routerLink="/contact-me" [queryParams]="{ type: prices.business.name, price: prices.business.price }">
         Comienza Ahora
       </button>
     </div>
 
     <!-- Plan Emprendedores (sección especial) -->
-    <div
+    <div id="plan4"
       class="col-span-1 md:col-span-2 lg:col-span-3 mt-12 rounded-2xl border border-dashed border-gray-600 bg-gray-900 p-8 text-primary">
       <div class="text-center">
         <h3 class="text-2xl font-bold">
@@ -193,7 +193,8 @@
           abandonadas.
         </p>
         <button
-          class="mt-6 transform rounded-full bg-blue-600 py-3 px-8 font-bold text-primary shadow-lg transition-all duration-300 hover:scale-105 hover:bg-blue-700">
+          class="mt-6 transform rounded-full bg-blue-600 py-3 px-8 font-bold text-primary shadow-lg transition-all duration-300 hover:scale-105 hover:bg-blue-700"
+          routerLink="/contact-me" [queryParams]="{ type: prices.startup.name, price: prices.startup.price }">
           ¡Quiero que mi marca brille!
         </button>
       </div>
@@ -210,7 +211,7 @@
 </section>
 <!-- Comparaciones de los planes -->
 <section>
-  <section class="container mx-auto px-4 mt-16">
+  <section  id="comparative" class="container mx-auto px-4 mt-16">
     <h2 class="text-4xl font-extrabold text-center tracking-tight sm:text-5xl mb-12">
       Comparativa de Planes
     </h2>

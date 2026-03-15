@@ -38,19 +38,35 @@ export class ContactComponent implements OnInit {
   });
   IsSubmitted = false;
 
+  params: { [key: string]: any } = {};
+
+  amRoute: boolean = false;
+
   constructor(public brevo: BrevoService, private rs: ResponsiveService, private route: ActivatedRoute) {
   }
-  
+
   ngOnInit(): void {
     if (this.rs.isLoaded()) {
       // if the path is /contact-me
-      if ($.amIn("/contact-me"))
+      if ((this.amRoute = $.amIn("/contact-me")))
         this.rs.changeTheme("blue");
-      
+
+      this.route.queryParams.subscribe(params => {
+        this.params = params;
+        if (this.params['type'] === undefined)
+          return;
+
+        const parse = `<h1>${this.params['type']}</h1>
+        <p class="mt-2"><strong class="text-5xl">$${this.params['price']}</strong><span
+        class="ml-2 text-secondary text-2xl font-semibold">/mes</span></p>`
+
+          $('header').empty().append(parse);
+      });
+
       $.ready(() => {
         this.v_signal();
       });
-      
+
     }
   }
 
@@ -60,23 +76,28 @@ export class ContactComponent implements OnInit {
     if (this.form.invalid)
       return;
 
-    // debug.push("submitForm)
+    const details = $('[type="checkbox"]').select((it) => (it as HTMLInputElement).checked).map((it) => { return $(it).next().text() });
+    
+    // Add params if there're
+    if (this.params['type'] !== undefined)
+      details.push(`<strong>${this.params['type']} - ${this.params['price']}</strong>`);
+
     this.brevo.sendEmail(this.form.value,
-      $('[type="checkbox"]').select((it) => (it as HTMLInputElement).checked ).map((it)=>{return $(it).next().text()}))
+      )
       .subscribe({
-      next: (res: any) => {
-        this.OpenDialog();
+        next: (res: any) => {
+          this.OpenDialog();
 
-        this.IsSubmitted = true;
-        this.form.reset();
-        this.v_signal();
-      },
-      error: (err: any) => {
-        this.IsSubmitted = false;
+          this.IsSubmitted = true;
+          this.form.reset();
+          this.v_signal();
+        },
+        error: (err: any) => {
+          this.IsSubmitted = false;
 
-        this.OpenDialog();
-      }
-    });
+          this.OpenDialog();
+        }
+      });
 
   }
 
@@ -109,7 +130,7 @@ export class ContactComponent implements OnInit {
       it.hide();
     });
 
-    if (name?.touched || email?.touched || msg?.touched || $('[type="checkbox"]').select((it) => (it as HTMLInputElement).checked ).isChecked()) {
+    if (name?.touched || email?.touched || msg?.touched || $('[type="checkbox"]').select((it) => (it as HTMLInputElement).checked).isChecked()) {
       if (name?.invalid)
         ds.nameInvalid.show();
       else
@@ -123,12 +144,12 @@ export class ContactComponent implements OnInit {
         ds.emailValid.show();
 
 
-    }    
+    }
   }
 
   public nameValid(): boolean {
     const name = this.form.get('name');
-    return name?.valid ?? false;      
+    return name?.valid ?? false;
   }
 
   public emailValid(): boolean {

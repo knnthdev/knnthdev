@@ -1,6 +1,7 @@
 import { Component, HostListener } from '@angular/core';
 import { CommonModule, NgStyle } from '@angular/common';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Router, NavigationEnd } from '@angular/router';
+import { $ } from 'app/tools/extensions.module';
 
 @Component({
   selector: 'app-head',
@@ -17,6 +18,19 @@ export class HeadComponent {
   private startY = 0;
   private currentY = 0;
 
+  constructor(private router: Router) {
+    interface scroll {routerEvent: any; position: null; anchor: null; type: any};
+    router.events.subscribe((event) => {
+      if ((event as scroll).routerEvent instanceof NavigationEnd) {
+        if ($.amIn('/contact-me'))
+          $('ref').append(`<a id="wame" class="" show-if-view="/contact-me" href="https://wa.me/50584739470"><i
+            class="fa-brands fa-whatsapp"></i> Whatsapp</a>`);
+        else
+          $('wame').remove();
+      }
+    });
+  }
+
   menuStyle = { transform: 'translateY(-100%)', transition: 'transform 0.4s ease-in-out' };
 
   @HostListener('window:scroll', [])
@@ -31,7 +45,7 @@ export class HeadComponent {
 
   onTouchStart(event: TouchEvent) {
     if (!this.isMenuOpen) return;
-    
+
     this.isDragging = true;
     this.startY = event.touches[0].clientY;
     this.menuStyle.transition = 'none';
