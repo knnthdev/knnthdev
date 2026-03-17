@@ -1,13 +1,11 @@
 import { Component, NO_ERRORS_SCHEMA, OnInit } from '@angular/core';
-import { BrevoService } from '../../../tools/brevo.service';
 import { ReactiveFormsModule, FormControl, FormGroup, Validators } from '@angular/forms';
 import { RouterModule, ActivatedRoute } from '@angular/router';
-import { ResponsiveService } from '../../../tools/responsive.service';
-import { $ } from '../../../tools/extensions.module';
+import { ResponsiveService, BrevoService, $, TooltipDirective } from '@services';
 
 @Component({
   selector: 'app-contact',
-  imports: [ReactiveFormsModule, RouterModule],
+  imports: [ReactiveFormsModule, RouterModule, TooltipDirective],
   templateUrl: './contact.component.html',
   styleUrl: './contact.component.css',
   schemas: [NO_ERRORS_SCHEMA]

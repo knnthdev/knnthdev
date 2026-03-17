@@ -3,14 +3,16 @@ import { RouterOutlet, Router, NavigationEnd, NavigationStart } from '@angular/r
 import { HeadComponent } from './routes/head/head.component';
 import { FootComponent } from './routes/foot/foot.component';
 import { ResponsiveService, TimeCounter } from './tools/responsive.service';
-import { $ } from './tools/extensions.module';
+import { $ } from '@tools/extensions.module';
+//import { TooltipDirective } from './tools/tooltip.directive';
 
 @Component({
   selector: 'app-root',
   imports: [
     HeadComponent,
     FootComponent,
-    RouterOutlet
+    RouterOutlet,
+    //TooltipDirective
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
@@ -18,7 +20,7 @@ import { $ } from './tools/extensions.module';
 export class AppComponent implements OnInit {
   title = 'knnthdev';
   tooltip: HTMLElement = {} as HTMLElement;
-  tipitems: NodeListOf<HTMLElement> = {} as NodeListOf<HTMLElement>;
+  tipitems = $(null);
   limitTime = 4000;
   timer: TimeCounter | undefined;
 
@@ -46,7 +48,6 @@ export class AppComponent implements OnInit {
     $.ready(() => {
       let elementsSelected = $("[show-if-view]");
       this.router.events.subscribe((event) => {
-        console.log(event);
         if ((event as scroll ).routerEvent instanceof NavigationEnd)
         {
           elementsSelected.forEach((it) => {
@@ -81,7 +82,7 @@ export class AppComponent implements OnInit {
 
   tooltipHandle() {
     $.ready(() => {
-      this.tipitems = document.querySelectorAll("[data-tooltip]") as NodeListOf<HTMLElement>;
+      this.tipitems = $("[data-tooltip]");
       this.tooltip = document.getElementById("tooltip") as HTMLElement;
       this.tipitems.forEach(item => {
         $(item).on("mouseover", (event) => {

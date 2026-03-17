@@ -16,7 +16,7 @@ export class Extension implements ExtendedElement<HTMLElement> {
             let siblings: any = null;
             if (selector.trim().startsWith('<')){
                 this.element = document.createElement('div');
-                this.element!.insertAdjacentHTML('beforeend', selector);
+                this.element!.insertAdjacentHTML('beforeend', selector)
                 this.element = this.element!.firstChild as HTMLElement;
             }
             else
@@ -99,10 +99,10 @@ export class Extension implements ExtendedElement<HTMLElement> {
         return new Extension(Array.from(this.element?.children as HTMLCollection) as HTMLElement[]);
     }
     public first(): ExtendedElement<HTMLElement> {
-        return new Extension(this.element?.firstElementChild as HTMLElement);
+        return new Extension(this.elements?.[0] as HTMLElement);
     }
     public last(): ExtendedElement<HTMLElement> {
-        return new Extension(this.element?.lastElementChild as HTMLElement);
+        return new Extension(this.elements?.[this.elements.length - 1] as HTMLElement);
     }
     public next(): ExtendedElement<HTMLElement> {
         return new Extension(this.element?.nextElementSibling as HTMLElement);
@@ -118,7 +118,7 @@ export class Extension implements ExtendedElement<HTMLElement> {
         return null;
     }
     public removeAttr(name: string): this {
-        this.element?.removeAttribute(name);
+        this.element!?.removeAttribute(name);
         return this;
     }
     public data(key: string): any;
@@ -367,7 +367,7 @@ export class Extension implements ExtendedElement<HTMLElement> {
         return this;
     }
     public remove(): this {
-        this.element!.remove();
+        this.element!?.remove();
         return this;
     }
     public clone(deep?: boolean): ExtendedElement<HTMLElement> {

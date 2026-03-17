@@ -1,8 +1,14 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "baseUrl": "src",
+    "baseUrl": "./",
     "outDir": "./dist/out-tsc",
+    "paths": {
+      "@/*": ["src/*"],
+      "@routes/*": ["src/app/routes/*"],
+      "@tools/*": ["src/app/tools/*"],
+      "@services": ["src/app/tools/index.ts"]
+    },
     "strict": true,
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,

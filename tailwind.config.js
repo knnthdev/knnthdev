@@ -4,5 +4,6 @@ module.exports = {
     "./src/app/routes/**/*.{html,ts}",
     "./src/app/routes/forms/**/*.{html,ts}",
     "./src/app/routes/projects/**/*.{html,ts}",
+    "./src/tools/*.directive.ts"
   ]
 }

@@ -1,7 +1,7 @@
 import { Component, HostListener } from '@angular/core';
 import { CommonModule, NgStyle } from '@angular/common';
 import { RouterModule, Router, NavigationEnd } from '@angular/router';
-import { $ } from 'app/tools/extensions.module';
+import { $ } from '@tools/extensions.module';
 
 @Component({
   selector: 'app-head',
