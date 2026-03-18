@@ -1,7 +1,8 @@
-import { Component, HostListener } from '@angular/core';
-import { CommonModule, NgStyle } from '@angular/common';
+import { Component, HostListener, OnInit } from '@angular/core';
+import { CommonModule, DatePipe, NgStyle } from '@angular/common';
 import { RouterModule, Router, NavigationEnd } from '@angular/router';
-import { $ } from '@tools/extensions.module';
+import { $, AnalyticsService } from '@services';
+import { interval, map, Observable } from 'rxjs';
 
 @Component({
   selector: 'app-head',
@@ -10,7 +11,7 @@ import { $ } from '@tools/extensions.module';
   templateUrl: './head.component.html',
   styleUrl: './head.component.css'
 })
-export class HeadComponent {
+export class HeadComponent implements OnInit {
   isMenuOpen = false;
   isScrolled = false;
 
@@ -18,8 +19,10 @@ export class HeadComponent {
   private startY = 0;
   private currentY = 0;
 
-  constructor(public router: Router) {
-    interface scroll {routerEvent: any; position: null; anchor: null; type: any};
+  public date: Observable<Date> = interval(1000).pipe(map(()=> new Date()));
+
+  constructor(public router: Router, public analytics: AnalyticsService) {
+    interface scroll {routerEvent: NavigationEnd; position: null; anchor: null; type: any};
     router.events.subscribe((event) => {
       if ((event as scroll).routerEvent instanceof NavigationEnd) {
         if ($.amIn('/contact-me'))
@@ -28,9 +31,14 @@ export class HeadComponent {
         else
           $('wame').remove();
         
+        this.analytics.trackRoutes((event as scroll).routerEvent.urlAfterRedirects);
+
       }
     });
 
+  }
+
+  ngOnInit(): void {
   }
 
   menuStyle = { transform: 'translateY(-100%)', transition: 'transform 0.4s ease-in-out' };
@@ -104,3 +112,4 @@ export class HeadComponent {
   }
 
 }
+

@@ -1,7 +1,7 @@
 import { Component, NO_ERRORS_SCHEMA, OnInit } from '@angular/core';
 import { ReactiveFormsModule, FormControl, FormGroup, Validators } from '@angular/forms';
 import { RouterModule, ActivatedRoute } from '@angular/router';
-import { ResponsiveService, BrevoService, $, TooltipDirective } from '@services';
+import { ResponsiveService, BrevoService, $, TooltipDirective, AnalyticsService } from '@services';
 
 @Component({
   selector: 'app-contact',
@@ -40,7 +40,7 @@ export class ContactComponent implements OnInit {
 
   amRoute: boolean = false;
 
-  constructor(public brevo: BrevoService, private rs: ResponsiveService, private route: ActivatedRoute) {
+  constructor(public brevo: BrevoService, private rs: ResponsiveService, private route: ActivatedRoute, private analytics: AnalyticsService) {
   }
 
   ngOnInit(): void {
@@ -80,8 +80,7 @@ export class ContactComponent implements OnInit {
     if (this.params['type'] !== undefined)
       details.push(`<strong>${this.params['type']} - ${this.params['price']}</strong>`);
 
-    this.brevo.sendEmail(this.form.value,
-      )
+    this.brevo.sendEmail(this.form.value, details)
       .subscribe({
         next: (res: any) => {
           this.OpenDialog();
@@ -89,6 +88,8 @@ export class ContactComponent implements OnInit {
           this.IsSubmitted = true;
           this.form.reset();
           this.v_signal();
+          this.analytics.trackContact(this.form.get('name')?.value, this.form.get('email')?.value,
+           this.form.get('msg')?.value + '\n' + details.join(' '));
         },
         error: (err: any) => {
           this.IsSubmitted = false;

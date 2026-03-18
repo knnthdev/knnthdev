@@ -1,4 +1,4 @@
-<nav id="navbar" class="fixed top-0 left-0 w-full z-20 transition-colors duration-300" [class.scrolled]="isScrolled">
+<nav id="navbar" class="fixed top-0 left-0 w-full z-20 transition-colors duration-300 " [class.scrolled]="isScrolled">
   <div class="w-full justify-center flex-col items-center p-0 md:px-24">
     <div id="ref"
       class="lg:container lg:mx-auto md:h-14 flex justify-between p-3 max-md:max-h-12 items-center [&_a]:hover:text-hoverbutton">
@@ -28,8 +28,16 @@
 <div id="full-screen-menu"
   class="fixed top-0 left-0 w-full h-full bg-glassmorphism z-50 grid grid-cols-1 grid-rows-[200px_1fr_auto]"
   [ngStyle]="menuStyle" (touchstart)="onTouchStart($event)" (touchmove)="onTouchMove($event)" (touchend)="onTouchEnd()">
-  <section class="m-4 rounded-xl" (click)="toggleMenu()">
-    <div id="time"></div>
+  <section class="m-4 rounded-xl grid grid-cols-2" (click)="toggleMenu()">
+    <div id="time" class="glassmorphism !bg-transparent grid grid-cols-1 m-2 content-start">
+      <span class="text-3xl font-bold">
+        {{date | async | date:'HH:mm'}}
+        <small class="text-sm font-normal">{{date | async | date:'a'}}</small>
+      </span>
+      <span>
+        {{ date | async | date:"EEE, d 'de' MMM" | titlecase}}
+      </span>
+    </div>
 
 
   </section>

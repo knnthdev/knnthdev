@@ -4,3 +4,4 @@ export * from '@tools/responsive.service';
 export * from '@tools/language.service';
 export * from '@tools/extensions.module';
 export * from '@tools/tooltip.directive';
+export * from '@tools/analytics.service';

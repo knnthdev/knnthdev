@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ResponsiveService } from '@tools/responsive.service';
+import { ResponsiveService, AnalyticsService } from '@services';
 import { Title, Meta } from '@angular/platform-browser';
 
 
@@ -10,7 +10,7 @@ import { Title, Meta } from '@angular/platform-browser';
     styleUrl: './layout1.component.css'
 })
 export class Layout1Component implements OnInit {
-  constructor(private rs : ResponsiveService, private title: Title, private meta: Meta) {
+  constructor(private rs : ResponsiveService, private title: Title, private meta: Meta, public analytics: AnalyticsService) {
 
   }
 
