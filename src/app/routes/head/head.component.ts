@@ -18,7 +18,7 @@ export class HeadComponent {
   private startY = 0;
   private currentY = 0;
 
-  constructor(private router: Router) {
+  constructor(public router: Router) {
     interface scroll {routerEvent: any; position: null; anchor: null; type: any};
     router.events.subscribe((event) => {
       if ((event as scroll).routerEvent instanceof NavigationEnd) {
@@ -27,8 +27,10 @@ export class HeadComponent {
             class="fa-brands fa-whatsapp"></i> Whatsapp</a>`);
         else
           $('wame').remove();
+        
       }
     });
+
   }
 
   menuStyle = { transform: 'translateY(-100%)', transition: 'transform 0.4s ease-in-out' };
@@ -54,8 +56,6 @@ export class HeadComponent {
   onTouchMove(event: TouchEvent) {
     if (!this.isDragging) return;
 
-    // Previene el scroll del body SOLO mientras se arrastra el panel.
-    // Esta es la forma correcta y aislada de hacerlo.
     event.preventDefault();
 
     const clientY = event.touches[0].clientY;
@@ -98,4 +98,9 @@ export class HeadComponent {
       this.currentY = -window.innerHeight;
     }
   }
+
+  public amIn(path: string): boolean {
+    return $.amIn(path);
+  }
+
 }

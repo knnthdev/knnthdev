@@ -35,9 +35,6 @@ h6 {
   min-height: 288px;
 }
 
-.card {
-  @apply rounded shadow-[0_2px_10px_rgba(255,255,255,0.3)] p-8 backdrop-blur;
-}
 
 .rier-init {
   background-color: #dfdbe507;
@@ -46,4 +43,15 @@ h6 {
 
 &[addto], section[addto] {
   display: none;
+}
+
+.card {
+  @apply rounded shadow-[0_2px_10px_rgba(255,255,255,0.3)] p-8 backdrop-blur;
+}
+
+.glassmorphism {
+  @apply rounded-xl shadow shadow-black/20 backdrop-blur-md bg-btn-primary/5 *:bg-transparent border border-neutral-200/20 p-2;
+}
+.bg-glassmorphism {
+  @apply backdrop-blur-md bg-background/50 isolate ;
 }

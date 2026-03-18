@@ -547,7 +547,7 @@ export function $(selector: string | HTMLElement | NodeList | ExtendedElement<HT
 export namespace $ {
     export function ready(callback: (this: Document) => void): void {
         if (document && window)
-            document.addEventListener('DOMContentLoaded', callback);
+            document.addEventListener('load', callback);
     }
     export function extend(target: { [key: string]: any }, ...sources: { [key: string]: any }[]): object {
         if (sources.length == 0)

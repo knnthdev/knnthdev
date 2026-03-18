@@ -1,11 +1,13 @@
 import { Component, Inject, OnInit, PLATFORM_ID } from '@angular/core';
 import { isPlatformServer }                       from '@angular/common';
 import { RESPONSE_INIT }                          from '@angular/core';  // <— token de nuevo SSR
-import { ResponsiveService } from '../../tools/responsive.service';
+import { RouterModule } from '@angular/router';
+import { ResponsiveService } from '@services';
 
 @Component({
   selector: 'app-not-found',
   standalone: true,
+  imports: [RouterModule],
   templateUrl: './not-found.component.html',
   styleUrls: ['./not-found.component.css']
 })

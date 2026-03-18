@@ -1,6 +1,7 @@
 <nav id="navbar" class="fixed top-0 left-0 w-full z-20 transition-colors duration-300" [class.scrolled]="isScrolled">
   <div class="w-full justify-center flex-col items-center p-0 md:px-24">
-    <div id="ref" class="lg:container lg:mx-auto md:h-14 flex justify-between p-3 max-md:max-h-12 items-center [&_a]:hover:text-hoverbutton">
+    <div id="ref"
+      class="lg:container lg:mx-auto md:h-14 flex justify-between p-3 max-md:max-h-12 items-center [&_a]:hover:text-hoverbutton">
       <!-- Botón de menú móvil -->
       <section class="md:hidden flex flex-row items-center">
         <label id="ham" class="pointer" title="Navigation Menu" (click)="toggleMenu()">
@@ -16,27 +17,82 @@
       <!-- Enlaces para escritorio -->
       <a routerLink="/home" class="max-md:hidden"><i class="fa-solid fa-home"></i> Inicio</a>
       <a routerLink="/tell-you" class="max-md:hidden"><i class="fa-solid fa-user"></i> Sobre mí</a>
-      <a routerLink="/home" fragment="portfolio" class="max-md:hidden"><i class="fa-solid fa-diagram-project"></i> Servicios</a>
+      <a routerLink="/home" fragment="portfolio" class="max-md:hidden"><i class="fa-solid fa-diagram-project"></i>
+        Servicios</a>
       <a routerLink="/home" fragment="contact" class="max-md:hidden"><i class="fa-solid fa-envelope"></i> Contacto</a>
     </div>
   </div>
 </nav>
 
 <!-- Menú Deslizable desde Arriba -->
-<div 
-  id="full-screen-menu"
-  class="fixed top-0 left-0 w-full h-full bg-opacity-90 z-50 flex flex-col items-center justify-center space-y-8"
-  [ngStyle]="menuStyle"
-  (touchstart)="onTouchStart($event)"
-  (touchmove)="onTouchMove($event)"
-  (touchend)="onTouchEnd()"
-  >
-  <a routerLink="/home" class="text-4xl text-primary hover:text-secondary" (click)="toggleMenu()">Inicio</a>
-  <a routerLink="/tell-you" class="text-4xl text-primary hover:text-secondary" (click)="toggleMenu()">Sobre mí</a>
-  <a routerLink="/home" fragment="portfolio" class="text-4xl text-primary hover:text-secondary" (click)="toggleMenu()">Servicios</a>
-  <a routerLink="/home" fragment="contact" class="text-4xl text-primary hover:text-secondary" (click)="toggleMenu()">Contacto</a>
+<div id="full-screen-menu"
+  class="fixed top-0 left-0 w-full h-full bg-glassmorphism z-50 grid grid-cols-1 grid-rows-[200px_1fr_auto]"
+  [ngStyle]="menuStyle" (touchstart)="onTouchStart($event)" (touchmove)="onTouchMove($event)" (touchend)="onTouchEnd()">
+  <section class="m-4 rounded-xl" (click)="toggleMenu()">
+    <div id="time"></div>
 
-  <a href="javascript:void(0)" class="absolute top-5 right-5 text-4xl text-primary hover:text-secondary" (click)="toggleMenu()">
-    &times;
-  </a>
+
+  </section>
+  <section class="m-4 rounded-xl grid grid-cols-1 content-start p-4 gap-y-2">
+    <ol id="ink" class="w-full bg-transparent grid grid-cols-4 content-start">
+      <li class="block"><a routerLink="/home" routerLinkActive="!bg-hoverbutton"
+          class="glassmorphism text-2xl flex justify-center items-center text-primary size-16 rounded-lg mx-auto"
+          (click)="toggleMenu()">
+          <i class="fa fa-home text-center"></i>
+        </a>
+        <p class="text-sm text-center">Inicio</p>
+      </li>
+      <li class="mb-2"><a routerLink="/tell-you" routerLinkActive="!bg-hoverbutton"
+          class="glassmorphism text-2xl flex justify-center items-center text-primary size-16 rounded-lg mx-auto"
+          (click)="toggleMenu()">
+          <i class="fa-solid fa-user w-8 text-center"></i>
+        </a>
+        <p class="text-sm text-center">Sobre mí</p>
+      </li>
+      <li class="mb-2"><a routerLink="/home" fragment="portfolio" routerLinkActive="!bg-hoverbutton"
+          [routerLinkActiveOptions]="{ paths: 'exact', fragment: 'exact', queryParams: 'ignored', matrixParams: 'ignored' }"
+          class="glassmorphism text-2xl flex justify-center items-center text-primary size-16 rounded-lg mx-auto"
+          (click)="toggleMenu()">
+          <i class="fa-solid fa-diagram-project w-8 text-center"></i>
+        </a>
+        <p class="text-sm text-center">Servicios</p>
+      </li>
+      @if (amIn('/home')) {
+      <li class="mb-2"><a routerLink="/home" fragment="contact" routerLinkActive="!bg-hoverbutton"
+          [routerLinkActiveOptions]="{ paths: 'exact', fragment: 'exact', queryParams: 'ignored', matrixParams: 'ignored' }"
+          class="glassmorphism text-2xl flex justify-center items-center text-primary size-16 rounded-lg mx-auto"
+          (click)="toggleMenu()">
+          <i class="fa-solid fa-envelope w-8 text-center"></i>
+        </a>
+        <p class="text-sm text-center">Contacto</p>
+      </li>
+      }
+      @else {
+      <li class="mb-2"><a routerLink="/contact-me" routerLinkActive="!bg-hoverbutton"
+          class="glassmorphism text-2xl flex justify-center items-center text-primary size-16 rounded-lg mx-auto"
+          (click)="toggleMenu()">
+          <i class="fa-solid fa-envelope w-8 text-center"></i>
+        </a>
+        <p class="text-sm text-center">Contacto</p>
+      </li>
+      }
+      <li class="mb-2"><a routerLink="/get-your-plan" fragment="plan2" routerLinkActive="!bg-hoverbutton"
+          class="glassmorphism text-2xl flex justify-center items-center text-primary size-16 rounded-lg mx-auto"
+          (click)="toggleMenu()">
+          <i class="fa-solid fa-badge-percent w-8 text-center"></i>
+        </a>
+        <p class="text-sm text-center">Ofertas</p>
+      </li>
+      <li class="mb-2"><a routerLink="/build-your-website" fragment="horse" routerLinkActive="!bg-hoverbutton"
+          class="glassmorphism text-2xl flex justify-center items-center text-primary size-16 rounded-lg mx-auto"
+          (click)="toggleMenu()">
+          <i class="fa-solid fa-chess-knight w-8 text-center"></i>
+        </a>
+        <p class="text-sm text-center">Estrategias</p>
+      </li>
+    </ol>
+  </section>
+  <section class="bg-btn-primary h-5 flex justify-center items-center">
+    <i class="fa fa-bars"></i>
+  </section>
 </div>

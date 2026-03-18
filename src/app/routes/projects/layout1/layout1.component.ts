@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ResponsiveService } from '../../../tools/responsive.service';
-import { routes } from '../../../app.routes';
+import { ResponsiveService } from '@tools/responsive.service';
+import { Title, Meta } from '@angular/platform-browser';
 
 
 @Component({
@@ -10,11 +10,20 @@ import { routes } from '../../../app.routes';
     styleUrl: './layout1.component.css'
 })
 export class Layout1Component implements OnInit {
-  constructor(private rs : ResponsiveService) {
+  constructor(private rs : ResponsiveService, private title: Title, private meta: Meta) {
 
   }
 
   ngOnInit(): void {
+    const pageTitle = 'Desarrollo Web 🌐 | Planificación 🧑‍💼 y Estrategia Digital ♟️ - Kennet Briones 🤍';
+    const pageDescription = 'Te ofrezco desarrollar tu sitio web e impulsarlo 🚀 en redes sociales con estrategia y optimización';
+
+    this.title.setTitle(pageTitle);
+    this.meta.updateTag({ name: 'description', content: pageDescription });
+
+    this.meta.updateTag({ property: 'og:title', content: pageTitle });
+    this.meta.updateTag({ property: 'og:description', content: pageDescription });
+
     if (this.rs.isLoaded()) {
       this.rs.changeTheme("purple");
       

@@ -90,7 +90,7 @@
   --hover-button: rgba(110, 231, 183);
   --hover-figcaption: rgba(110, 231, 183, 0.5);
   --btn-primary: #00dd88;
-  --btn-secondary: #3d4b3a;
+  --btn-secondary: #41583b;
   --btn-submit: #1b9c46;
   background-color: var(--bg-primary);
   color: var(--text-primary);
