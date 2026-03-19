@@ -59,7 +59,8 @@
       </div>
       <button
         class="mt-8 w-full rounded-lg border ring border-green-400 ring-green-800 bg-green-600 py-3 px-4 font-bold text-primary transition hover:bg-green-700"
-        routerLink="/contact-me" [queryParams]="{ type: prices.economic.name, price: prices.economic.price }">
+        routerLink="/contact-me" [queryParams]="{ type: prices.economic.name, price: prices.economic.price }"
+        (click)="this.analytics.trackOffers('Plan Económico')" >
         Comienza ahora
       </button>
     </div>
@@ -104,7 +105,8 @@
       </div>
       <button
         class="mt-8 w-full rounded-lg bg-purple-600 hover:bg-purple-700 py-3 px-4 font-bold text-primary transition "
-        routerLink="/contact-me" [queryParams]="{ type: prices.professional.name, price: prices.professional.price }">
+        routerLink="/contact-me" [queryParams]="{ type: prices.professional.name, price: prices.professional.price }"
+        (click)="this.analytics.trackOffers('Plan Profesional')" >
         Empieza Ahora
       </button>
     </div>
@@ -133,7 +135,8 @@
         </ul>
       </div>
       <button class="mt-8 w-full rounded-lg bg-green-600 py-3 px-4 font-bold text-primary transition hover:bg-green-700"
-        routerLink="/contact-me" [queryParams]="{ type: prices.business.name, price: prices.business.price }">
+        routerLink="/contact-me" [queryParams]="{ type: prices.business.name, price: prices.business.price }"
+        (click)="this.analytics.trackOffers('Plan Negocios')" >
         Comienza Ahora
       </button>
     </div>
@@ -194,7 +197,8 @@
         </p>
         <button
           class="mt-6 transform rounded-full bg-blue-600 py-3 px-8 font-bold text-primary shadow-lg transition-all duration-300 hover:scale-105 hover:bg-blue-700"
-          routerLink="/contact-me" [queryParams]="{ type: prices.startup.name, price: prices.startup.price }">
+          routerLink="/contact-me" [queryParams]="{ type: prices.startup.name, price: prices.startup.price }"
+          (click)="this.analytics.trackOffers('Plan Emprendedor')" >
           ¡Quiero que mi marca brille!
         </button>
       </div>

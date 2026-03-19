@@ -13,7 +13,7 @@ export class AnalyticsService {
     });
   }
   public trackRoutes(path: string) {
-    gtag('config', 'G-JRQEZL0R32', {
+    gtag('event', 'page_view', {
       'page_path': path
     });
   }

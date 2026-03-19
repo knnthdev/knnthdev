@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ResponsiveService } from '../../../tools/responsive.service';
+import { ResponsiveService, AnalyticsService } from '@services';
 import { RouterModule } from '@angular/router';
 
 @Component({
@@ -31,7 +31,7 @@ export class Layout3Component implements OnInit {
             maxprice: 89.99
         }
     }
-    constructor(private rs: ResponsiveService) {}
+    constructor(private rs: ResponsiveService, public analytics: AnalyticsService) {}
     
     ngOnInit(): void {
         if (this.rs.isLoaded()) {
