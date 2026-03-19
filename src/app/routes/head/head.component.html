@@ -1,7 +1,7 @@
 <nav id="navbar" class="fixed top-0 left-0 w-full z-20 transition-colors duration-300 " [class.scrolled]="isScrolled">
   <div class="w-full justify-center flex-col items-center p-0 md:px-24">
     <div id="ref"
-      class="lg:container lg:mx-auto md:h-14 flex justify-between p-3 max-md:max-h-12 items-center [&_a]:hover:text-hoverbutton">
+      class="lg:container lg:mx-auto md:h-14 flex justify-between p-3 max-md:max-h-12 items-center [&_a]:hover:text-hoverlink">
       <!-- Botón de menú móvil -->
       <section class="md:hidden flex flex-row items-center">
         <label id="ham" class="pointer" title="Navigation Menu" (click)="toggleMenu()">
@@ -26,22 +26,27 @@
 
 <!-- Menú Deslizable desde Arriba -->
 <div id="full-screen-menu"
-  class="fixed top-0 left-0 w-full h-full bg-glassmorphism z-50 grid grid-cols-1 grid-rows-[200px_1fr_auto]"
+  class="fixed top-0 left-0 w-full h-full bg-glassmorphism z-50 grid grid-cols-1 grid-rows-[150px_1fr_auto] content-start"
   [ngStyle]="menuStyle" (touchstart)="onTouchStart($event)" (touchmove)="onTouchMove($event)" (touchend)="onTouchEnd()">
-  <section class="m-4 rounded-xl grid grid-cols-2" (click)="toggleMenu()">
+  <section class="m-4 border border-neutral-500/30 rounded-xl grid grid-cols-2" (click)="toggleMenu()">
     <div id="time" class="glassmorphism !bg-transparent grid grid-cols-1 m-2 content-start">
       <span class="text-3xl font-bold">
-        {{date | async | date:'HH:mm'}}
+        {{date | async | date:'h:mm'}}
         <small class="text-sm font-normal">{{date | async | date:'a'}}</small>
       </span>
       <span>
         {{ date | async | date:"EEE, d 'de' MMM" | titlecase}}
       </span>
     </div>
-
-
-  </section>
-  <section class="m-4 rounded-xl grid grid-cols-1 content-start p-4 gap-y-2">
+    <div class="glassmorphism !bg-transparent m-2 flex flex-wrap flex-row content-start gap-1">
+      <a href="https://www.facebook.com/knnthdev/" class="text-2xl glassmorphism !bg-transparent size-10 flex content-center"><i class="fab fa-facebook"></i></a>
+      <a href="https://www.instagram.com/knnthdev/" class="text-2xl glassmorphism !bg-transparent size-10 flex content-center"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.linkedin.com/in/kenneth-b-743443b6/" class="text-2xl glassmorphism !bg-transparent size-10 flex content-center"><i class="fab fa-linkedin"></i></a>
+      <a href="https://github.com/knnthdev" class="text-2xl glassmorphism !bg-transparent size-10 flex content-center"><i class="fab fa-github"></i></a>
+      <a href="https://x.com/knnthdev" class="text-2xl glassmorphism !bg-transparent size-10 flex content-center"><i class="fab fa-x-twitter"></i></a>
+  </div>
+    </section>
+  <section class="m-4 rounded-xl grid grid-cols-1 content-start p-4 gap-y-2 border border-neutral-500/30">
     <ol id="ink" class="w-full bg-transparent grid grid-cols-4 content-start">
       <li class="block"><a routerLink="/home" routerLinkActive="!bg-hoverbutton"
           class="glassmorphism text-2xl flex justify-center items-center text-primary size-16 rounded-lg mx-auto"
@@ -85,18 +90,34 @@
       </li>
       }
       <li class="mb-2"><a routerLink="/get-your-plan" fragment="plan2" routerLinkActive="!bg-hoverbutton"
+          [routerLinkActiveOptions]="{ paths: 'exact', fragment: 'exact', queryParams: 'ignored', matrixParams: 'ignored' }"
           class="glassmorphism text-2xl flex justify-center items-center text-primary size-16 rounded-lg mx-auto"
           (click)="toggleMenu()">
           <i class="fa-solid fa-badge-percent w-8 text-center"></i>
         </a>
         <p class="text-sm text-center">Ofertas</p>
       </li>
-      <li class="mb-2"><a routerLink="/build-your-website" fragment="horse" routerLinkActive="!bg-hoverbutton"
+      <li class="mb-2"><a routerLink="/build-your-website" routerLinkActive="!bg-hoverbutton"
           class="glassmorphism text-2xl flex justify-center items-center text-primary size-16 rounded-lg mx-auto"
           (click)="toggleMenu()">
           <i class="fa-solid fa-chess-knight w-8 text-center"></i>
         </a>
         <p class="text-sm text-center">Estrategias</p>
+      </li>
+      <li class="mb-2"><a routerLink="/digital-marketing" routerLinkActive="!bg-hoverbutton"
+          class="glassmorphism text-2xl flex justify-center items-center text-primary size-16 rounded-lg mx-auto"
+          (click)="toggleMenu()">
+          <i class="fa-solid fa-user-tie w-8 text-center"></i>
+        </a>
+        <p class="text-sm text-center">Marketing</p>
+      </li>
+      <li class="mb-2"><a routerLink="/get-your-plan" fragment="comparative" routerLinkActive="!bg-hoverbutton"
+          [routerLinkActiveOptions]="{ paths: 'exact', fragment: 'exact', queryParams: 'ignored', matrixParams: 'ignored' }"
+          class="glassmorphism text-2xl flex justify-center items-center text-primary size-16 rounded-lg mx-auto"
+          (click)="toggleMenu()">
+          <i class="fa-solid fa-file-spreadsheet w-8 text-center"></i>
+        </a>
+        <p class="text-sm text-center">Tabla</p>
       </li>
     </ol>
   </section>

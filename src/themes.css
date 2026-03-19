@@ -14,6 +14,7 @@
   --color-line: var(--border-line);
   --color-primary: var(--text-primary);
   --color-secondary: var(--text-secondary);
+  --color-hoverlink: var(--hover-link);
   --color-hoverbutton: var(--hover-button);
   --color-hoverfigcaption: var(--hover-figcaption);
   --color-btn-primary: var(--btn-primary);
@@ -27,7 +28,8 @@
   --border-line: #dcdcdc;
   --text-primary: #1d1d1f;
   --text-secondary: #6e6e73;
-  --hover-button: #0062cc;
+  --hover-link: #0062cc;
+  --hover-button: #a8bbd0;
   --hover-figcaption: rgba(0, 0, 0, 0.1);
   --btn-primary: #f5f5f7;
   --btn-secondary: #e8e8ed;
@@ -42,6 +44,7 @@
   --border-line: #dcdcdc;
   --text-primary: #1d1d1f;
   --text-secondary: #6e6e73;
+  --hover-link: #0062cc;
   --hover-button: #0062cc;
   --hover-figcaption: rgba(0, 0, 0, 0.1);
   --btn-primary: #f5f5f7;
@@ -57,10 +60,11 @@
   --border-line: #cde6f5;
   --text-primary: #3b4252;
   --text-secondary: #818c9c;
-  --hover-button: #a6d4f1;
+  --hover-link: lab(38.37% -5.57 -13.6);
+  --hover-button: lab(73.2% 33.79 35.25);
   --hover-figcaption: rgba(166, 212, 241, 0.4);
   --btn-primary: #f5e1c8;
-  --btn-secondary: #d4d4d4;
+  --btn-secondary: lab(82.96% 7.36 32.45);
   --btn-submit: #bde0fe;
   background: var(--bg-primary);
   color: var(--text-primary);
@@ -72,6 +76,7 @@
   --border-line: #ff3333;
   --text-primary: #f5f5f5;
   --text-secondary: #ff9999;
+  --hover-link: #ff4d4d;
   --hover-button: #ff4d4d;
   --hover-figcaption: rgba(255, 77, 77, 0.5);
   --btn-primary: #800000;
@@ -88,6 +93,7 @@
   --text-primary: #dddddd;
   --text-secondary: #dae2da;
   --hover-button: rgba(110, 231, 183);
+  --hover-button: rgba(110, 231, 183);
   --hover-figcaption: rgba(110, 231, 183, 0.5);
   --btn-primary: #00dd88;
   --btn-secondary: #41583b;
@@ -101,6 +107,7 @@
   --border-line: #99afdd;
   --text-primary: #ddd;
   --text-secondary: #bdcae4;
+  --hover-link: rgba(100, 181, 246, 1);
   --hover-button: rgba(100, 181, 246, 1);
   --hover-figcaption: rgba(100, 181, 246, 0.5);
   --btn-primary: #2478bd;
@@ -116,6 +123,7 @@
   --border-line: #9146ff;
   --text-primary: #efefef;
   --text-secondary: #adadb8;
+  --hover-link: rgba(145, 70, 255, 1);
   --hover-button: rgba(145, 70, 255, 1);
   --hover-figcaption: rgba(145, 70, 255, 0.5);
   --btn-primary: #0f3f47;
@@ -130,6 +138,7 @@
   --border-line: #ffe591;
   --text-primary: #024d4d;
   --text-secondary: #2e2e24;
+  --hover-link: rgba(255, 235, 59);
   --hover-button: rgba(255, 235, 59);
   --hover-figcaption: rgba(255, 235, 59, 0.5);
   --btn-primary: #ebd300;
@@ -144,6 +153,7 @@
   --border-line: #e5e4e2;
   --text-primary: #f5f5f5;
   --text-secondary: #a9a9a9;
+  --hover-link: #817d7d;
   --hover-button: #817d7d;
   --hover-figcaption: rgba(229, 228, 226, 0.7);
   --btn-primary: #282828;
