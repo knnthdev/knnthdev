@@ -20,13 +20,13 @@
       transition-transform duration-300 hover:scale-103 hover:border-neutral-300 z-2">
       <div id="plan1" class="flex-grow">
         <h3 class="text-xl font-bold">Plan Económico 💰</h3>
-        <p class="mt-2 text-secondary">Arranque e impulso 🚀</p>
+        <p class="mt-2 text-secondary">Arranque e impulso 🚀 usando redes sociales</p>
         <p class="mt-2"><strong class="text-5xl">${{this.prices.economic.price}}</strong><span
             class="ml-2 text-secondary text-2xl font-semibold">/mes</span></p>
         <ul class="mt-6 space-y-4 list-inside text-gray-300 ">
           <li>
             <i class="fa-solid fa-check bg-blue-600 rounded-full p-1 text-[9px] font-extrabold mr-2 "></i>
-            Gestión de redes sociales y contenidos (hasta 3 plataformas).
+            Gestión de redes sociales y contenidos (ej. Instagram, Facebook).
           </li>
           <li>
             <i class="fa-solid fa-check bg-blue-600 rounded-full p-1 text-[9px] font-extrabold mr-2 "></i>
@@ -72,13 +72,13 @@
       </p>
       <div class="flex-grow">
         <h3 class="mt-2 text-2xl font-bold">Plan Profesional 💼</h3>
-        <p class="mt-2 text-secondary">Conecta con tu público 🍐</p>
+        <p class="mt-2 text-secondary">Crece tu presencia en línea 🍐</p>
         <p class="mt-2"><strong class="text-5xl">${{this.prices.professional.price}}</strong><span
             class="ml-2 text-secondary text-2xl font-semibold">/mes</span></p>
         <ul class="mt-6 space-y-4 list-inside text-gray-300">
           <li>
             <i class="fa-solid fa-check bg-blue-600 rounded-full p-1 text-[9px] font-extrabold mr-2 "></i>
-            Campañas de ads pagados (Facebook, Instagram).
+            12-16 publicaciones mensuales + 2 stories/semana
           </li>
           <li>
             <i class="fa-solid fa-check bg-blue-600 rounded-full p-1 text-[9px] font-extrabold mr-2 "></i>
@@ -114,7 +114,7 @@
       class="flex flex-col rounded-2xl border border-gray-700 bg-gray-900 p-8 shadow-lg transition-transform duration-300 hover:scale-103 hover:border-blue-500 z-2">
       <div class="flex-grow">
         <h3 class="text-xl font-bold">Plan Negocios 📢</h3>
-        <p class="mt-2 text-secondary">Llama la atención 🚨</p>
+        <p class="mt-2 text-secondary">Ideal para empresas que buscan crecimiento acelerado. 🚨</p>
         <p class="mt-2"><strong class="text-5xl">${{this.prices.business.price}}</strong><span
             class="ml-2 text-secondary text-2xl font-semibold">/mes</span></p>
         <ul class="mt-6 space-y-4 list-inside text-gray-300">
@@ -124,12 +124,12 @@
             corporativo (opcional).</li>
           <li><i class="fa-solid fa-check bg-blue-600 rounded-full p-1 text-[9px] font-extrabold mr-2 "></i>Marketing
             digital personalizado y análisis de competidores.</li>
-          <li><i class="fa-solid fa-check bg-blue-600 rounded-full p-1 text-[9px] font-extrabold mr-2 "></i>Desarrollo
-            de imagen de marca (branding y guías de estilo).</li>
+          <li><i class="fa-solid fa-check bg-blue-600 rounded-full p-1 text-[9px] font-extrabold mr-2 "></i>
+            Desarrollo de imagen de marca (Personalización, branding y guías de estilo).</li>
           <li><i class="fa-solid fa-check bg-blue-600 rounded-full p-1 text-[9px] font-extrabold mr-2 "></i>Gestión
             integral de medios (email, content, SEO).</li>
           <li><i class="fa-solid fa-check bg-blue-600 rounded-full p-1 text-[9px] font-extrabold mr-2 "></i>Soporte
-            opcional por email.</li>
+            para migración de proyecto con respaldo.</li>
         </ul>
       </div>
       <button class="mt-8 w-full rounded-lg bg-green-600 py-3 px-4 font-bold text-primary transition hover:bg-green-700"
@@ -211,7 +211,7 @@
 </section>
 <!-- Comparaciones de los planes -->
 <section>
-  <section  id="comparative" class="container mx-auto px-4 mt-16">
+  <section id="comparative" class="container mx-auto px-4 mt-16">
     <h2 class="text-4xl font-extrabold text-center tracking-tight sm:text-5xl mb-12">
       Comparativa de Planes
     </h2>
@@ -232,12 +232,14 @@
             <td class="py-3 px-3 text-xl font-bold">${{this.prices.economic.price}} <small
                 class="text-secondary">USD</small></td>
             <td class="py-3 px-3 bg-purple-900 text-primary text-xl font-bold">${{this.prices.professional.price}}
-              <small class="text-secondary">USD</small></td>
+              <small class="text-secondary">USD</small>
+            </td>
             <td class="py-3 px-3 text-xl font-bold">${{this.prices.business.price}} <small
                 class="text-secondary">USD</small></td>
             <td class="py-3 px-3 text-xl font-bold text-primary"><small
                 class="text-secondary line-through text-md mr-2">${{this.prices.startup.maxprice}}</small>${{this.prices.startup.price}}
-              <small class="text-secondary">USD</small></td>
+              <small class="text-secondary">USD</small>
+            </td>
           </tr>
           <tr class="">
             <th scope="row" class="py-3 px-3 font-medium whitespace-nowrap text-primary">Gestión RRSS y Contenido</th>
@@ -312,12 +314,12 @@
       </table>
     </div>
   </section>
-  <article class="card mx-4 mt-8">
-    <h5 class="text-lg text-center"><strong>Nota</strong></h5>
-    <p>
-      El servicio de diseño y desarrollo web incluye actualizaciones, mejoras y correcciones. Se considera la escala del
-      sitio si así lo solicita pero tenga en cuenta que el costo mensual puede sumarse a su plan al adherir un servicio
-      como sistemas de pago en línea (stripe, paypal, Visa, Mastercard), servicios de base de datos, correo corporativo, entre otros.
+  <article class="glassmorphism mt-8 max-w-xl mx-auto !p-6 transform md:scale-105">
+    <h5 class="text-lg text-center"><strong>📌 Nota importante: </strong></h5>
+    <p class="text-secondary">
+      Todos los planes incluyen actualizaciones, mejoras y correcciones técnicas.
+      Servicios adicionales (como tienda online, CRM, base de datos o campañas pagadas) se cotizan por separado y se
+      suman al plan mensual.
     </p>
   </article>
 
