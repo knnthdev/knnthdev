@@ -30,6 +30,20 @@ h6 {
   }
 }
 
+@layer components {
+  .glassmorphism {
+    @apply rounded-xl shadow shadow-black/20 backdrop-blur-md bg-btn-primary/5 *:bg-transparent border border-neutral-200/20 p-2;
+  }
+  .bg-glassmorphism {
+    @apply backdrop-blur-md bg-background/50 isolate ;
+  }
+  .max-md\:glassmorphism {
+      @apply max-md:rounded-xl max-md:shadow max-md:shadow-black/20 max-md:backdrop-blur-md max-md:bg-btn-primary/5 max-md:*:bg-transparent max-md:border max-md:border-neutral-200/20 max-md:p-2;
+  }
+
+}
+
+
 .size-fixed {
   min-width: 288px;
   min-height: 288px;
@@ -49,9 +63,4 @@ h6 {
   @apply rounded shadow-[0_2px_10px_rgba(255,255,255,0.3)] p-8 backdrop-blur;
 }
 
-.glassmorphism {
-  @apply rounded-xl shadow shadow-black/20 backdrop-blur-md bg-btn-primary/5 *:bg-transparent border border-neutral-200/20 p-2;
-}
-.bg-glassmorphism {
-  @apply backdrop-blur-md bg-background/50 isolate ;
-}
+
