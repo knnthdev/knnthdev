@@ -42,10 +42,10 @@ export const routes: Routes = [
     //     path: HomeComponent.projects[4].link,
     //     component: Layout5Component
     // },
-    {
-        path: 'contact-me',
-        component: ContactComponent
-    },
+    // {
+    //     path: 'contact-me',
+    //     component: ContactComponent
+    // },
     {
         path: 'contact-me/:type/:price',
         component: ContactComponent
