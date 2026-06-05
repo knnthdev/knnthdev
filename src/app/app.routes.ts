@@ -22,26 +22,26 @@ export const routes: Routes = [
         path: 'home',
         component: HomeComponent
     },
-    {
-        path: HomeComponent.projects[0].link,
-        component: Layout1Component
-    },
-    {
-        path: HomeComponent.projects[1].link,
-        component: Layout2Component
-    },
-    {
-        path: HomeComponent.projects[2].link,
-        component: Layout3Component
-    },
-    {
-        path: HomeComponent.projects[3].link,
-        component: Layout4Component
-    },
-    {
-        path: HomeComponent.projects[4].link,
-        component: Layout5Component
-    },
+    // {
+    //     path: HomeComponent.projects[0].link,
+    //     component: Layout1Component
+    // },
+    // {
+    //     path: HomeComponent.projects[1].link,
+    //     component: Layout2Component
+    // },
+    // {
+    //     path: HomeComponent.projects[2].link,
+    //     component: Layout3Component
+    // },
+    // {
+    //     path: HomeComponent.projects[3].link,
+    //     component: Layout4Component
+    // },
+    // {
+    //     path: HomeComponent.projects[4].link,
+    //     component: Layout5Component
+    // },
     {
         path: 'contact-me',
         component: ContactComponent
